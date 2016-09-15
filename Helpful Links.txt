@@ -8,3 +8,6 @@ http://kinolien.github.io/gitzip/
 
 Push/Pull to Github:
 https://www.lynda.com/GitHub-tutorials/GitHub-Web-Designers/162276-2.html?utm_source=bing&utm_medium=cpc&utm_campaign=l1-US-Search-Dev-GitHub&cid=l1-us:en:ps:lp:prosc:s50:1384:all:bing:mbm-github_tutorials&utm_content=%7Bcreative%7D&utm_term=%2BGitHub%20%2BTutorials&src=pa-bi&veh=skwd-26617950489_pcrid_6785165983_pkw_%2BGitHub%20%2BTutorials_pmt_bb_pdv_c_agid_1666713210_cmid_72533671_adp_%7Badposition%7D_net_o_qs_github%20push%20pull%20tutorial
+
+How other apps have set things up:
+http://iscoresports.com/soccer/training.php
