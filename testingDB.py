@@ -27,7 +27,8 @@ class MainDB(db.Model):
 db.create_all() #Creates all tables
 
 results = MainDB.query.all()
-if len(results) == 0:
+if len(results) == 0: #Add info into table if the table is empty
+	#This data just examples to get some info into the db
 	aPlayer = MainDB(playerID=123456, position="Cutter", height=72)
 	db.session.add(aPlayer)
 	aPlayer = MainDB(playerID=987654, position="Handler", height=70)
@@ -39,6 +40,6 @@ db.session.commit()
 
 if __name__ == "__main__":
 	results = MainDB.query.all()
-
 	for aPlayer in results:
-		print("Player ID:", aPlayer.playerID, "   Position:", aPlayer.position, "   Height:", aPlayer.height//12, "feet,", aPlayer.height%12, "inches")
+		print("Player ID:", aPlayer.playerID, "   Position:", aPlayer.position, "   Height:", aPlayer.height//12,
+			"feet,", aPlayer.height%12, "inches")
