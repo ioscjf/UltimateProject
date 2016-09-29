@@ -7,13 +7,14 @@ STATISTICS = {}
 
 TABLES{"stats"} = (
 	"CREATE TABLE 'stats' ("
-	"'playername' varchar(30)"
+	"'playername' varchar(30) NOT NULL,"
 	"'points' int() NOT NULL,"
 	"'assists' int() NOT NULL,"
+	"'defensive plays' int NOT NULL,"
 	"'drops' int() NOT NULL,"
-	"'points played' int(4),"
-	"'offensive points played' int(),"
-	"'defensive points played' int(),"
-	"'conference' varchar(20),"
+	"'points played' int(4) NOT NULL,"
+	"'offensive points played' int() NOT NULL,"
+	"'defensive points played' int() NOT NULL,"
+	"'conference' varchar(20) NOT NULL,"
 	"PRIMARY KEY ('playername')"
 	)
