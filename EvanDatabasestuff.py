@@ -18,4 +18,3 @@ TABLES{"stats"} = (
 	"'conference' varchar(20) NOT NULL,"
 	"PRIMARY KEY ('playername')"
 	)
-hello
