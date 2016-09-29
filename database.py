@@ -26,12 +26,3 @@ def create_database(cursor):
 	except mysql.connector.Error as err:
 		print("Failed creating database: {}".format(err))
 		exit(1)
-
-STATISTICS = {}
-TABLES{"stats"} = (
-
-
-
-
-	)
-
