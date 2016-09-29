@@ -27,3 +27,11 @@ def create_database(cursor):
 		print("Failed creating database: {}".format(err))
 		exit(1)
 
+STATISTICS = {}
+TABLES{"stats"} = (
+
+
+
+
+	)
+
