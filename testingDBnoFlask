@@ -1,10 +1,14 @@
 #Create a few new tables- Sport, team, player, player stats, etc
 	#Create relationships between the tables and start messing around with them
 
+	#Try to make this db without using Flask
+
 from flask import Flask, request, jsonify, render_template, redirect
 from flask_sqlalchemy import SQLAlchemy
+
 from sqlalchemy.orm import relationship
 from sqlalchemy import PrimaryKeyConstraint, ForeignKey
+
 from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
