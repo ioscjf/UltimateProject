@@ -5,13 +5,8 @@ DB_name = "ultimate"
 
 TABLES = {}
 
-TABLES{"teams"} = (
-	"CREATE TABLE 'teams' ("
-	"'teamName' varchar(20) NOT NULL,"
-	"'school' varchar(20) NOT NULL,"
-	) 
 
-TABLES{"players"} = (
+TABLES["players"] = (
         "CREATE TABLE 'players' ("
         "'name' varchar(20) NOT NULL,"
         "'school' varchar(20) NOT NULL,"
