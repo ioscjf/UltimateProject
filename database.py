@@ -55,6 +55,6 @@ def create_database(cursor):
 		exit(1)
 
 def main():
-	create_database(cur)
+	create_database(cursor)
 
 main()
