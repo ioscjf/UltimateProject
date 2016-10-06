@@ -617,7 +617,8 @@
                                     <constraint firstAttribute="height" constant="40" id="kKv-OE-ZCD"/>
                                 </constraints>
                             </pickerView>
-                            <searchBar contentMode="redraw" placeholder="Enter a Team or Player" translatesAutoresizingMaskIntoConstraints="NO" id="dwf-zd-t9V">
+                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Enter a Team or Player" translatesAutoresizingMaskIntoConstraints="NO" id="dwf-zd-t9V">
+                                <frame key="frameInset" minX="1" minY="160" height="44" maxX="-1"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
