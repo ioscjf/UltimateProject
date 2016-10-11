@@ -147,7 +147,7 @@ if isEmpty(Stats):
 		session.add(statLine)
 		session.commit()
 
-#Show data in table (testing)
+#Show data in table (for testing purposes)
 print(getData("Team"))
 print(getData("Player"))
 print(getData("Stats"))
