@@ -18,9 +18,37 @@ class Team(Base):
 	conference = Column(String)
 
 	def __repr__(self):
-		return "<Team(teamName='%s', school='%s', competitionDivision='%s', year='%s', state='%s', region='%s', conference='%s',)>" % (self.teamName, self.school, self.competitionDivision, self.year, self.state, self.region, self.conference)
+		return "<Team(teamName='%s', school='%s', competitionDivision='%s', year='%s', state='%s', region='%s', conference='%s')>" % (self.teamName, self.school, self.competitionDivision, self.year, self.state, self.region, self.conference)
 
-#Add other tables here
+class Player(Base):
+	__tablename__ = "player"
+
+	playerName = Column(String, primary_key=True)
+	position = Column(String)
+	age = Column(Integer)
+	height = Column(String)
+	school = Column(String)
+	jerseyNum = Column(Integer)
+
+	def __repr__(self):
+		return "<Player(playerName='%s', position='%s', age='%s', height='%s', school='%s', jerseyNum='%s')>" % (self.playerName, self.position, self.age, self.height, self.school, self.jerseyNum)
+
+#Add other tables here (stats)
+class Stats(Base):
+	__tablename__ = "stats"
+
+	playerName = Column(String, primary_key=True)
+	year = Column(Integer)
+	scores = Column(Integer)
+	assists = Column(Integer)
+	offensivePointsPlayed = Column(Integer)
+	defensivePointsPlayed = Column(Integer)
+	drops = Column(Integer)
+	catches = Column(Integer)
+	completions = Column(Integer)
+
+	def __repr__(self):
+		return "<Stats(playerName='%s', year='%s', assists='%s', offensivePointsPlayed='%s', defensivePointsPlayed='%s', drops='%s', catches='%s', completions='%s')>" % (self.playerName, self.year, self.scores, self.assists, self.offensivePointsPlayed, self.defensivePointsPlayed, self.drops, self.catches, self.completions)
 
 
 Base.metadata.create_all(engine)
@@ -28,16 +56,111 @@ Session = sessionmaker()
 Session.configure(bind=engine)
 session = Session()
 
+def isEmpty(table):
+	if len(session.query(table).all()) == 0:
+		return True
+	else:
+		return False
+
+def addTeam(teamName, school, competitionDivision, year, state, region, conference):
+	if engine.dialect.has_table(engine.connect(), "Team"):
+		newTeam = Team(teamName=teamName, school=school, competitionDivision=competitionDivision, 
+			year=year, state=state, region=region, conference=conference)
+		session.add(newTeam)
+		session.commit()
+
+def addPlayer(playerName, position, age, height, school, jerseyNum):
+	if engine.dialect.has_table(engine.connect(), "Team"):
+		newPlayer = Player(playerName=playerName, position=position, age=age, height=height, 
+			school=school, jerseyNum=jerseyNum)
+		session.add(newPlayer)
+		session.commit()
+
+def addStats(playerName, year, scores, assists, offensivePointsPlayed, defensivePointsPlayed, drops, catches, completions):
+	if engine.dialect.has_table(engine.connect(), "Stats"):
+		statLine = Stats(playerName=playerName, year=year, scores=scores, assists=assists, offensivePointsPlayed=offensivePointsPlayed, 
+			defensivePointsPlayed=defensivePointsPlayed, drops=drops, catches=catches, completions=completions)
+		session.add(statLine)
+		session.commit()
+
+def getData(table): #Given the name of a table, returns all the items in the table
+	retStr = ""
+	if table == "Team":
+		for instance in session.query(Team):
+			retStr += "Team:\n"
+			retStr += "     " + "Team name: " + instance.teamName + "\n"
+			retStr += "     " + "School: " + instance.school + "\n"
+			retStr += "     " + "Competition division: " + instance.competitionDivision + "\n"
+			retStr += "     " + "Year: " + str(instance.year) + "\n"
+			retStr += "     " + "State: " + instance.state + "\n"
+			retStr += "     " + "Region: " + instance.region + "\n"
+			retStr += "     " + "Conference: " + instance.conference + "\n"
+		retStr = retStr[:-1] #Removes last unnecessary newline character
+	elif table == "Player":
+		for instance in session.query(Player):
+			retStr += "Player:\n"
+			retStr += "     " + "Player name: " + instance.playerName + "\n"
+			retStr += "     " + "Position: " + instance.position + "\n"
+			retStr += "     " + "Age: " + str(instance.age) + "\n"
+			retStr += "     " + "Height: " + instance.height + "\n"
+			retStr += "     " + "School: " + instance.school + "\n"
+			retStr += "     " + "Jersey number: " + str(instance.jerseyNum) + "\n"
+		retStr = retStr[:-1] #Removes last unnecessary newline character
+	elif table == "Stats":
+		for instance in session.query(Stats):
+			retStr += "Stats:\n"
+			retStr += "     " + "Player name: " + instance.playerName + "\n"
+			retStr += "     " + "Year: " + str(instance.year) + "\n"
+			retStr += "     " + "Scores: " + str(instance.scores) + "\n"
+			retStr += "     " + "Assists: " + str(instance.assists) + "\n"
+			retStr += "     " + "Offensive points played: " + str(instance.offensivePointsPlayed) + "\n"
+			retStr += "     " + "Defensive points played: " + str(instance.defensivePointsPlayed) + "\n"
+			retStr += "     " + "Drops: " + str(instance.drops) + "\n"
+			retStr += "     " + "Catches: " + str(instance.catches) + "\n"
+			retStr += "     " + "Completions: " + str(instance.completions) + "\n"
+		retStr = retStr[:-1] #Removes last unnecessary newline character
+	else:
+		retStr += "No data"
+	return retStr
+
 #Adding dummy data if creating db for first time
-if engine.dialect.has_table(engine.connect(), "team"):
-	testTeam = Team(teamName="Test", school="Testing University", competitionDivision="D-I", year=2016,
-	state="IA", region="MW", conference="Conference 1")
-	session.add(testTeam)
-	testTeam2 = Team(teamName="2nd test", school="UT", competitionDivision="D-III", year=2016,
-	state="IA", region="MW", conference="Conference 2")
-	session.add(testTeam2)
-	session.commit()
+if isEmpty(Team):
+	if engine.dialect.has_table(engine.connect(), "team"):
+		testTeam = Team(teamName="Test", school="Testing University", competitionDivision="D-I", year=2016,
+			state="IA", region="MW", conference="Conference 1")
+		session.add(testTeam)
+		testTeam2 = Team(teamName="2nd test", school="UT", competitionDivision="D-III", year=2016,
+			state="IA", region="MW", conference="Conference 2")
+		session.add(testTeam2)
+		session.commit()
+if isEmpty(Player):
+	if engine.dialect.has_table(engine.connect(), "player"):
+		player1 = Player(playerName="Bob Random", position="Cutter", age=21, height="6 feet 2 inches", school="Luther", jerseyNum=10)
+		session.add(player1)
+		player2 = Player(playerName="Joe Schmoe", position="Handler", age=20, height="5 feet 10 inches", school="Minnesota", jerseyNum=5)
+		session.add(player2)
+if isEmpty(Stats):
+	if engine.dialect.has_table(engine.connect(), "stats"):
+		print("Check")
+		statLine = Stats(playerName="Test Player", year=2015, scores=23, assists=12, offensivePointsPlayed=31,
+			defensivePointsPlayed=15, drops=4, catches=27, completions=18)
+		session.add(statLine)
+		session.commit()
+
+#Show data in table (testing)
+print(getData("Team"))
+print(getData("Player"))
+print(getData("Stats"))
+
+#for instance in session.query(Player):
+#	print("A player: ",instance.playerName, instance.position, instance.age, instance.height, instance.school, instance.jerseyNum)
+#for instance in session.query(Stats):
+#	print("A stat line: ", instance.playerName, instance.year, instance.scores, instance.assists, instance.offensivePointsPlayed, instance.defensivePointsPlayed, instance.drops, instance.catches, instance.completions)
+
+#print("Adding some stats...")
+#addStats("Matt Smith", 2015, 1, 2, 3, 4, 5, 6, 7)
+
+#for instance in session.query(Stats):
+#	print("A stat line: ", instance.playerName, instance.year, instance.scores, instance.assists, instance.offensivePointsPlayed, instance.defensivePointsPlayed, instance.drops, instance.catches, instance.completions)
 
 
-for instance in session.query(Team):
-	print(instance.teamName, instance.school)
