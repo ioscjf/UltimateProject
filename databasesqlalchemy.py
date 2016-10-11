@@ -6,6 +6,7 @@ from sqlalchemy.orm import sessionmaker
 engine = create_engine('sqlite:///database.db', echo=False)
 Base = declarative_base()
 
+#Creating tables
 class Team(Base):
 	__tablename__ = 'team'
 
@@ -33,7 +34,6 @@ class Player(Base):
 	def __repr__(self):
 		return "<Player(playerName='%s', position='%s', age='%s', height='%s', school='%s', jerseyNum='%s')>" % (self.playerName, self.position, self.age, self.height, self.school, self.jerseyNum)
 
-#Add other tables here (stats)
 class Stats(Base):
 	__tablename__ = "stats"
 
@@ -50,12 +50,12 @@ class Stats(Base):
 	def __repr__(self):
 		return "<Stats(playerName='%s', year='%s', assists='%s', offensivePointsPlayed='%s', defensivePointsPlayed='%s', drops='%s', catches='%s', completions='%s')>" % (self.playerName, self.year, self.scores, self.assists, self.offensivePointsPlayed, self.defensivePointsPlayed, self.drops, self.catches, self.completions)
 
-
 Base.metadata.create_all(engine)
 Session = sessionmaker()
 Session.configure(bind=engine)
 session = Session()
 
+#Helper methods/functions with tables
 def isEmpty(table):
 	if len(session.query(table).all()) == 0:
 		return True
@@ -147,20 +147,8 @@ if isEmpty(Stats):
 		session.add(statLine)
 		session.commit()
 
-#Show data in table (testing)
+#Show data in table
 print(getData("Team"))
 print(getData("Player"))
 print(getData("Stats"))
-
-#for instance in session.query(Player):
-#	print("A player: ",instance.playerName, instance.position, instance.age, instance.height, instance.school, instance.jerseyNum)
-#for instance in session.query(Stats):
-#	print("A stat line: ", instance.playerName, instance.year, instance.scores, instance.assists, instance.offensivePointsPlayed, instance.defensivePointsPlayed, instance.drops, instance.catches, instance.completions)
-
-#print("Adding some stats...")
-#addStats("Matt Smith", 2015, 1, 2, 3, 4, 5, 6, 7)
-
-#for instance in session.query(Stats):
-#	print("A stat line: ", instance.playerName, instance.year, instance.scores, instance.assists, instance.offensivePointsPlayed, instance.defensivePointsPlayed, instance.drops, instance.catches, instance.completions)
-
 
