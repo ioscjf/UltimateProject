@@ -21,6 +21,22 @@ class Team(Base):
 		return "<Team(teamName='%s', school='%s', competitionDivision='%s', year='%s', state='%s', region='%s', conference='%s',)>" % (self.teamName, self.school, self.competitionDivision, self.year, self.state, self.region, self.conference)
 
 #Add other tables here
+class Stats(Base):
+	__tablename__ = 'stats'
+	
+	playername = Column(String, primary_key=True)
+	points = Column(Integer)
+	assists = Column(Integer)
+	defensiveplays = Column(Integer)
+	drops = Column(Integer)
+	pointsplayed = Column(Integer)
+	offensivepointsplayed = Column(Integer)
+	defensivepointsplayed = Column(Integer)
+	conference = Column(Integer)
+	
+		
+	def __repr__(self):
+		return "<Stats(playername='%s', point='%s', assists='%s', defensiveplays='%s', drops='%s', pointsplayed='%s', offensivepointsplayed='%s' defensivepointsplayed='%s' conference='%s',)>" % (self.playername, self.point, self.assists, self.defensiveplays, self.drops, self.pointsplayed, self.offensivepointsplayed, self.defensivepointsplayed)
 
 
 Base.metadata.create_all(engine)
