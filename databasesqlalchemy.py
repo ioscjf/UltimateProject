@@ -1,7 +1,12 @@
+#Todo:
+	#Add functionality for multiple primary keys for necessary tables
+	#Add relationships between tables
+
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import PrimaryKeyConstraint, ForeignKey
 
 engine = create_engine('sqlite:///database.db', echo=False)
 Base = declarative_base()
@@ -35,6 +40,7 @@ class Player(Base):
 		return "<Player(playerName='%s', position='%s', age='%s', height='%s', school='%s', jerseyNum='%s')>" % (self.playerName, self.position, self.age, self.height, self.school, self.jerseyNum)
 
 class Stats(Base):
+	#We will need to add functionality for the primary key to come from both the playerName and year
 	__tablename__ = "stats"
 
 	playerName = Column(String, primary_key=True)
