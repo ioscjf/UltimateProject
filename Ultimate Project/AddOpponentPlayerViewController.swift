@@ -1,34 +1,23 @@
 //
-//  updateRosterViewController.swift
+//  AddOpponentPlayerViewController.swift
 //  Ultimate Project
 //
-//  Created by Connor Fitzpatrick on 10/6/16.
+//  Created by Connor Fitzpatrick on 10/11/16.
 //  Copyright © 2016 Connor Fitzpatrick. All rights reserved.
 //
 
 import UIKit
 
-class updateRosterViewController: UIViewController {
-
-    // MARK: - Outlets
+class AddOpponentPlayerViewController: UIViewController {
     
-    @IBAction func save(_ sender: UIButton) {
-        if self.presentingViewController != nil {
-            self.dismiss(animated: false, completion: nil)
-        }
-    }
+    // MARK: - Outlets
     
     @IBOutlet weak var playerName: UITextField!
     @IBOutlet weak var playerNumber: UITextField!
     @IBOutlet weak var playerYear: UITextField!
     
-    @IBAction func addPlayer(_ sender: UIButton) {
-    }
-    
-    @IBOutlet weak var currentRoster: UITableView!
-
     // MARK: - Overrides
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,5 +39,4 @@ class updateRosterViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

@@ -1,34 +1,31 @@
 //
-//  updateRosterViewController.swift
+//  GameCastViewController.swift
 //  Ultimate Project
 //
-//  Created by Connor Fitzpatrick on 10/6/16.
+//  Created by Connor Fitzpatrick on 10/11/16.
 //  Copyright © 2016 Connor Fitzpatrick. All rights reserved.
 //
 
 import UIKit
 
-class updateRosterViewController: UIViewController {
-
+class GameCastViewController: UIViewController {
+    
     // MARK: - Outlets
     
-    @IBAction func save(_ sender: UIButton) {
+    @IBAction func back(_ sender: UIBarButtonItem) {
         if self.presentingViewController != nil {
             self.dismiss(animated: false, completion: nil)
         }
     }
     
-    @IBOutlet weak var playerName: UITextField!
-    @IBOutlet weak var playerNumber: UITextField!
-    @IBOutlet weak var playerYear: UITextField!
+    @IBOutlet weak var teamOne: UILabel!
+    @IBOutlet weak var teamTwo: UILabel!
+    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var gameCastTable: UITableView!
     
-    @IBAction func addPlayer(_ sender: UIButton) {
-    }
-    
-    @IBOutlet weak var currentRoster: UITableView!
-
     // MARK: - Overrides
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

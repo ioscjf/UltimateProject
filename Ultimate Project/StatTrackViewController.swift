@@ -1,34 +1,51 @@
 //
-//  updateRosterViewController.swift
+//  StatTrackViewController.swift
 //  Ultimate Project
 //
-//  Created by Connor Fitzpatrick on 10/6/16.
+//  Created by Connor Fitzpatrick on 10/11/16.
 //  Copyright © 2016 Connor Fitzpatrick. All rights reserved.
 //
 
 import UIKit
 
-class updateRosterViewController: UIViewController {
-
+class StatTrackViewController: UIViewController {
+    
     // MARK: - Outlets
     
-    @IBAction func save(_ sender: UIButton) {
+    @IBAction func exit(_ sender: UIBarButtonItem) {
         if self.presentingViewController != nil {
             self.dismiss(animated: false, completion: nil)
         }
     }
     
-    @IBOutlet weak var playerName: UITextField!
-    @IBOutlet weak var playerNumber: UITextField!
-    @IBOutlet weak var playerYear: UITextField!
-    
-    @IBAction func addPlayer(_ sender: UIButton) {
+    @IBAction func save(_ sender: UIBarButtonItem) {
+        if self.presentingViewController != nil {
+            self.dismiss(animated: false, completion: nil)
+        }
     }
     
-    @IBOutlet weak var currentRoster: UITableView!
-
-    // MARK: - Overrides
+    @IBOutlet weak var teamOneName: UILabel!
+    @IBOutlet weak var teamTwoName: UILabel!
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var cap: UILabel!
     
+    @IBOutlet weak var rosterATable: UITableView!
+    @IBOutlet weak var rosterBTable: UITableView!
+    
+    @IBAction func score(_ sender: UIButton) {
+    }
+    
+    @IBAction func passingFoul(_ sender: UIButton) {
+    }
+    
+    @IBAction func recievingFoul(_ sender: UIButton) {
+    }
+    
+    @IBAction func undo(_ sender: UIButton) {
+    }
+    
+    // MARK: - Overrides
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
