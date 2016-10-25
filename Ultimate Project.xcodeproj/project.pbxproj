@@ -7,8 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A631739D1DA6EB0600C5F954 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631739C1DA6EB0600C5F954 /* LoginViewController.swift */; };
+		A631739F1DA6ED5B00C5F954 /* TeamBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631739E1DA6ED5B00C5F954 /* TeamBioViewController.swift */; };
+		A63173A11DA6F06200C5F954 /* updateRosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63173A01DA6F06100C5F954 /* updateRosterViewController.swift */; };
+		A63173A31DA6F07000C5F954 /* updateScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63173A21DA6F07000C5F954 /* updateScheduleViewController.swift */; };
+		A6BDD5071DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD5061DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift */; };
+		A6BDD5091DAD7DC500EF51A4 /* StatTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD5081DAD7DC500EF51A4 /* StatTrackViewController.swift */; };
+		A6BDD50B1DAD804000EF51A4 /* LiveGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD50A1DAD804000EF51A4 /* LiveGamesViewController.swift */; };
+		A6BDD50D1DAD804F00EF51A4 /* GameCastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD50C1DAD804F00EF51A4 /* GameCastViewController.swift */; };
+		A6BDD50F1DAD81D900EF51A4 /* TeamFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD50E1DAD81D900EF51A4 /* TeamFinderViewController.swift */; };
+		A6BDD5111DAD82C400EF51A4 /* TeamStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD5101DAD82C400EF51A4 /* TeamStatsViewController.swift */; };
+		A6BDD5131DAD86C900EF51A4 /* PlayerStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD5121DAD86C900EF51A4 /* PlayerStatsViewController.swift */; };
 		A6DC75011D889FAA00E0834C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DC75001D889FAA00E0834C /* AppDelegate.swift */; };
-		A6DC75031D889FAA00E0834C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DC75021D889FAA00E0834C /* ViewController.swift */; };
+		A6DC75031D889FAA00E0834C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DC75021D889FAA00E0834C /* MainViewController.swift */; };
 		A6DC75061D889FAA00E0834C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6DC75041D889FAA00E0834C /* Main.storyboard */; };
 		A6DC75091D889FAA00E0834C /* Ultimate_Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6DC75071D889FAA00E0834C /* Ultimate_Project.xcdatamodeld */; };
 		A6DC750B1D889FAA00E0834C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6DC750A1D889FAA00E0834C /* Assets.xcassets */; };
@@ -35,9 +46,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A631739C1DA6EB0600C5F954 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A631739E1DA6ED5B00C5F954 /* TeamBioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamBioViewController.swift; sourceTree = "<group>"; };
+		A63173A01DA6F06100C5F954 /* updateRosterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = updateRosterViewController.swift; sourceTree = "<group>"; };
+		A63173A21DA6F07000C5F954 /* updateScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = updateScheduleViewController.swift; sourceTree = "<group>"; };
+		A6BDD5061DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOpponentPlayerViewController.swift; sourceTree = "<group>"; };
+		A6BDD5081DAD7DC500EF51A4 /* StatTrackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatTrackViewController.swift; sourceTree = "<group>"; };
+		A6BDD50A1DAD804000EF51A4 /* LiveGamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveGamesViewController.swift; sourceTree = "<group>"; };
+		A6BDD50C1DAD804F00EF51A4 /* GameCastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameCastViewController.swift; path = ../GameCastViewController.swift; sourceTree = "<group>"; };
+		A6BDD50E1DAD81D900EF51A4 /* TeamFinderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamFinderViewController.swift; sourceTree = "<group>"; };
+		A6BDD5101DAD82C400EF51A4 /* TeamStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamStatsViewController.swift; sourceTree = "<group>"; };
+		A6BDD5121DAD86C900EF51A4 /* PlayerStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStatsViewController.swift; sourceTree = "<group>"; };
 		A6DC74FD1D889FA900E0834C /* Ultimate Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ultimate Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6DC75001D889FAA00E0834C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A6DC75021D889FAA00E0834C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A6DC75021D889FAA00E0834C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A6DC75051D889FAA00E0834C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6DC75081D889FAA00E0834C /* Ultimate_Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ultimate_Project.xcdatamodel; sourceTree = "<group>"; };
 		A6DC750A1D889FAA00E0834C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,6 +98,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6BDD5031DAD788A00EF51A4 /* Stat Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				A631739C1DA6EB0600C5F954 /* LoginViewController.swift */,
+				A631739E1DA6ED5B00C5F954 /* TeamBioViewController.swift */,
+				A63173A01DA6F06100C5F954 /* updateRosterViewController.swift */,
+				A63173A21DA6F07000C5F954 /* updateScheduleViewController.swift */,
+				A6BDD5061DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift */,
+				A6BDD5081DAD7DC500EF51A4 /* StatTrackViewController.swift */,
+			);
+			name = "Stat Tracking";
+			sourceTree = "<group>";
+		};
+		A6BDD5041DAD789000EF51A4 /* GameCast */ = {
+			isa = PBXGroup;
+			children = (
+				A6BDD50C1DAD804F00EF51A4 /* GameCastViewController.swift */,
+				A6BDD50A1DAD804000EF51A4 /* LiveGamesViewController.swift */,
+			);
+			name = GameCast;
+			sourceTree = "<group>";
+		};
+		A6BDD5051DAD789700EF51A4 /* Stat Viewing */ = {
+			isa = PBXGroup;
+			children = (
+				A6BDD50E1DAD81D900EF51A4 /* TeamFinderViewController.swift */,
+				A6BDD5101DAD82C400EF51A4 /* TeamStatsViewController.swift */,
+				A6BDD5121DAD86C900EF51A4 /* PlayerStatsViewController.swift */,
+			);
+			name = "Stat Viewing";
+			sourceTree = "<group>";
+		};
 		A6DC74F41D889FA900E0834C = {
 			isa = PBXGroup;
 			children = (
@@ -99,8 +153,11 @@
 		A6DC74FF1D889FAA00E0834C /* Ultimate Project */ = {
 			isa = PBXGroup;
 			children = (
+				A6BDD5051DAD789700EF51A4 /* Stat Viewing */,
+				A6BDD5041DAD789000EF51A4 /* GameCast */,
+				A6BDD5031DAD788A00EF51A4 /* Stat Tracking */,
 				A6DC75001D889FAA00E0834C /* AppDelegate.swift */,
-				A6DC75021D889FAA00E0834C /* ViewController.swift */,
+				A6DC75021D889FAA00E0834C /* MainViewController.swift */,
 				A6DC75041D889FAA00E0834C /* Main.storyboard */,
 				A6DC750A1D889FAA00E0834C /* Assets.xcassets */,
 				A6DC750C1D889FAA00E0834C /* LaunchScreen.storyboard */,
@@ -196,7 +253,7 @@
 				TargetAttributes = {
 					A6DC74FC1D889FA900E0834C = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = U6Y6MMUY2Z;
+						DevelopmentTeam = FSLX2JP624;
 						LastSwiftMigration = 0800;
 					};
 					A6DC75131D889FAA00E0834C = {
@@ -265,8 +322,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6BDD50B1DAD804000EF51A4 /* LiveGamesViewController.swift in Sources */,
+				A6BDD5071DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift in Sources */,
+				A631739D1DA6EB0600C5F954 /* LoginViewController.swift in Sources */,
+				A6BDD50F1DAD81D900EF51A4 /* TeamFinderViewController.swift in Sources */,
+				A63173A31DA6F07000C5F954 /* updateScheduleViewController.swift in Sources */,
+				A631739F1DA6ED5B00C5F954 /* TeamBioViewController.swift in Sources */,
+				A6BDD5111DAD82C400EF51A4 /* TeamStatsViewController.swift in Sources */,
+				A6BDD5131DAD86C900EF51A4 /* PlayerStatsViewController.swift in Sources */,
+				A6BDD50D1DAD804F00EF51A4 /* GameCastViewController.swift in Sources */,
+				A6BDD5091DAD7DC500EF51A4 /* StatTrackViewController.swift in Sources */,
 				A6DC75091D889FAA00E0834C /* Ultimate_Project.xcdatamodeld in Sources */,
-				A6DC75031D889FAA00E0834C /* ViewController.swift in Sources */,
+				A6DC75031D889FAA00E0834C /* MainViewController.swift in Sources */,
+				A63173A11DA6F06200C5F954 /* updateRosterViewController.swift in Sources */,
 				A6DC75011D889FAA00E0834C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +479,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FSLX2JP624;
 				INFOPLIST_FILE = "Ultimate Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cjf.edu.luther.cs353.Ultimate-Project";
@@ -423,6 +492,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FSLX2JP624;
 				INFOPLIST_FILE = "Ultimate Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cjf.edu.luther.cs353.Ultimate-Project";
