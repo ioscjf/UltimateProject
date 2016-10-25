@@ -15,6 +15,5 @@ TABLES{"stats"} = (
 	"'points played' int(4) NOT NULL,"
 	"'offensive points played' int() NOT NULL,"
 	"'defensive points played' int() NOT NULL,"
-	"'conference' varchar(20) NOT NULL,"
 	"PRIMARY KEY ('playername')"
 	)
