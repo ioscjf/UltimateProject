@@ -16,6 +16,13 @@ class AddOpponentPlayerViewController: UIViewController {
     @IBOutlet weak var playerNumber: UITextField!
     @IBOutlet weak var playerYear: UITextField!
     
+    @IBAction func addPlayer(_ sender: UIButton) {
+        if self.presentingViewController != nil {
+            self.dismiss(animated: false, completion: nil)
+        }
+    }
+    
+    
     // MARK: - Overrides
 
     override func viewDidLoad() {
