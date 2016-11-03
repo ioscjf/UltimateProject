@@ -9,7 +9,6 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import PrimaryKeyConstraint, ForeignKey
 
-
 engine = create_engine("mysql+pymysql://admin:frisbee@127.0.0.1/test")
 
 Base = declarative_base()
