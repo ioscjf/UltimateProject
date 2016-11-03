@@ -9,9 +9,10 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import PrimaryKeyConstraint, ForeignKey
 
-engine = create_engine("mysql+pymysql:///root@127.0.0.1/test")
-Base = declarative_base()
 
+engine = create_engine("mysql+pymysql://admin:frisbee@127.0.0.1/test")
+
+Base = declarative_base()
 class Team(Base):
         __tablename__ = 'team'
 
@@ -59,6 +60,7 @@ class Stats(Base):
 Base.metadata.create_all(engine)
 Session = sessionmaker()
 Session.configure(bind=engine)
+#Session.configure(bind=cur)
 session = Session()
 
 #Helper methods/functions with tables
@@ -70,21 +72,21 @@ def isEmpty(table):
 
 def addTeam(teamName, school, competitionDivision, year, state, region, conference):
         if engine.dialect.has_table(engine.connect(), "Team"):
-                newTeam = Team(teamName=teamName, school=school, competitionDivision=competitionDivision, 
+                newTeam = Team(teamName=teamName, school=school, competitionDivision=competitionDivision,
                         year=year, state=state, region=region, conference=conference)
                 session.add(newTeam)
                 session.commit()
 
 def addPlayer(playerName, position, age, height, school, jerseyNum):
         if engine.dialect.has_table(engine.connect(), "Team"):
-                newPlayer = Player(playerName=playerName, position=position, age=age, height=height, 
+                newPlayer = Player(playerName=playerName, position=position, age=age, height=height,
                         school=school, jerseyNum=jerseyNum)
                 session.add(newPlayer)
                 session.commit()
 
 def addStats(playerName, year, scores, assists, offensivePointsPlayed, defensivePointsPlayed, drops, catches, completions):
         if engine.dialect.has_table(engine.connect(), "Stats"):
-                statLine = Stats(playerName=playerName, year=year, scores=scores, assists=assists, offensivePointsPlayed=offensivePointsPlayed, 
+                statLine = Stats(playerName=playerName, year=year, scores=scores, assists=assists, offensivePointsPlayed=offensivePointsPlayed,
                         defensivePointsPlayed=defensivePointsPlayed, drops=drops, catches=catches, completions=completions)
                 session.add(statLine)
                 session.commit()
@@ -102,7 +104,7 @@ def getData(table): #Given the name of a table, returns all the items in the tab
                         retStr += "     " + "Region: " + instance.region + "\n"
                         retStr += "     " + "Conference: " + instance.conference + "\n"
                 retStr = retStr[:-1] #Removes last unnecessary newline character
-        elif table == "Player":
+         elif table == "Player":
                 for instance in session.query(Player):
                         retStr += "Player:\n"
                         retStr += "     " + "Player name: " + instance.playerName + "\n"
@@ -128,7 +130,6 @@ def getData(table): #Given the name of a table, returns all the items in the tab
         else:
                 retStr += "No data"
         return retStr
-
 def testEmptiness():
         #Adding dummy data if creating db for first time
         if isEmpty(Team):
@@ -140,7 +141,7 @@ def testEmptiness():
                                 state="IA", region="MW", conference="Conference 2")
                         session.add(testTeam2)
                         session.commit()
-        if isEmpty(Player):
+         if isEmpty(Player):
                 if engine.dialect.has_table(engine.connect(), "player"):
                         player1 = Player(playerName="Bob Random", position="Cutter", age=21, height="6 feet 2 inches", school="Luther", jerseyNum=10)
                         session.add(player1)
@@ -153,7 +154,6 @@ def testEmptiness():
                                 defensivePointsPlayed=15, drops=4, catches=27, completions=18)
                         session.add(statLine)
                         session.commit()
-
 def main():
         testEmptiness()
         print(getData("Team"))
