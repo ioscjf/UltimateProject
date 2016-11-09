@@ -11,6 +11,8 @@
 		A631739F1DA6ED5B00C5F954 /* TeamBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631739E1DA6ED5B00C5F954 /* TeamBioViewController.swift */; };
 		A63173A11DA6F06200C5F954 /* updateRosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63173A01DA6F06100C5F954 /* updateRosterViewController.swift */; };
 		A63173A31DA6F07000C5F954 /* updateScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63173A21DA6F07000C5F954 /* updateScheduleViewController.swift */; };
+		A65954441DD2A0F0008A544C /* TeamFinderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65954431DD2A0F0008A544C /* TeamFinderModel.swift */; };
+		A65954461DD2A3AD008A544C /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65954451DD2A3AD008A544C /* JsonParser.swift */; };
 		A6BDD5071DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD5061DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift */; };
 		A6BDD5091DAD7DC500EF51A4 /* StatTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD5081DAD7DC500EF51A4 /* StatTrackViewController.swift */; };
 		A6BDD50B1DAD804000EF51A4 /* LiveGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD50A1DAD804000EF51A4 /* LiveGamesViewController.swift */; };
@@ -50,6 +52,8 @@
 		A631739E1DA6ED5B00C5F954 /* TeamBioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamBioViewController.swift; sourceTree = "<group>"; };
 		A63173A01DA6F06100C5F954 /* updateRosterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = updateRosterViewController.swift; sourceTree = "<group>"; };
 		A63173A21DA6F07000C5F954 /* updateScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = updateScheduleViewController.swift; sourceTree = "<group>"; };
+		A65954431DD2A0F0008A544C /* TeamFinderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamFinderModel.swift; sourceTree = "<group>"; };
+		A65954451DD2A3AD008A544C /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonParser.swift; path = ../JsonParser.swift; sourceTree = "<group>"; };
 		A6BDD5061DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOpponentPlayerViewController.swift; sourceTree = "<group>"; };
 		A6BDD5081DAD7DC500EF51A4 /* StatTrackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatTrackViewController.swift; sourceTree = "<group>"; };
 		A6BDD50A1DAD804000EF51A4 /* LiveGamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveGamesViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 		A6BDD5051DAD789700EF51A4 /* Stat Viewing */ = {
 			isa = PBXGroup;
 			children = (
+				A65954451DD2A3AD008A544C /* JsonParser.swift */,
+				A65954431DD2A0F0008A544C /* TeamFinderModel.swift */,
 				A6BDD50E1DAD81D900EF51A4 /* TeamFinderViewController.swift */,
 				A6BDD5101DAD82C400EF51A4 /* TeamStatsViewController.swift */,
 				A6BDD5121DAD86C900EF51A4 /* PlayerStatsViewController.swift */,
@@ -324,11 +330,13 @@
 			files = (
 				A6BDD50B1DAD804000EF51A4 /* LiveGamesViewController.swift in Sources */,
 				A6BDD5071DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift in Sources */,
+				A65954461DD2A3AD008A544C /* JsonParser.swift in Sources */,
 				A631739D1DA6EB0600C5F954 /* LoginViewController.swift in Sources */,
 				A6BDD50F1DAD81D900EF51A4 /* TeamFinderViewController.swift in Sources */,
 				A63173A31DA6F07000C5F954 /* updateScheduleViewController.swift in Sources */,
 				A631739F1DA6ED5B00C5F954 /* TeamBioViewController.swift in Sources */,
 				A6BDD5111DAD82C400EF51A4 /* TeamStatsViewController.swift in Sources */,
+				A65954441DD2A0F0008A544C /* TeamFinderModel.swift in Sources */,
 				A6BDD5131DAD86C900EF51A4 /* PlayerStatsViewController.swift in Sources */,
 				A6BDD50D1DAD804F00EF51A4 /* GameCastViewController.swift in Sources */,
 				A6BDD5091DAD7DC500EF51A4 /* StatTrackViewController.swift in Sources */,
