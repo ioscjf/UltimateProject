@@ -55,7 +55,6 @@ struct TeamFinder {
         self.conference = conference
         
         print("HERE")
-        print(team, school)
         print("\(team) \(school) \(division) \(year) \(state) \(region) \(conference)")
     }
 }

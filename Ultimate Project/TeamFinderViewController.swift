@@ -27,7 +27,7 @@ class TeamFinderViewController: UIViewController {
     
     // MARK: - Variables
     
-    private var teams: [TeamFinder] = []
+    var teams: [TeamFinder] = []
     
     // MARK: - Overrides
     
@@ -42,6 +42,18 @@ class TeamFinderViewController: UIViewController {
                 self?.teamTable.reloadData()
             })
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+        
+        self.teamTable.reloadData()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.teamTable.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,4 +72,19 @@ class TeamFinderViewController: UIViewController {
     }
     */
 
+}
+
+extension TeamFinderViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return teams.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "teamcell", for: indexPath) as! TeamTableViewCell
+        
+        let team = teams[(indexPath as NSIndexPath).row]
+        cell.configure(team)
+        
+        return cell
+    }
 }

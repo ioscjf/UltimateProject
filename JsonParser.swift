@@ -18,8 +18,12 @@ class JsonParser {
             
             if let object = object as? Dictionary<String, AnyObject> {
                 if let results = object["TEAMS"] as? [Dictionary<String, AnyObject>] {
+                    print("ABC")
                     for result in results {
+                        print("R")
+                        print(result)
                         if let team = TeamFinder(json: result) {
+                            print("Z")
                             teams.append(team)
                         }
                     }
