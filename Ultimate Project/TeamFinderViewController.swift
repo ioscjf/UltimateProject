@@ -36,9 +36,7 @@ class TeamFinderViewController: UIViewController {
         
         JsonParser.jsonClient.getTeams { [weak self](teams) in
             self?.teams = teams
-            
-            print(self?.teams)
-            
+                        
             DispatchQueue.main.async(execute: {
                 
                 self?.teamTable.reloadData()

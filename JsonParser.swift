@@ -13,11 +13,11 @@ class JsonParser {
     static let jsonClient = JsonParser()
     
     func getTeams(_ completion: @escaping ([TeamFinder]) -> ()) {
-        get(clientURLRequest("api.php")) { (success, object) in
+        get(clientURLRequest("teams.json")) { (success, object) in
             var teams: [TeamFinder] = []
             
             if let object = object as? Dictionary<String, AnyObject> {
-                if let results = object["results"] as? [Dictionary<String, AnyObject>] {
+                if let results = object["TEAMS"] as? [Dictionary<String, AnyObject>] {
                     for result in results {
                         if let team = TeamFinder(json: result) {
                             teams.append(team)

@@ -13,6 +13,7 @@
 		A63173A31DA6F07000C5F954 /* updateScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63173A21DA6F07000C5F954 /* updateScheduleViewController.swift */; };
 		A65954441DD2A0F0008A544C /* TeamFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65954431DD2A0F0008A544C /* TeamFinder.swift */; };
 		A65954461DD2A3AD008A544C /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65954451DD2A3AD008A544C /* JsonParser.swift */; };
+		A677D9961DD506C4002A6885 /* TeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A677D9951DD506C4002A6885 /* TeamTableViewCell.swift */; };
 		A6BDD5071DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD5061DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift */; };
 		A6BDD5091DAD7DC500EF51A4 /* StatTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD5081DAD7DC500EF51A4 /* StatTrackViewController.swift */; };
 		A6BDD50B1DAD804000EF51A4 /* LiveGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD50A1DAD804000EF51A4 /* LiveGamesViewController.swift */; };
@@ -54,6 +55,7 @@
 		A63173A21DA6F07000C5F954 /* updateScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = updateScheduleViewController.swift; sourceTree = "<group>"; };
 		A65954431DD2A0F0008A544C /* TeamFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamFinder.swift; sourceTree = "<group>"; };
 		A65954451DD2A3AD008A544C /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonParser.swift; path = ../JsonParser.swift; sourceTree = "<group>"; };
+		A677D9951DD506C4002A6885 /* TeamTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamTableViewCell.swift; sourceTree = "<group>"; };
 		A6BDD5061DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOpponentPlayerViewController.swift; sourceTree = "<group>"; };
 		A6BDD5081DAD7DC500EF51A4 /* StatTrackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatTrackViewController.swift; sourceTree = "<group>"; };
 		A6BDD50A1DAD804000EF51A4 /* LiveGamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveGamesViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				A65954451DD2A3AD008A544C /* JsonParser.swift */,
 				A65954431DD2A0F0008A544C /* TeamFinder.swift */,
 				A6BDD50E1DAD81D900EF51A4 /* TeamFinderViewController.swift */,
+				A677D9951DD506C4002A6885 /* TeamTableViewCell.swift */,
 				A6BDD5101DAD82C400EF51A4 /* TeamStatsViewController.swift */,
 				A6BDD5121DAD86C900EF51A4 /* PlayerStatsViewController.swift */,
 			);
@@ -254,7 +257,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Connor Fitzpatrick";
 				TargetAttributes = {
 					A6DC74FC1D889FA900E0834C = {
@@ -330,6 +333,7 @@
 			files = (
 				A6BDD50B1DAD804000EF51A4 /* LiveGamesViewController.swift in Sources */,
 				A6BDD5071DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift in Sources */,
+				A677D9961DD506C4002A6885 /* TeamTableViewCell.swift in Sources */,
 				A65954461DD2A3AD008A544C /* JsonParser.swift in Sources */,
 				A631739D1DA6EB0600C5F954 /* LoginViewController.swift in Sources */,
 				A6BDD50F1DAD81D900EF51A4 /* TeamFinderViewController.swift in Sources */,
@@ -412,8 +416,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -458,8 +464,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -478,6 +486,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
