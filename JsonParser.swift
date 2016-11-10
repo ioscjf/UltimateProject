@@ -8,95 +8,51 @@
 
 import Foundation
 
-protocol HomeModelProtocal: class {
-    func itemsDownloaded(items: NSArray)
-}
-
-
-class HomeModel: NSObject, URLSessionDataDelegate {
+class JsonParser {
     
-    //properties
+    static let jsonClient = JsonParser()
     
-    weak var delegate: HomeModelProtocal!
-    
-    var data : NSMutableData = NSMutableData()
-    
-    let urlPath: String = "http://45.55.95.100/api.php" //this will be changed to the path where service.php lives
-    
-    
-    func downloadItems() {
-        
-        let url: NSURL = NSURL(string: urlPath)!
-        var session: URLSession!
-        let configuration = URLSessionConfiguration.default
-        
-        
-        session = URLSession(session: configuration, task: self, didCompleteWithError: nil)
-        
-        let task = session.dataTask(with: url as URL)
-        
-        task.resume()
-        
-    }
-    
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        self.data.append(data as Data);
-        
-    }
-    
-    private func URLSession(session: URLSession, task: URLSessionTask, didCompleteWithError error: NSError?) {
-        if error != nil {
-            print("Failed to download data")
-        }else {
-            print("Data downloaded")
-            self.parseJSON()
-        }
-        
-    }
-    
-    func parseJSON() {
-        
-        var jsonResult: NSMutableArray = NSMutableArray()
-        
-        do{
-            jsonResult = try JSONSerialization.jsonObject(with: self.data as Data, options:JSONSerialization.ReadingOptions.allowFragments) as! NSMutableArray
+    func getTeams(_ completion: @escaping ([TeamFinder]) -> ()) {
+        get(clientURLRequest("api.php")) { (success, object) in
+            var teams: [TeamFinder] = []
             
-        } catch let error as NSError {
-            print(error)
-            
-        }
-        
-        var jsonElement: NSDictionary = NSDictionary()
-        let locations: NSMutableArray = NSMutableArray()
-        
-        for (i in range(0..<jsonResult.count) {
-            
-            jsonElement = jsonResult[i] as! NSDictionary
-            
-            let location = LocationModel()
-            
-            //the following insures none of the JsonElement values are nil through optional binding
-            if let name = jsonElement["Name"] as? String,
-                let address = jsonElement["Address"] as? String,
-                let latitude = jsonElement["Latitude"] as? String,
-                let longitude = jsonElement["Longitude"] as? String
-            {
-                
-                location.name = name
-                location.address = address
-                location.latitude = latitude
-                location.longitude = longitude
-                
+            if let object = object as? Dictionary<String, AnyObject> {
+                if let results = object["results"] as? [Dictionary<String, AnyObject>] {
+                    for result in results {
+                        if let team = TeamFinder(json: result) {
+                            teams.append(team)
+                        }
+                    }
+                }
             }
-            
-            locations.addObject(location)
-            
+            completion(teams)
         }
+    }
+    
+    fileprivate func get(_ request: NSMutableURLRequest, completion: @escaping (_ success: Bool, _ object: AnyObject?) -> ()) {
+        dataTask(request, method: "GET", completion: completion)
+    }
+    
+    fileprivate func clientURLRequest(_ path: String, params: Dictionary<String, AnyObject>? = nil) -> NSMutableURLRequest {
+        let request = NSMutableURLRequest(url: URL(string: "http://45.55.95.100/"+path)!)
         
-        dispatch_get_main_queue().asynchronously(execute: { () -> Void in
-            
-            self.delegate.itemsDownloaded(items: locations)
-            
-        })
+        return request
+    }
+    
+    fileprivate func dataTask(_ request: NSMutableURLRequest, method: String, completion: @escaping (_ success: Bool, _ object: AnyObject?) -> ()) {
+        request.httpMethod = method
+        
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        
+        session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if let data = data {
+                let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {
+                    completion(true, json as AnyObject?)
+                } else {
+                    completion(false, json as AnyObject?)
+                }
+            }
+        })  .resume()
     }
 }

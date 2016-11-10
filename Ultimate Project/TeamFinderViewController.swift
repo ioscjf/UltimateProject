@@ -25,12 +25,25 @@ class TeamFinderViewController: UIViewController {
     @IBAction func refresh(_ sender: UIBarButtonItem) {
     }
     
+    // MARK: - Variables
+    
+    private var teams: [TeamFinder] = []
+    
     // MARK: - Overrides
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        JsonParser.jsonClient.getTeams { [weak self](teams) in
+            self?.teams = teams
+            
+            print(self?.teams)
+            
+            DispatchQueue.main.async(execute: {
+                
+                self?.teamTable.reloadData()
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
