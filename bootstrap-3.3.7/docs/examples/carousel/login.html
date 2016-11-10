@@ -9,13 +9,17 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Men's Ultimate</title>
+    <title>Log In</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="signup.css" rel="stylesheet">
+    <link href="stylesheet.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -26,12 +30,9 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <!-- Custom styles for this template -->
-    <link href="stylesheet.css" rel="stylesheet">
   </head>
 
-  <body>
+  <body bgcolor="#525252">
     <div class="navbar-wrapper">
       <div class="container">
         <nav class="navbar navbar-inverse navbar-static-top">
@@ -63,39 +64,31 @@
                   </ul>
                 </li>
               </ul>
-               <div id="navbar" class="navbar-collapse collapse">
-                <form class="navbar-form navbar-right">
-                  <div class="form-group">
-                    <input type="text" placeholder="Username" class="form-control">
-                  </div>
-                 <div class="form-group">
-                  <input type="password" placeholder="Password" class="form-control">
-                 </div>
-               <button type="submit" class="btn btn-primary">Log in</button>
-                <a class="btn btn-primary" href="signup.html" role="button">Sign up</a>
-                </form>
-              </div>
+              <div id="navbar" class="navbar-collapse collapse">
+              </div><!--/.navbar-collapse -->
             </div>
           </div>
         </nav>
       </div>
     </div>
-       
-    <div class="jumbotron-container">
-      <div class="jumbotron-mens">
-            <div class="textlocation">
-                <h1>Men's</h1>
-                <p>Search by team or player to find game statistics.</p>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button">View Stats &raquo;</a></p>
-            </div>
+<br>
+<br>
+    <div class="login-container">   
+      <div id="logbox">
+      <form id="signup" method="post" action="/signup">
+        <h1>account login</h1>
+        <input name="user[email]" type="email" placeholder="enter your email" class="input pass"/>
+        <input name="user[password]" type="password" placeholder="enter your password" required="required" class="input pass"/>
+        <input type="submit" value="Sign me in!" class="inputButton"/>
+        <div class="text-center"">
+          <a href="signup.html" id="">create an account</a> - <a href="#" id="">forgot password</a>
         </div>
-    </div>
+      </form>
+      </div>
+    </div> <!-- /container -->
 
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="../../dist/js/bootstrap.min.js"></script>

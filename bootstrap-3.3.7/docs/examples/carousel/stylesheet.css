@@ -4,7 +4,7 @@
 
 body {
   padding-bottom: 40px;
-  color: #5a5a5a;
+  color: #525252;
 }
 
 
@@ -132,3 +132,36 @@ body {
     margin-top: 120px;
   }
 }
+
+.jumbotron-container{
+  color: white;
+  position: relative;
+}
+
+
+.textlocation{
+  position: absolute;
+  bottom: 8px;
+  left: 38%;
+  text-align: center;
+}
+
+.jumbotron-mens{
+  background-image: url("mens.jpg");
+  background-size: cover;
+  height: 500px
+}
+
+
+.jumbotron-womens {
+  background-image: url("womens.jpg");
+  background-size: cover;
+  height: 500px;
+}
+
+.jumbotron-mixed{
+  background-image: url(Mixed.png);
+  background-size:cover;
+  height: 500px
+}
+
