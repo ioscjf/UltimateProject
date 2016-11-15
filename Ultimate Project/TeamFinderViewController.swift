@@ -42,18 +42,8 @@ class TeamFinderViewController: UIViewController {
                 self?.teamTable.reloadData()
             })
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(false)
         
-        self.teamTable.reloadData()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        self.teamTable.reloadData()
+        print("HELLO")
     }
 
     override func didReceiveMemoryWarning() {

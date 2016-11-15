@@ -18,7 +18,6 @@ class JsonParser {
             
             if let object = object as? Dictionary<String, AnyObject> {
                 if let results = object["TEAMS"] as? [Dictionary<String, AnyObject>] {
-                    print("ABC")
                     for result in results {
                         print("R")
                         print(result)
@@ -31,6 +30,10 @@ class JsonParser {
             }
             completion(teams)
         }
+    }
+    
+    func getPlayers(_ completion: @escaping ([TeamFinder]) -> ()) {
+        print("HERE")
     }
     
     fileprivate func get(_ request: NSMutableURLRequest, completion: @escaping (_ success: Bool, _ object: AnyObject?) -> ()) {
