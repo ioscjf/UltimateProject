@@ -1094,7 +1094,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="275"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FKy-86-SEW" id="urR-ff-jfA">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="274"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzR-sy-deo">
@@ -1187,11 +1187,16 @@
                                             <outlet property="region" destination="BVj-V5-FZF" id="PBH-lM-8Ws"/>
                                             <outlet property="school" destination="6XS-9H-vSJ" id="klG-rF-Iim"/>
                                             <outlet property="state" destination="iqU-N2-jJU" id="DSq-5d-AAd"/>
+                                            <outlet property="teamName" destination="KzR-sy-deo" id="vhf-Ma-Xyd"/>
                                             <outlet property="year" destination="NkO-lu-N9Y" id="gNR-jo-Bol"/>
                                             <segue destination="Y2D-Ax-OHW" kind="showDetail" id="hsp-r2-rhg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="PLz-66-z5o" id="QcR-9S-cJY"/>
+                                    <outlet property="delegate" destination="PLz-66-z5o" id="QjO-zf-xMQ"/>
+                                </connections>
                             </tableView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uve-At-FFO">
                                 <rect key="frame" x="0.0" y="28" width="375" height="40"/>

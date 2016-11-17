@@ -19,42 +19,39 @@ struct TeamFinder {
     var conference: String?
     
     init?(json: Dictionary<String, AnyObject>) {
-        guard let team = json["team"] as? String else {
+        guard let team = json["Team"] as? String else {
             return nil
         }
         self.team = team
         
-        guard let school = json["school"] as? String else {
+        guard let school = json["School"] as? String else {
             return nil
         }
         self.school = school
         
-        guard let division = json["division"] as? String else {
+        guard let division = json["Division"] as? String else {
             return nil
         }
         self.division = division
         
-        guard let year = json["year"] as? String else {
+        guard let year = json["Year"] as? String else {
             return nil
         }
         self.year = year
         
-        guard let state = json["state"] as? String else {
+        guard let state = json["State"] as? String else {
             return nil
         }
         self.state = state
         
-        guard let region = json["region"] as? String else {
+        guard let region = json["Region"] as? String else {
             return nil
         }
         self.region = region
         
-        guard let conference = json["conference"] as? String else {
+        guard let conference = json["Conference"] as? String else {
             return nil
         }
         self.conference = conference
-        
-        print("HERE")
-        print("\(team) \(school) \(division) \(year) \(state) \(region) \(conference)")
     }
 }

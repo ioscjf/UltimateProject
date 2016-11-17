@@ -13,16 +13,13 @@ class JsonParser {
     static let jsonClient = JsonParser()
     
     func getTeams(_ completion: @escaping ([TeamFinder]) -> ()) {
-        get(clientURLRequest("teams.json")) { (success, object) in
+        get(clientURLRequest("json/teams.json")) { (success, object) in
             var teams: [TeamFinder] = []
             
             if let object = object as? Dictionary<String, AnyObject> {
                 if let results = object["TEAMS"] as? [Dictionary<String, AnyObject>] {
                     for result in results {
-                        print("R")
-                        print(result)
                         if let team = TeamFinder(json: result) {
-                            print("Z")
                             teams.append(team)
                         }
                     }

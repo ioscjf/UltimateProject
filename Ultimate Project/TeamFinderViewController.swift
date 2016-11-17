@@ -33,17 +33,19 @@ class TeamFinderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
         JsonParser.jsonClient.getTeams { [weak self](teams) in
             self?.teams = teams
-                        
+            
+            print(teams)
             DispatchQueue.main.async(execute: {
                 
                 self?.teamTable.reloadData()
             })
         }
-        
-        print("HELLO")
     }
 
     override func didReceiveMemoryWarning() {
