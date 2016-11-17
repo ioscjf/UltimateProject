@@ -28,6 +28,7 @@ class TeamFinderViewController: UIViewController {
     // MARK: - Variables
     
     var teams: [TeamFinder] = []
+    var players: [PlayerFinder] = []
     
     // MARK: - Overrides
     
@@ -39,12 +40,14 @@ class TeamFinderViewController: UIViewController {
         super.viewDidAppear(false)
         JsonParser.jsonClient.getTeams { [weak self](teams) in
             self?.teams = teams
-            
-            print(teams)
             DispatchQueue.main.async(execute: {
-                
                 self?.teamTable.reloadData()
             })
+        }
+        
+        JsonParser.jsonClient.getPlayers { [weak self](players) in
+            self?.players = players
+            print(players)
         }
     }
 
@@ -53,7 +56,6 @@ class TeamFinderViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -63,7 +65,6 @@ class TeamFinderViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
 
 extension TeamFinderViewController: UITableViewDelegate, UITableViewDataSource {

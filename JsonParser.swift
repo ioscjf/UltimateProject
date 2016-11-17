@@ -29,8 +29,21 @@ class JsonParser {
         }
     }
     
-    func getPlayers(_ completion: @escaping ([TeamFinder]) -> ()) {
-        print("HERE")
+    func getPlayers(_ completion: @escaping ([PlayerFinder]) -> ()) {
+        get(clientURLRequest("json/players.json")) { (success, object) in
+            var players: [PlayerFinder] = []
+            
+            if let object = object as? Dictionary<String, AnyObject> {
+                if let results = object["PLAYERS"] as? [Dictionary<String, AnyObject>] {
+                    for result in results {
+                        if let player = PlayerFinder(json: result) {
+                            players.append(player)
+                        }
+                    }
+                }
+            }
+            completion(players)
+        }
     }
     
     fileprivate func get(_ request: NSMutableURLRequest, completion: @escaping (_ success: Bool, _ object: AnyObject?) -> ()) {

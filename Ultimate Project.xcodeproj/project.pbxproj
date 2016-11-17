@@ -11,6 +11,7 @@
 		A631739F1DA6ED5B00C5F954 /* TeamBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631739E1DA6ED5B00C5F954 /* TeamBioViewController.swift */; };
 		A63173A11DA6F06200C5F954 /* updateRosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63173A01DA6F06100C5F954 /* updateRosterViewController.swift */; };
 		A63173A31DA6F07000C5F954 /* updateScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63173A21DA6F07000C5F954 /* updateScheduleViewController.swift */; };
+		A648A6721DDE4B0E003B1664 /* PlayerFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648A6711DDE4B0E003B1664 /* PlayerFinder.swift */; };
 		A65954441DD2A0F0008A544C /* TeamFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65954431DD2A0F0008A544C /* TeamFinder.swift */; };
 		A65954461DD2A3AD008A544C /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65954451DD2A3AD008A544C /* JsonParser.swift */; };
 		A677D9961DD506C4002A6885 /* TeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A677D9951DD506C4002A6885 /* TeamTableViewCell.swift */; };
@@ -53,6 +54,7 @@
 		A631739E1DA6ED5B00C5F954 /* TeamBioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamBioViewController.swift; sourceTree = "<group>"; };
 		A63173A01DA6F06100C5F954 /* updateRosterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = updateRosterViewController.swift; sourceTree = "<group>"; };
 		A63173A21DA6F07000C5F954 /* updateScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = updateScheduleViewController.swift; sourceTree = "<group>"; };
+		A648A6711DDE4B0E003B1664 /* PlayerFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerFinder.swift; sourceTree = "<group>"; };
 		A65954431DD2A0F0008A544C /* TeamFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamFinder.swift; sourceTree = "<group>"; };
 		A65954451DD2A3AD008A544C /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonParser.swift; path = ../JsonParser.swift; sourceTree = "<group>"; };
 		A677D9951DD506C4002A6885 /* TeamTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamTableViewCell.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				A65954451DD2A3AD008A544C /* JsonParser.swift */,
+				A648A6711DDE4B0E003B1664 /* PlayerFinder.swift */,
 				A65954431DD2A0F0008A544C /* TeamFinder.swift */,
 				A6BDD50E1DAD81D900EF51A4 /* TeamFinderViewController.swift */,
 				A677D9951DD506C4002A6885 /* TeamTableViewCell.swift */,
@@ -333,6 +336,7 @@
 			files = (
 				A6BDD50B1DAD804000EF51A4 /* LiveGamesViewController.swift in Sources */,
 				A6BDD5071DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift in Sources */,
+				A648A6721DDE4B0E003B1664 /* PlayerFinder.swift in Sources */,
 				A677D9961DD506C4002A6885 /* TeamTableViewCell.swift in Sources */,
 				A65954461DD2A3AD008A544C /* JsonParser.swift in Sources */,
 				A631739D1DA6EB0600C5F954 /* LoginViewController.swift in Sources */,
