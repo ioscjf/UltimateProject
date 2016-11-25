@@ -9,9 +9,10 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import PrimaryKeyConstraint, ForeignKey
 
-#This line works: engine = create_engine("mysql+pymysql://admin:frisbee@127.0.0.1/test")
+#This line works:
+#engine = create_engine("mysql+pymysql://admin:frisbee@127.0.0.1/test")
 
-#Testing trying to connect to database on the server rather than locally:
+#Trying to connect non-locally:
 engine = create_engine("mysql+pymysql://admin:frisbee@45.55.95.100:3306/test")
 
 Base = declarative_base()

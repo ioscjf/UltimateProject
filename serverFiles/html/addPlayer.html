@@ -1,0 +1,22 @@
+<html>
+
+    <body>
+        <h1>Add info (player)</h1>
+        </p>This is a boring form page to add player info to the database</p>
+
+        <span>
+            <form action="./php/addPlayer.php" method="post">
+		Name: <input type="text" name="playerName"><br><br>
+		Positon: <select name="position">
+			<option value="Handler">Handler</option>
+			<option value="Cutter">Cutter</option>
+		</select><br><br>
+		Age: <input type="number" name="age" min="0" max="99"><br><br>
+<!-- ERRORS OCCUR when ' or " are submitted into height field. Right now the height field is a string in the database, we should eventually make it an int in inches and then hardcode conversions to feet and inches -->
+		Height (please do not use ' or " in this field): <input type="text" name="height"><br><br>
+		School: <input type="text" name="school"><br><br>
+		Jersey number: <input type="number" name="jerseyNum" min="00" max="99"><br><br>
+            <input type="submit">
+        </span>
+    </body>
+</html>

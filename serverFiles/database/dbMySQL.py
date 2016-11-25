@@ -9,10 +9,7 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import PrimaryKeyConstraint, ForeignKey
 
-#This line works: engine = create_engine("mysql+pymysql://admin:frisbee@127.0.0.1/test")
-
-#Testing trying to connect to database on the server rather than locally:
-engine = create_engine("mysql+pymysql://admin:frisbee@45.55.95.100:3306/test")
+engine = create_engine("mysql+pymysql://admin:frisbee@127.0.0.1/test")
 
 Base = declarative_base()
 class Team(Base):
@@ -145,7 +142,7 @@ def testEmptiness():
                         session.commit()
         if isEmpty(Player):
                 if engine.dialect.has_table(engine.connect(), "player"):
-                        player1 = Player(playerName="Bob Random", position="Cutter", age=21, height="6 feet 2 inches", school="Luther", jerseyNum=10)
+                        player1 = Player(playerName="Bob Random", position="Cutter", age=21, height="6 feet 2 inches", school="Lutheres", jerseyNum=10)
                         session.add(player1)
                         player2 = Player(playerName="Joe Schmoe", position="Handler", age=20, height="5 feet 10 inches", school="Minnesota", jerseyNum=5)
                         session.add(player2)
