@@ -46,6 +46,23 @@ class JsonParser {
         }
     }
     
+    func getStats(_ completion: @escaping ([StatFinder]) -> ()) {
+        get(clientURLRequest("json/stats.json")) { (success, object) in
+            var stats: [StatFinder] = []
+            
+            if let object = object as? Dictionary<String, AnyObject> {
+                if let results = object["STATS"] as? [Dictionary<String, AnyObject>] {
+                    for result in results {
+                        if let stat = StatFinder(json: result) {
+                            stats.append(stat)
+                        }
+                    }
+                }
+            }
+            completion(stats)
+        }
+    }
+    
     fileprivate func get(_ request: NSMutableURLRequest, completion: @escaping (_ success: Bool, _ object: AnyObject?) -> ()) {
         dataTask(request, method: "GET", completion: completion)
     }

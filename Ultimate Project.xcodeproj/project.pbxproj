@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A61CAABC1DEE23F600E6B813 /* StatFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61CAABB1DEE23F600E6B813 /* StatFinder.swift */; };
 		A631739D1DA6EB0600C5F954 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631739C1DA6EB0600C5F954 /* LoginViewController.swift */; };
 		A631739F1DA6ED5B00C5F954 /* TeamBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631739E1DA6ED5B00C5F954 /* TeamBioViewController.swift */; };
 		A63173A11DA6F06200C5F954 /* updateRosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63173A01DA6F06100C5F954 /* updateRosterViewController.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A61CAABB1DEE23F600E6B813 /* StatFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatFinder.swift; sourceTree = "<group>"; };
 		A631739C1DA6EB0600C5F954 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A631739E1DA6ED5B00C5F954 /* TeamBioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamBioViewController.swift; sourceTree = "<group>"; };
 		A63173A01DA6F06100C5F954 /* updateRosterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = updateRosterViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				A65954451DD2A3AD008A544C /* JsonParser.swift */,
+				A61CAABB1DEE23F600E6B813 /* StatFinder.swift */,
 				A648A6711DDE4B0E003B1664 /* PlayerFinder.swift */,
 				A65954431DD2A0F0008A544C /* TeamFinder.swift */,
 				A6BDD50E1DAD81D900EF51A4 /* TeamFinderViewController.swift */,
@@ -342,6 +345,7 @@
 				A631739D1DA6EB0600C5F954 /* LoginViewController.swift in Sources */,
 				A6BDD50F1DAD81D900EF51A4 /* TeamFinderViewController.swift in Sources */,
 				A63173A31DA6F07000C5F954 /* updateScheduleViewController.swift in Sources */,
+				A61CAABC1DEE23F600E6B813 /* StatFinder.swift in Sources */,
 				A631739F1DA6ED5B00C5F954 /* TeamBioViewController.swift in Sources */,
 				A6BDD5111DAD82C400EF51A4 /* TeamStatsViewController.swift in Sources */,
 				A65954441DD2A0F0008A544C /* TeamFinder.swift in Sources */,
