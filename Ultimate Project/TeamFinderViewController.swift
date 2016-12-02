@@ -29,6 +29,7 @@ class TeamFinderViewController: UIViewController {
     
     var teams: [TeamFinder] = []
     var players: [PlayerFinder] = []
+    var stats: [StatFinder] = []
     
     // MARK: - Overrides
     
@@ -43,11 +44,19 @@ class TeamFinderViewController: UIViewController {
             DispatchQueue.main.async(execute: {
                 self?.teamTable.reloadData()
             })
+            print("")
+            print(teams)
+            print("")
         }
         
         JsonParser.jsonClient.getPlayers { [weak self](players) in
             self?.players = players
             print(players)
+        }
+        
+        JsonParser.jsonClient.getStats { [weak self](stats) in
+            self?.stats = stats
+            print(stats)
         }
     }
 

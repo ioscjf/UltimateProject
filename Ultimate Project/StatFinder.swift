@@ -10,72 +10,60 @@ import Foundation
 
 struct StatFinder {
     
-    var points: Int?
+    var playerName: String?
+    var year: Int?
+    var scores: Int?
     var assists: Int?
+    var offensivePointsPlayed: Int?
+    var defensivePointsPlayed: Int?
+    var drops: Int?
+    var catches: Int?
     var completions: Int?
-    var deflections: Int?
-    var pointsPlayed: Int?
-    var throwingErrors: Int?
-    var catchingErrors: Int?
-    var fouls: Int?
-    var goallineCatchingErrors: Int?
-    var goallineThrowingErrors: Int?
-    var goallineDeflections: Int?
     
     init?(json: Dictionary<String, AnyObject>) {
-        guard let points = json["Points"] as? Int else {
+        guard let playerName = json["PlayerName"] as? String else {
             return nil
         }
-        self.points = points
+        self.playerName = playerName
+        
+        guard let year = json["Year"] as? Int else {
+            return nil
+        }
+        self.year = year
+        
+        guard let scores = json["Scores"] as? Int else {
+            return nil
+        }
+        self.scores = scores
         
         guard let assists = json["Assists"] as? Int else {
             return nil
         }
         self.assists = assists
         
+        guard let offensivePointsPlayed = json["OffensivePointsPlayed"] as? Int else {
+            return nil
+        }
+        self.offensivePointsPlayed = offensivePointsPlayed
+        
+        guard let defensivePointsPlayed = json["DefensivePointsPlayed"] as? Int else {
+            return nil
+        }
+        self.defensivePointsPlayed = defensivePointsPlayed
+        
+        guard let drops = json["Drops"] as? Int else {
+            return nil
+        }
+        self.drops = drops
+        
+        guard let catches = json["Catches"] as? Int else {
+            return nil
+        }
+        self.catches = catches
+        
         guard let completions = json["Completions"] as? Int else {
             return nil
         }
         self.completions = completions
-        
-        guard let deflections = json["Deflections"] as? Int else {
-            return nil
-        }
-        self.deflections = deflections
-        
-        guard let pointsPlayed = json["PointsPlayed"] as? Int else {
-            return nil
-        }
-        self.pointsPlayed = pointsPlayed
-        
-        guard let throwingErrors = json["ThrowingErrors"] as? Int else {
-            return nil
-        }
-        self.throwingErrors = throwingErrors
-        
-        guard let catchingErrors = json["CatchingErrors"] as? Int else {
-            return nil
-        }
-        self.catchingErrors = catchingErrors
-        
-        guard let fouls = json["Fouls"] as? Int else {
-            return nil
-        }
-        self.fouls = fouls
-        
-        guard let goallineCatchingErrors = json["GoallineCatchingErrors"] as? Int else {
-            return nil
-        }
-        self.goallineCatchingErrors = goallineCatchingErrors
-        
-        guard let goallineThrowingErrors = json["GoallineThrowingErrors"] as? Int else {
-            return nil
-        }
-        self.goallineThrowingErrors = goallineThrowingErrors
-        
-        guard let goallineDeflections = json["GoallineDeflections"] as? Int else {
-            return nil
-        }
-        self.goallineDeflections = goallineDeflections
     }
 }

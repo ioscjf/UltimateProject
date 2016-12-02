@@ -13,7 +13,7 @@ class JsonParser {
     static let jsonClient = JsonParser()
     
     func getTeams(_ completion: @escaping ([TeamFinder]) -> ()) {
-        get(clientURLRequest("json/teams.json")) { (success, object) in
+        get(clientURLRequest("teams.php")) { (success, object) in
             var teams: [TeamFinder] = []
             
             if let object = object as? Dictionary<String, AnyObject> {
@@ -30,7 +30,7 @@ class JsonParser {
     }
     
     func getPlayers(_ completion: @escaping ([PlayerFinder]) -> ()) {
-        get(clientURLRequest("json/players.json")) { (success, object) in
+        get(clientURLRequest("players.php")) { (success, object) in
             var players: [PlayerFinder] = []
             
             if let object = object as? Dictionary<String, AnyObject> {
@@ -47,7 +47,7 @@ class JsonParser {
     }
     
     func getStats(_ completion: @escaping ([StatFinder]) -> ()) {
-        get(clientURLRequest("json/stats.json")) { (success, object) in
+        get(clientURLRequest("stats.php")) { (success, object) in
             var stats: [StatFinder] = []
             
             if let object = object as? Dictionary<String, AnyObject> {
@@ -55,6 +55,8 @@ class JsonParser {
                     for result in results {
                         if let stat = StatFinder(json: result) {
                             stats.append(stat)
+                        } else {
+                            print(result)
                         }
                     }
                 }

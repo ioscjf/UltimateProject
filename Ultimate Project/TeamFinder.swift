@@ -19,7 +19,7 @@ struct TeamFinder {
     var conference: String?
     
     init?(json: Dictionary<String, AnyObject>) {
-        guard let team = json["Team"] as? String else {
+        guard let team = json["TeamName"] as? String else {
             return nil
         }
         self.team = team
@@ -29,7 +29,7 @@ struct TeamFinder {
         }
         self.school = school
         
-        guard let division = json["Division"] as? String else {
+        guard let division = json["CompetitionDivision"] as? String else {
             return nil
         }
         self.division = division
