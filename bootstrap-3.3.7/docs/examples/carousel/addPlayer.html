@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Sign Up</title>
+    <title>Add New Player</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,7 +18,7 @@
     <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="signup.css" rel="stylesheet">
+    <link href="addInfo.css" rel="stylesheet">
     <link href="stylesheet.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -75,21 +75,20 @@
     <br>    
     <!-- /container -->
 
-    <div class="signup-container">
-        <div id="logbox">
-          <form id="signup" method="post" action="/signup">
-            <h1>create an account</h1>
-            <input name="user[name]" type="text" placeholder="What's your username?" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass"/>
-            <input name="user[password]" type="password" placeholder="Choose a password" required="required" class="input pass"/>
-            <input name="user[password2]" type="password" placeholder="Confirm password" required="required" class="input pass"/>
-            <input name="user[email]" type="email" placeholder="Email address" class="input pass"/>
-            <input type="submit" value="Sign me up!" class="inputButton"/>
-            <div class="text-center">
-                already have an account? <a href="login.html" id="login_id">login</a>
-            </div>
-          </form>
-        </div>
-    </div>
+    <div class="addInfo-container">
+      <div id="infobox">
+        <span>
+          <form id="addInfo" method="post" action="http://45.55.95.100/addPlayer.php" >
+            <h1>Add Player</h1>
+            <input name="playerName" type="text" placeholder="Player Name" autofocus="autofocus" required="required" class="input pass"/>
+            <input type="text" name="position" placeholder="Handler or Cutter" autofocus="autofocus" required="required" class="input class"/>
+            <input name="age" type="number" min="0" max="99" placeholder="Age of Player" autofocus="autofocus" required="required" class="input pass"/>
+            <input type="text" name="height" placeholder="Height (feet and inches) " autofocus="autofocus" required="required" class="input class"/>
+            <input type="text" name="school" placeholder="Where do they go to school" autofocus="autofocus" required="required" class="input class"/>
+            <input name="jerseyNum" type="number" min="0" max="99" placeholder="Jersey Number" autofocus="autofocus" class="input pass"/>
+            <input type="submit" value="Confirm" class="inputButton"/>
+        </span>
+      </div>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
