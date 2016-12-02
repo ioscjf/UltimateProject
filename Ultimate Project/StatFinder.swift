@@ -11,59 +11,68 @@ import Foundation
 struct StatFinder {
     
     var playerName: String?
-    var year: String?
-    var scores: String?
-    var assists: String?
-    var offensivePointsPlayed: String?
-    var defensivePointsPlayed: String?
-    var drops: String?
-    var catches: String?
-    var completions: String?
+    var year: Int?
+    var scores: Int?
+    var assists: Int?
+    var offensivePointsPlayed: Int?
+    var defensivePointsPlayed: Int?
+    var drops: Int?
+    var catches: Int?
+    var completions: Int?
     
     init?(json: Dictionary<String, AnyObject>) {
-        guard let playerName = json["PlayerName"] as? String else {
-            return nil
+        if let playerName = json["PlayerName"] as? String {
+            self.playerName = playerName
+        } else {
+            self.playerName = ""
         }
-        self.playerName = playerName
         
-        guard let year = json["Year"] as? String else {
-            return nil
+        if let year = Int((json["Year"] as? String)!) {
+            self.year = year
+        } else {
+            self.year = 0
         }
-        self.year = year
         
-        guard let scores = json["Scores"] as? String else {
-            return nil
+        if let scores = Int((json["Scores"] as? String)!) {
+            self.scores = scores
+        } else {
+            self.scores = 0
         }
-        self.scores = scores
         
-        guard let assists = json["Assists"] as? String else {
-            return nil
+        if let assists = Int((json["Assists"] as? String)!) {
+            self.assists = assists
+        } else {
+            self.assists = 0
         }
-        self.assists = assists
         
-        guard let offensivePointsPlayed = json["OffensivePointsPlayed"] as? String else {
-            return nil
+        if let offensivePointsPlayed = Int((json["OffensivePointsPlayed"] as? String)!) {
+            self.offensivePointsPlayed = offensivePointsPlayed
+        } else {
+            self.offensivePointsPlayed = 0
         }
-        self.offensivePointsPlayed = offensivePointsPlayed
         
-        guard let defensivePointsPlayed = json["DefensivePointsPlayed"] as? String else {
-            return nil
+        if let defensivePointsPlayed = Int((json["DefensivePointsPlayed"] as? String)!) {
+            self.defensivePointsPlayed = defensivePointsPlayed
+        } else {
+            self.defensivePointsPlayed = 0
         }
-        self.defensivePointsPlayed = defensivePointsPlayed
         
-        guard let drops = json["Drops"] as? String else {
-            return nil
+        if let drops = Int((json["Drops"] as? String)!) {
+            self.drops = drops
+        } else {
+            self.drops = 0
         }
-        self.drops = drops
         
-        guard let catches = json["Catches"] as? String else {
-            return nil
+        if let catches = Int((json["Catches"] as? String)!) {
+            self.catches = catches
+        } else {
+            self.catches = 0
         }
-        self.catches = catches
         
-        guard let completions = json["Completions"] as? String else {
-            return nil
+        if let completions = Int((json["Completions"] as? String)!) {
+            self.completions = completions
+        } else {
+            self.completions = 0
         }
-        self.completions = completions
     }
 }

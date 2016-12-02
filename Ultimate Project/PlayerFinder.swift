@@ -12,34 +12,39 @@ struct PlayerFinder {
     
     var player: String?
     var position: String?
-    var age: String?
-    var height: String?
+    var age: Int?
+    var height: String? // NOTE: How did we decide to format this?
     var school: String?
     
     init?(json: Dictionary<String, AnyObject>) {
-        guard let name = json["Name"] as? String else {
-            return nil
+        if let name = json["Name"] as? String {
+            self.player = name
+        } else {
+            self.player = ""
         }
-        self.player = name
         
-        guard let position = json["Position"] as? String else {
-            return nil
+        if let position = json["Position"] as? String {
+            self.position = position
+        } else {
+            self.position = ""
         }
-        self.position = position
         
-        guard let age = json["Age"] as? String else {
-            return nil
+        if let age = Int((json["Age"] as? String)!) {
+            self.age = age
+        } else {
+            self.age = 0
         }
-        self.age = age
         
-        guard let height = json["Height"] as? String else {
-            return nil
+        if let height = json["Height"] as? String {
+            self.height = height
+        } else {
+            self.height = ""
         }
-        self.height = height
         
-        guard let school = json["School"] as? String else {
-            return nil
+        if let school = json["School"] as? String {
+            self.school = school
+        } else {
+            self.school = ""
         }
-        self.school = school
     }
 }

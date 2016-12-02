@@ -26,7 +26,7 @@ class TeamTableViewCell: UITableViewCell {
         teamName.text = team.team
         school.text = team.school
         division.text = team.division
-        year.text = team.year
+        year.text = "\(team.year)"
         state.text = team.state
         region.text = team.region
         conference.text = team.conference

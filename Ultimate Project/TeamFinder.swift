@@ -13,45 +13,52 @@ struct TeamFinder {
     var team: String?
     var school: String?
     var division: String?
-    var year: String?
+    var year: Int?
     var state: String?
     var region: String?
     var conference: String?
     
     init?(json: Dictionary<String, AnyObject>) {
-        guard let team = json["TeamName"] as? String else {
-            return nil
+        if let team = json["TeamName"] as? String {
+            self.team = team
+        } else {
+            self.team = ""
         }
-        self.team = team
         
-        guard let school = json["School"] as? String else {
-            return nil
+        if let school = json["School"] as? String {
+            self.school = school
+        } else {
+            self.school = ""
         }
-        self.school = school
         
-        guard let division = json["CompetitionDivision"] as? String else {
-            return nil
+        if let division = json["CompetitionDivision"] as? String {
+            self.division = division
+        } else {
+            self.division = ""
         }
-        self.division = division
         
-        guard let year = json["Year"] as? String else {
-            return nil
+        if let year = Int((json["Year"] as? String)!) {
+            self.year = year
+        } else {
+            self.year = 0
         }
-        self.year = year
         
-        guard let state = json["State"] as? String else {
-            return nil
+        if let state = json["State"] as? String {
+            self.state = state
+        } else {
+            self.state = ""
         }
-        self.state = state
         
-        guard let region = json["Region"] as? String else {
-            return nil
+        if let region = json["Region"] as? String {
+            self.region = region
+        } else {
+            self.region = ""
         }
-        self.region = region
         
-        guard let conference = json["Conference"] as? String else {
-            return nil
+        if let conference = json["Conference"] as? String {
+            self.conference = conference
+        } else {
+            self.conference = ""
         }
-        self.conference = conference
     }
 }
