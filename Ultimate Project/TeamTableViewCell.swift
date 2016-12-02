@@ -9,6 +9,9 @@
 import UIKit
 
 class TeamTableViewCell: UITableViewCell {
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var teamName: UILabel!
     @IBOutlet weak var school: UILabel!
     @IBOutlet weak var division: UILabel!
@@ -16,6 +19,8 @@ class TeamTableViewCell: UITableViewCell {
     @IBOutlet weak var state: UILabel!
     @IBOutlet weak var region: UILabel!
     @IBOutlet weak var conference: UILabel!
+    
+    // MARK: - Configuration
     
     func configure(_ team: TeamFinder) {
         teamName.text = team.team

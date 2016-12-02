@@ -18,19 +18,27 @@ class PlayerStatsViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var playerName: UILabel!
-    @IBOutlet weak var playerYear: UILabel!
-    @IBOutlet weak var playerNumber: UILabel!
-    @IBOutlet weak var catches: UILabel!
-    @IBOutlet weak var passes: UILabel!
-    @IBOutlet weak var scores: UILabel!
+    @IBOutlet weak var statsTable: UITableView!
+    
+    // MARK: - Variables
+    
+    var stats: [StatFinder] = []
     
     // MARK: - Overrides
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+        
+        JsonParser.jsonClient.getStats { [weak self](stats) in
+            self?.stats = stats
+            DispatchQueue.main.async(execute: {
+                self?.statsTable.reloadData()
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,4 +57,19 @@ class PlayerStatsViewController: UIViewController {
     }
     */
 
+}
+
+extension PlayerStatsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return stats.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "statcell", for: indexPath) as! StatsTableViewCell
+        
+        let stat = stats[(indexPath as NSIndexPath).row]
+        cell.configure(stat)
+        
+        return cell
+    }
 }

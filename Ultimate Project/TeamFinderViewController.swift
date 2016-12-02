@@ -28,8 +28,7 @@ class TeamFinderViewController: UIViewController {
     // MARK: - Variables
     
     var teams: [TeamFinder] = []
-    var players: [PlayerFinder] = []
-    var stats: [StatFinder] = []
+    var teamName = ""
     
     // MARK: - Overrides
     
@@ -42,21 +41,8 @@ class TeamFinderViewController: UIViewController {
         JsonParser.jsonClient.getTeams { [weak self](teams) in
             self?.teams = teams
             DispatchQueue.main.async(execute: {
-                self?.teamTable.reloadData()
+            self?.teamTable.reloadData()
             })
-            print("")
-            print(teams)
-            print("")
-        }
-        
-        JsonParser.jsonClient.getPlayers { [weak self](players) in
-            self?.players = players
-            print(players)
-        }
-        
-        JsonParser.jsonClient.getStats { [weak self](stats) in
-            self?.stats = stats
-            print(stats)
         }
     }
 
@@ -65,15 +51,20 @@ class TeamFinderViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "TeamFinderToTeamPage" {
+            let destinationNavigationController = segue.destination as! UINavigationController
+            let tsvc = destinationNavigationController.topViewController as! TeamStatsViewController
+            
+            tsvc.teamName = teamName
+        }
     }
-    */
 }
 
 extension TeamFinderViewController: UITableViewDelegate, UITableViewDataSource {
@@ -88,5 +79,12 @@ extension TeamFinderViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(team)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if teams.count > indexPath.row {
+            teamName = teams[indexPath.row].team!
+        }
+        self.performSegue(withIdentifier: "TeamFinderToTeamPage", sender: indexPath);
     }
 }

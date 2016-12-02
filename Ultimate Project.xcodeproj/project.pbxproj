@@ -13,6 +13,8 @@
 		A63173A11DA6F06200C5F954 /* updateRosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63173A01DA6F06100C5F954 /* updateRosterViewController.swift */; };
 		A63173A31DA6F07000C5F954 /* updateScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63173A21DA6F07000C5F954 /* updateScheduleViewController.swift */; };
 		A648A6721DDE4B0E003B1664 /* PlayerFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648A6711DDE4B0E003B1664 /* PlayerFinder.swift */; };
+		A64DC2491DF1137F00E0E5CF /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DC2481DF1137E00E0E5CF /* PlayerTableViewCell.swift */; };
+		A64DC24B1DF1138B00E0E5CF /* StatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DC24A1DF1138B00E0E5CF /* StatsTableViewCell.swift */; };
 		A65954441DD2A0F0008A544C /* TeamFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65954431DD2A0F0008A544C /* TeamFinder.swift */; };
 		A65954461DD2A3AD008A544C /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65954451DD2A3AD008A544C /* JsonParser.swift */; };
 		A677D9961DD506C4002A6885 /* TeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A677D9951DD506C4002A6885 /* TeamTableViewCell.swift */; };
@@ -57,6 +59,8 @@
 		A63173A01DA6F06100C5F954 /* updateRosterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = updateRosterViewController.swift; sourceTree = "<group>"; };
 		A63173A21DA6F07000C5F954 /* updateScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = updateScheduleViewController.swift; sourceTree = "<group>"; };
 		A648A6711DDE4B0E003B1664 /* PlayerFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerFinder.swift; sourceTree = "<group>"; };
+		A64DC2481DF1137E00E0E5CF /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
+		A64DC24A1DF1138B00E0E5CF /* StatsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsTableViewCell.swift; sourceTree = "<group>"; };
 		A65954431DD2A0F0008A544C /* TeamFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamFinder.swift; sourceTree = "<group>"; };
 		A65954451DD2A3AD008A544C /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonParser.swift; path = ../JsonParser.swift; sourceTree = "<group>"; };
 		A677D9951DD506C4002A6885 /* TeamTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamTableViewCell.swift; sourceTree = "<group>"; };
@@ -140,7 +144,9 @@
 				A6BDD50E1DAD81D900EF51A4 /* TeamFinderViewController.swift */,
 				A677D9951DD506C4002A6885 /* TeamTableViewCell.swift */,
 				A6BDD5101DAD82C400EF51A4 /* TeamStatsViewController.swift */,
+				A64DC2481DF1137E00E0E5CF /* PlayerTableViewCell.swift */,
 				A6BDD5121DAD86C900EF51A4 /* PlayerStatsViewController.swift */,
+				A64DC24A1DF1138B00E0E5CF /* StatsTableViewCell.swift */,
 			);
 			name = "Stat Viewing";
 			sourceTree = "<group>";
@@ -349,12 +355,14 @@
 				A631739F1DA6ED5B00C5F954 /* TeamBioViewController.swift in Sources */,
 				A6BDD5111DAD82C400EF51A4 /* TeamStatsViewController.swift in Sources */,
 				A65954441DD2A0F0008A544C /* TeamFinder.swift in Sources */,
+				A64DC2491DF1137F00E0E5CF /* PlayerTableViewCell.swift in Sources */,
 				A6BDD5131DAD86C900EF51A4 /* PlayerStatsViewController.swift in Sources */,
 				A6BDD50D1DAD804F00EF51A4 /* GameCastViewController.swift in Sources */,
 				A6BDD5091DAD7DC500EF51A4 /* StatTrackViewController.swift in Sources */,
 				A6DC75091D889FAA00E0834C /* Ultimate_Project.xcdatamodeld in Sources */,
 				A6DC75031D889FAA00E0834C /* MainViewController.swift in Sources */,
 				A63173A11DA6F06200C5F954 /* updateRosterViewController.swift in Sources */,
+				A64DC24B1DF1138B00E0E5CF /* StatsTableViewCell.swift in Sources */,
 				A6DC75011D889FAA00E0834C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
