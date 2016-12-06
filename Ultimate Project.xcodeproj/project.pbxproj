@@ -25,6 +25,7 @@
 		A6BDD50F1DAD81D900EF51A4 /* TeamFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD50E1DAD81D900EF51A4 /* TeamFinderViewController.swift */; };
 		A6BDD5111DAD82C400EF51A4 /* TeamStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD5101DAD82C400EF51A4 /* TeamStatsViewController.swift */; };
 		A6BDD5131DAD86C900EF51A4 /* PlayerStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD5121DAD86C900EF51A4 /* PlayerStatsViewController.swift */; };
+		A6D71EA41DF7560E00952763 /* AddOldStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D71EA31DF7560E00952763 /* AddOldStatsViewController.swift */; };
 		A6DC75011D889FAA00E0834C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DC75001D889FAA00E0834C /* AppDelegate.swift */; };
 		A6DC75031D889FAA00E0834C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DC75021D889FAA00E0834C /* MainViewController.swift */; };
 		A6DC75061D889FAA00E0834C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6DC75041D889FAA00E0834C /* Main.storyboard */; };
@@ -71,6 +72,7 @@
 		A6BDD50E1DAD81D900EF51A4 /* TeamFinderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamFinderViewController.swift; sourceTree = "<group>"; };
 		A6BDD5101DAD82C400EF51A4 /* TeamStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamStatsViewController.swift; sourceTree = "<group>"; };
 		A6BDD5121DAD86C900EF51A4 /* PlayerStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStatsViewController.swift; sourceTree = "<group>"; };
+		A6D71EA31DF7560E00952763 /* AddOldStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOldStatsViewController.swift; sourceTree = "<group>"; };
 		A6DC74FD1D889FA900E0834C /* Ultimate Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ultimate Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6DC75001D889FAA00E0834C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6DC75021D889FAA00E0834C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				A63173A21DA6F07000C5F954 /* updateScheduleViewController.swift */,
 				A6BDD5061DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift */,
 				A6BDD5081DAD7DC500EF51A4 /* StatTrackViewController.swift */,
+				A6D71EA31DF7560E00952763 /* AddOldStatsViewController.swift */,
 			);
 			name = "Stat Tracking";
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				A631739F1DA6ED5B00C5F954 /* TeamBioViewController.swift in Sources */,
 				A6BDD5111DAD82C400EF51A4 /* TeamStatsViewController.swift in Sources */,
 				A65954441DD2A0F0008A544C /* TeamFinder.swift in Sources */,
+				A6D71EA41DF7560E00952763 /* AddOldStatsViewController.swift in Sources */,
 				A64DC2491DF1137F00E0E5CF /* PlayerTableViewCell.swift in Sources */,
 				A6BDD5131DAD86C900EF51A4 /* PlayerStatsViewController.swift in Sources */,
 				A6BDD50D1DAD804F00EF51A4 /* GameCastViewController.swift in Sources */,

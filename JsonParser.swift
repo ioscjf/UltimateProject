@@ -106,8 +106,8 @@ class JsonParser {
             if let data = data {
                 
                 // MARK: - For debugging purposes
-                 let responseString = String(data: data, encoding: .utf8)
-                 print("responseString = \(responseString)")
+//                 let responseString = String(data: data, encoding: .utf8)
+//                 print("responseString = \(responseString)")
                 
                 let json = try? JSONSerialization.jsonObject(with: data, options: [])
                 if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {
