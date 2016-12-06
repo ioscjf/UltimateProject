@@ -71,6 +71,18 @@ class JsonParser {
         }
     }
     
+    func addTeam(team: TeamFinder) {
+        let postString = "teamName=\(team.team!)&school=\(team.school!)&competitionDivision=\(team.division!)&year=\(team.year!)&region=\(team.region!)&conference=\(team.conference!)"
+        post(clientURLRequest("addTeam.php"), message: postString) { (success, object) in
+        }
+    }
+    
+    func addStats(stat: StatFinder) {
+        let postString = "playerName=\(stat.playerName!)&year=\(stat.year!)&scores=\(stat.scores!)&assists=\(stat.assists!)&offensivePointsPlayed=\(stat.offensivePointsPlayed!)&defensivePointsPlayed=\(stat.defensivePointsPlayed!)&drops=\(stat.drops!)&catches=\(stat.catches!)&completions=\(stat.completions!)"
+        post(clientURLRequest("addStats.php"), message: postString) { (success, object) in
+        }
+    }
+    
     fileprivate func post(_ request: NSMutableURLRequest, message: String?, completion: @escaping (_ success: Bool, _ object: AnyObject?) -> ()) {
         dataTask(request, method: "POST", message: message, completion: completion)
     }
