@@ -14,6 +14,7 @@ class PlayerTableViewCell: UITableViewCell {
     
     @IBOutlet weak var playerName: UILabel!
     @IBOutlet weak var position: UILabel!
+    @IBOutlet weak var jerseyNumber: UILabel!
     @IBOutlet weak var age: UILabel!
     @IBOutlet weak var height: UILabel!
     @IBOutlet weak var school: UILabel!
@@ -26,5 +27,6 @@ class PlayerTableViewCell: UITableViewCell {
         age.text = "Age: \(player.age!)"
         height.text = "Height: \(player.height!)"
         school.text = "School: \(player.school!)"
+        jerseyNumber.text = "Jersey Number: \(player.jerseyNumber!)"
     }
 }

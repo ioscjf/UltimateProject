@@ -44,18 +44,6 @@ class TeamFinderViewController: UIViewController {
             self?.teamTable.reloadData()
             })
         }
-        
-        
-//        var player: String?
-//        var position: String?
-//        var age: Int?
-//        var height: String? // NOTE: How did we decide to format this?
-//        var school: String?
-//        var jerseyNumber: Int?
-        
-        let d: [String: AnyObject] = ["Name" : "Eshetie Tarekegn" as AnyObject, "Position" : "Cutter" as AnyObject, "Age" : "21" as AnyObject, "Height" : "72" as AnyObject, "School" : "Luther College" as AnyObject, "JerseyNumber" : "19" as AnyObject]
-        let p = PlayerFinder(json: d as Dictionary<String, AnyObject>)
-        JsonParser.jsonClient.addPlayer(player: p!)
     }
 
     override func didReceiveMemoryWarning() {
