@@ -14,7 +14,7 @@ class AddOldStatsViewController: UIViewController {
     
     @IBAction func addStats(_ sender: UIButton) {
         
-        let s = PlayerFinder(json: statDict as Dictionary<String, AnyObject>)
+        let s = StatFinder(json: statDict as Dictionary<String, AnyObject>)
         JsonParser.jsonClient.addStats(stat: s!)
         
         if self.presentingViewController != nil {
@@ -38,12 +38,33 @@ class AddOldStatsViewController: UIViewController {
     @IBOutlet weak var catches: UITextField!
     @IBOutlet weak var completions: UITextField!
     
+    // MARK: - Variables
+    
+    var statDict: [String: AnyObject] = [:]
+    var activeTextField = UITextField()
+    
     // MARK: - Overrides
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        playerName.delegate = self
+        year.delegate = self
+        year.keyboardType = UIKeyboardType.numberPad // NOTE: Additional support needed for iPad
+        scores.delegate = self
+        scores.keyboardType = UIKeyboardType.numberPad // NOTE: Additional support needed for iPad
+        assists.delegate = self
+        assists.keyboardType = UIKeyboardType.numberPad // NOTE: Addtional support needed for iPad
+        offensivePointsPlayed.delegate = self
+        offensivePointsPlayed.keyboardType = UIKeyboardType.numberPad // NOTE: Additional support needed for iPad
+        defensivePointsPlayed.delegate = self
+        defensivePointsPlayed.keyboardType = UIKeyboardType.numberPad // NOTE: Addditional support needed for iPad
+        drops.delegate = self
+        drops.keyboardType = UIKeyboardType.numberPad // NOTE: Additional support needed for iPad
+        catches.delegate = self
+        catches.keyboardType = UIKeyboardType.numberPad // NOTE: Additional support needed for iPad
+        completions.delegate = self
+        completions.keyboardType = UIKeyboardType.numberPad // NOTE: Additional support needed for iPad
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,4 +81,85 @@ class AddOldStatsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+}
+
+extension AddOldStatsViewController: UITextFieldDelegate {
+    
+    func createStat() { // else cases handle nil input
+        if let name = playerName.text {
+            statDict["PlayerName"] = name as AnyObject!
+        } else {
+            statDict["PlayerName"] = "" as AnyObject!
+        }
+        
+        if let year = year.text {
+            statDict["Year"] = year as AnyObject!
+        } else {
+            statDict["Year"] = 0 as AnyObject!
+        }
+        
+        if let scores = scores.text {
+            statDict["Scores"] = scores as AnyObject!
+        } else {
+            statDict["Scores"] = 0 as AnyObject!
+        }
+        
+        if let assists = assists.text {
+            statDict["Assists"] = assists as AnyObject!
+        } else {
+            statDict["Assists"] = 0 as AnyObject!
+        }
+        
+        if let offensivePointsPlayed = offensivePointsPlayed.text {
+            statDict["OffensivePointsPlayed"] = offensivePointsPlayed as AnyObject!
+        } else {
+            statDict["OffensivePointsPlayed"] = 0 as AnyObject!
+        }
+        
+        if let defensivePointsPlayed = defensivePointsPlayed.text {
+            statDict["DefensivePointsPlayed"] = defensivePointsPlayed as AnyObject!
+        } else {
+            statDict["DefensivePointsPlayed"] = 0 as AnyObject!
+        }
+        
+        if let drops = drops.text {
+            statDict["Drops"] = drops as AnyObject!
+        } else {
+            statDict["Drops"] = 0 as AnyObject!
+        }
+        
+        if let catches = catches.text {
+            statDict["Catches"] = catches as AnyObject!
+        } else {
+            statDict["Catches"] = 0 as AnyObject!
+        }
+        
+        if let completions = completions.text {
+            statDict["Completions"] = completions as AnyObject!
+        } else {
+            statDict["Completions"] = 0 as AnyObject!
+        }
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        // TextField should begin editing method
+        self.activeTextField = textField
+        createStat()
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // While entering the characters this method gets called
+        self.activeTextField = textField
+        createStat()
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // TextField should return method
+        self.activeTextField = textField
+        createStat()
+        textField.resignFirstResponder();
+        return true;
+    }
 }
