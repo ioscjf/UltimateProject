@@ -56,7 +56,7 @@ class JsonParser {
                         if let stat = StatFinder(json: result) {
                             stats.append(stat)
                         } else {
-                            print("ERROR GETTING STATS: \(result)")
+                            print(result)
                         }
                     }
                 }
@@ -72,7 +72,7 @@ class JsonParser {
     }
     
     func addTeam(team: TeamFinder) {
-        let postString = "teamName=\(team.team!)&school=\(team.school!)&competitionDivision=\(team.division!)&year=\(team.year!)&state=\(team.state!)&region=\(team.region!)&conference=\(team.conference!)"
+        let postString = "teamName=\(team.team!)&school=\(team.school!)&competitionDivision=\(team.division!)&year=\(team.year!)&region=\(team.region!)&conference=\(team.conference!)"
         post(clientURLRequest("addTeam.php"), message: postString) { (success, object) in
         }
     }
@@ -106,8 +106,8 @@ class JsonParser {
             if let data = data {
                 
                 // MARK: - For debugging purposes
-//                 let responseString = String(data: data, encoding: .utf8)
-//                 print("responseString = \(responseString)")
+                 let responseString = String(data: data, encoding: .utf8)
+                 print("responseString = \(responseString)")
                 
                 let json = try? JSONSerialization.jsonObject(with: data, options: [])
                 if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {

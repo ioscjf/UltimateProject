@@ -16,16 +16,11 @@ class TeamBioViewController: UIViewController {
         if self.presentingViewController != nil {
             self.dismiss(animated: false, completion: nil)
         }
-        
-        print(self.presentingViewController?.description)
     }
     
     @IBOutlet weak var roster: UITableView!
     @IBOutlet weak var schedule: UITableView!
     
-    // MARK: - Variables
-    
-    var teamName = ""
     
     // MARK: - Overrides
 
