@@ -21,6 +21,9 @@ class TeamBioViewController: UIViewController {
     @IBOutlet weak var roster: UITableView!
     @IBOutlet weak var schedule: UITableView!
     
+    // MARK: - Variables
+    
+    var teamName = ""
     
     // MARK: - Overrides
 

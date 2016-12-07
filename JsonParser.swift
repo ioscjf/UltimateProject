@@ -72,7 +72,7 @@ class JsonParser {
     }
     
     func addTeam(team: TeamFinder) {
-        let postString = "teamName=\(team.team!)&school=\(team.school!)&competitionDivision=\(team.division!)&year=\(team.year!)&region=\(team.region!)&conference=\(team.conference!)"
+        let postString = "teamName=\(team.team!)&school=\(team.school!)&competitionDivision=\(team.division!)&year=\(team.year!)&state=\(team.state!)&region=\(team.region!)&conference=\(team.conference!)"
         post(clientURLRequest("addTeam.php"), message: postString) { (success, object) in
         }
     }
