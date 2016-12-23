@@ -35,6 +35,8 @@
 		A6DC750E1D889FAA00E0834C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6DC750C1D889FAA00E0834C /* LaunchScreen.storyboard */; };
 		A6DC75191D889FAA00E0834C /* Ultimate_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DC75181D889FAA00E0834C /* Ultimate_ProjectTests.swift */; };
 		A6DC75241D889FAA00E0834C /* Ultimate_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DC75231D889FAA00E0834C /* Ultimate_ProjectUITests.swift */; };
+		A6F848DE1E0CAFE3009CA702 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F848DC1E0CAFE3009CA702 /* Fabric.framework */; };
+		A6F848DF1E0CAFE3009CA702 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F848DD1E0CAFE3009CA702 /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,8 @@
 		A6DC751F1D889FAA00E0834C /* Ultimate ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ultimate ProjectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6DC75231D889FAA00E0834C /* Ultimate_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ultimate_ProjectUITests.swift; sourceTree = "<group>"; };
 		A6DC75251D889FAA00E0834C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6F848DC1E0CAFE3009CA702 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		A6F848DD1E0CAFE3009CA702 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6F848DF1E0CAFE3009CA702 /* Crashlytics.framework in Frameworks */,
+				A6F848DE1E0CAFE3009CA702 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +166,8 @@
 		A6DC74F41D889FA900E0834C = {
 			isa = PBXGroup;
 			children = (
+				A6F848DC1E0CAFE3009CA702 /* Fabric.framework */,
+				A6F848DD1E0CAFE3009CA702 /* Crashlytics.framework */,
 				A6DC74FF1D889FAA00E0834C /* Ultimate Project */,
 				A6DC75171D889FAA00E0834C /* Ultimate ProjectTests */,
 				A6DC75221D889FAA00E0834C /* Ultimate ProjectUITests */,
@@ -222,6 +230,7 @@
 				A6DC74F91D889FA900E0834C /* Sources */,
 				A6DC74FA1D889FA900E0834C /* Frameworks */,
 				A6DC74FB1D889FA900E0834C /* Resources */,
+				A6F848DB1E0CAFB9009CA702 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -343,6 +352,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A6F848DB1E0CAFB9009CA702 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run bbc08faa2dbd509df4ea3197d2f4a1f17dedfc6f 6d6e4bb505168b7a6fe98bea926f2f11ace695fbed57b60214dd988fcd586bc3";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A6DC74F91D889FA900E0834C /* Sources */ = {
@@ -521,6 +546,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FSLX2JP624;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Ultimate Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cjf.edu.luther.cs353.Ultimate-Project";
@@ -534,6 +563,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FSLX2JP624;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Ultimate Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cjf.edu.luther.cs353.Ultimate-Project";
