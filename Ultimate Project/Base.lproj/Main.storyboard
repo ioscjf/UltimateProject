@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0wj-tz-Bbb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0wj-tz-Bbb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,34 +35,33 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSX-YJ-dCV">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfw-Su-ofl">
                                 <rect key="frame" x="16" y="104" width="343" height="30"/>
+                                <state key="normal" title="Sign in with Twitter"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSX-YJ-dCV">
+                                <rect key="frame" x="16" y="142" width="343" height="30"/>
                                 <state key="normal" title="Create a New Team"/>
                                 <connections>
                                     <action selector="newTeam:" destination="SnT-B2-kQd" eventType="touchUpInside" id="9fV-D9-r57"/>
                                     <segue destination="rA2-Nv-CcL" kind="showDetail" id="b4j-iz-BXJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vff-Xy-bmu">
-                                <rect key="frame" x="16" y="142" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="CHEAT"/>
-                                <connections>
-                                    <segue destination="U6Q-je-tXn" kind="showDetail" id="mvL-4R-wrb"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FwR-zF-yd9" firstAttribute="trailing" secondItem="aSX-YJ-dCV" secondAttribute="trailing" id="3HK-ic-G7Y"/>
-                            <constraint firstItem="c9Z-vt-UKt" firstAttribute="top" secondItem="9iZ-JL-rHI" secondAttribute="bottom" constant="8" symbolic="YES" id="3N3-d6-LCj"/>
-                            <constraint firstItem="FwR-zF-yd9" firstAttribute="leading" secondItem="aSX-YJ-dCV" secondAttribute="leading" id="H2a-Gn-KnG"/>
-                            <constraint firstItem="c9Z-vt-UKt" firstAttribute="leading" secondItem="Not-Rk-XtE" secondAttribute="leadingMargin" id="Ppc-6g-6Do"/>
-                            <constraint firstItem="c9Z-vt-UKt" firstAttribute="trailing" secondItem="Not-Rk-XtE" secondAttribute="trailingMargin" id="QVz-jt-O8s"/>
-                            <constraint firstItem="c9Z-vt-UKt" firstAttribute="leading" secondItem="FwR-zF-yd9" secondAttribute="leading" id="UJF-Mc-1j7"/>
-                            <constraint firstItem="FwR-zF-yd9" firstAttribute="top" secondItem="c9Z-vt-UKt" secondAttribute="bottom" constant="8" symbolic="YES" id="jCX-rC-oDA"/>
-                            <constraint firstItem="c9Z-vt-UKt" firstAttribute="trailing" secondItem="FwR-zF-yd9" secondAttribute="trailing" id="jNm-SY-uhK"/>
-                            <constraint firstItem="aSX-YJ-dCV" firstAttribute="top" secondItem="FwR-zF-yd9" secondAttribute="bottom" constant="8" symbolic="YES" id="kbz-gw-g1Z"/>
+                            <constraint firstItem="Gfw-Su-ofl" firstAttribute="leading" secondItem="aSX-YJ-dCV" secondAttribute="leading" id="0hh-iq-Y9S"/>
+                            <constraint firstItem="c9Z-vt-UKt" firstAttribute="trailing" secondItem="Not-Rk-XtE" secondAttribute="trailingMargin" id="26b-LZ-9NY"/>
+                            <constraint firstItem="c9Z-vt-UKt" firstAttribute="trailing" secondItem="FwR-zF-yd9" secondAttribute="trailing" id="2n7-Mw-1yk"/>
+                            <constraint firstItem="c9Z-vt-UKt" firstAttribute="leading" secondItem="Not-Rk-XtE" secondAttribute="leadingMargin" id="2wP-C6-WYB"/>
+                            <constraint firstItem="Gfw-Su-ofl" firstAttribute="trailing" secondItem="aSX-YJ-dCV" secondAttribute="trailing" id="474-h6-4L0"/>
+                            <constraint firstItem="aSX-YJ-dCV" firstAttribute="top" secondItem="Gfw-Su-ofl" secondAttribute="bottom" constant="8" symbolic="YES" id="BbX-8T-k8f"/>
+                            <constraint firstItem="c9Z-vt-UKt" firstAttribute="top" secondItem="9iZ-JL-rHI" secondAttribute="bottom" constant="8" symbolic="YES" id="Ofg-yw-oWw"/>
+                            <constraint firstItem="FwR-zF-yd9" firstAttribute="leading" secondItem="Gfw-Su-ofl" secondAttribute="leading" id="eQj-l1-Nzb"/>
+                            <constraint firstItem="c9Z-vt-UKt" firstAttribute="leading" secondItem="FwR-zF-yd9" secondAttribute="leading" id="fJG-vM-ZEg"/>
+                            <constraint firstItem="FwR-zF-yd9" firstAttribute="trailing" secondItem="Gfw-Su-ofl" secondAttribute="trailing" id="g2b-1V-X1d"/>
+                            <constraint firstItem="Gfw-Su-ofl" firstAttribute="top" secondItem="FwR-zF-yd9" secondAttribute="bottom" constant="8" symbolic="YES" id="ogF-JC-52F"/>
+                            <constraint firstItem="FwR-zF-yd9" firstAttribute="top" secondItem="c9Z-vt-UKt" secondAttribute="bottom" constant="8" symbolic="YES" id="vhD-lC-EHP"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Team" id="efu-Q7-WsG"/>
@@ -76,6 +75,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="passwordTextField" destination="FwR-zF-yd9" id="9Jf-W2-GhU"/>
+                        <outlet property="signIn" destination="Gfw-Su-ofl" id="uVV-R1-RjB"/>
                         <outlet property="teamNameTextField" destination="c9Z-vt-UKt" id="b05-sI-8Ai"/>
                         <segue destination="U6Q-je-tXn" kind="showDetail" id="vBg-Pd-ztD"/>
                     </connections>
@@ -1994,8 +1994,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="x2H-sZ-VIP"/>
-        <segue reference="vBg-Pd-ztD"/>
         <segue reference="vLe-Mj-JKT"/>
+        <segue reference="x2H-sZ-VIP"/>
     </inferredMetricsTieBreakers>
 </document>

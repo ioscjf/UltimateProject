@@ -17,6 +17,9 @@
 		A64DC24B1DF1138B00E0E5CF /* StatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DC24A1DF1138B00E0E5CF /* StatsTableViewCell.swift */; };
 		A65954441DD2A0F0008A544C /* TeamFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65954431DD2A0F0008A544C /* TeamFinder.swift */; };
 		A65954461DD2A3AD008A544C /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65954451DD2A3AD008A544C /* JsonParser.swift */; };
+		A65D40261E4A7AE700087229 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65D40231E4A7AE700087229 /* TwitterKit.framework */; };
+		A65D40271E4A7AE700087229 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A65D40241E4A7AE700087229 /* TwitterKitResources.bundle */; };
+		A65D40281E4A7AE700087229 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65D40251E4A7AE700087229 /* TwitterCore.framework */; };
 		A677D9961DD506C4002A6885 /* TeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A677D9951DD506C4002A6885 /* TeamTableViewCell.swift */; };
 		A6858F731DF7BA5A00465E7F /* AddTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6858F721DF7BA5A00465E7F /* AddTeamViewController.swift */; };
 		A6BDD5071DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD5061DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift */; };
@@ -67,6 +70,9 @@
 		A64DC24A1DF1138B00E0E5CF /* StatsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsTableViewCell.swift; sourceTree = "<group>"; };
 		A65954431DD2A0F0008A544C /* TeamFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamFinder.swift; sourceTree = "<group>"; };
 		A65954451DD2A3AD008A544C /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonParser.swift; path = ../JsonParser.swift; sourceTree = "<group>"; };
+		A65D40231E4A7AE700087229 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		A65D40241E4A7AE700087229 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		A65D40251E4A7AE700087229 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		A677D9951DD506C4002A6885 /* TeamTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamTableViewCell.swift; sourceTree = "<group>"; };
 		A6858F721DF7BA5A00465E7F /* AddTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamViewController.swift; sourceTree = "<group>"; };
 		A6BDD5061DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOpponentPlayerViewController.swift; sourceTree = "<group>"; };
@@ -101,7 +107,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6F848DF1E0CAFE3009CA702 /* Crashlytics.framework in Frameworks */,
+				A65D40281E4A7AE700087229 /* TwitterCore.framework in Frameworks */,
 				A6F848DE1E0CAFE3009CA702 /* Fabric.framework in Frameworks */,
+				A65D40261E4A7AE700087229 /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +174,9 @@
 		A6DC74F41D889FA900E0834C = {
 			isa = PBXGroup;
 			children = (
+				A65D40231E4A7AE700087229 /* TwitterKit.framework */,
+				A65D40241E4A7AE700087229 /* TwitterKitResources.bundle */,
+				A65D40251E4A7AE700087229 /* TwitterCore.framework */,
 				A6F848DC1E0CAFE3009CA702 /* Fabric.framework */,
 				A6F848DD1E0CAFE3009CA702 /* Crashlytics.framework */,
 				A6DC74FF1D889FAA00E0834C /* Ultimate Project */,
@@ -331,6 +342,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A65D40271E4A7AE700087229 /* TwitterKitResources.bundle in Resources */,
 				A6DC750E1D889FAA00E0834C /* LaunchScreen.storyboard in Resources */,
 				A6DC750B1D889FAA00E0834C /* Assets.xcassets in Resources */,
 				A6DC75061D889FAA00E0834C /* Main.storyboard in Resources */,
