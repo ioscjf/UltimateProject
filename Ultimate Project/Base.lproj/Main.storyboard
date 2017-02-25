@@ -77,7 +77,7 @@
                         <outlet property="passwordTextField" destination="FwR-zF-yd9" id="9Jf-W2-GhU"/>
                         <outlet property="signIn" destination="Gfw-Su-ofl" id="uVV-R1-RjB"/>
                         <outlet property="teamNameTextField" destination="c9Z-vt-UKt" id="b05-sI-8Ai"/>
-                        <segue destination="U6Q-je-tXn" kind="showDetail" id="vBg-Pd-ztD"/>
+                        <segue destination="U6Q-je-tXn" kind="showDetail" identifier="LoggedIn" id="vBg-Pd-ztD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qyK-vQ-bdv" userLabel="First Responder" sceneMemberID="firstResponder"/>
