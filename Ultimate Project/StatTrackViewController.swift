@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TwitterKit
 
 class StatTrackViewController: UIViewController {
     
@@ -33,6 +34,7 @@ class StatTrackViewController: UIViewController {
     @IBOutlet weak var rosterBTable: UITableView!
     
     @IBAction func score(_ sender: UIButton) {
+        tweet()
     }
     
     @IBAction func passingFoul(_ sender: UIButton) {
@@ -57,7 +59,24 @@ class StatTrackViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func tweet() {
+        // Swift
+        let composer = TWTRComposer()
+        
+        composer.setText("just setting up my Fabric")
+        composer.setImage(UIImage(named: "fabric"))
+        
+        // Called from a UIViewController
+        composer.show(from: self) { result in
+            if (result == TWTRComposerResult.cancelled) {
+                print("Tweet composition cancelled")
+            }
+            else {
+                print("Sending tweet!")
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
