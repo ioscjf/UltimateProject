@@ -66,7 +66,7 @@ class JsonParser {
     }
     
     func addPlayer(player: PlayerFinder) {
-        let postString = "playerName=\(player.player!)&position=\(player.position!)&age=\(player.age!)&height=\(player.height!)&school=\(player.school!)&jerseyNum=\(player.jerseyNumber!)"
+        let postString = "nameFirst=\(player.nameFirst!)&nameLast=\(player.nameLast!)&position=\(player.position!)&birthday=\(player.birthday!)&heightFeet=\(player.heightFeet!)&heightInches=\(player.heightInches!)&weight=\(player.weight!)&jerseyNum=\(player.jerseyNum!)&nickname=\(player.nickname!)"
         post(clientURLRequest("addPlayer.php"), message: postString) { (success, object) in
         }
     }
@@ -92,7 +92,7 @@ class JsonParser {
     }
     
     fileprivate func clientURLRequest(_ path: String, params: Dictionary<String, AnyObject>? = nil) -> NSMutableURLRequest {
-        let request = NSMutableURLRequest(url: URL(string: "http://45.55.95.100/"+path)!)
+        let request = NSMutableURLRequest(url: URL(string: "http://45.55.95.100/mattTest/"+path)!)
         return request
     }
     

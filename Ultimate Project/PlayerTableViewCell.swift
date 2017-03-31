@@ -22,11 +22,12 @@ class PlayerTableViewCell: UITableViewCell {
     // MARK: - Configuration
 
     func configure(_ player: PlayerFinder) {
-        playerName.text = "Player: \(player.player!)"
-        position.text = "Position: \(player.position!)"
-        age.text = "Age: \(player.age!)"
-        height.text = "Height: \(player.height!)"
-        school.text = "School: \(player.school!)"
-        jerseyNumber.text = "Jersey Number: \(player.jerseyNumber!)"
+//        playerName.text = "Player: \(player.player!)"
+//        position.text = "Position: \(player.position!)"
+//        age.text = "Age: \(player.age!)"
+//        height.text = "Height: \(player.height!)"
+//        school.text = "School: \(player.school!)"
+//        jerseyNumber.text = "Jersey Number: \(player.jerseyNumber!)"
+//    }
     }
 }

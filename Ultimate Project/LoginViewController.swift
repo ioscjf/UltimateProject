@@ -25,37 +25,27 @@ class LoginViewController: UIViewController {
     @IBAction func newTeam(_ sender: UIButton) {
     }
     
-    @IBOutlet weak var signIn: TWTRLogInButton!
+    @IBOutlet weak var twitterSignIn: TWTRLogInButton!
+    
+    @IBAction func signIn(_ sender: UIButton) {
+        Twitter.sharedInstance().logIn { session, error in
+            if let unwrappedSession = session {
+                let defaults = UserDefaults.standard
+                defaults.set(unwrappedSession.authToken, forKey: "session")
+                defaults.synchronize()
+                
+                print("\(unwrappedSession.userName) has logged in")
+                self.performSegue(withIdentifier: "LoggedIn", sender: nil)
+            } else {
+                print("Login error: %@", error!.localizedDescription)
+            }
+        }
+    }
     
     // MARK: - Overrides
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let logInButton = TWTRLogInButton { (session, error) in
-            if let unwrappedSession = session {
-//                let alert = UIAlertController(title: "Logged In",
-//                                              message: "User \(unwrappedSession.userName) has logged in",
-//                    preferredStyle: UIAlertControllerStyle.alert
-//                    
-//                )
-                //alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                //self.present(alert, animated: true, completion: nil)
-                self.performSegue(withIdentifier: "LoggedIn", sender: self)
-            } else {
-                NSLog("Login error: %@", error!.localizedDescription);
-            }
-        }
-        
-        
-        // TODO: Change where the log in button is positioned in your view
-        
-        logInButton.center = self.view.center
-        self.view.addSubview(logInButton)
-        
-
-        
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

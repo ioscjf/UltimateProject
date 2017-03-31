@@ -21,6 +21,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         Fabric.with([Crashlytics.self, Twitter.self])
+        
+        let defaults = UserDefaults.standard
+        
+//        let navigationController = window!.rootViewController! as! UINavigationController
+//        navigationController.performSegue(withIdentifier: (auth != nil) ? "Login" : "AlreadyLoggedIn", sender: nil)
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let navigationController: UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+        let initialViewController: UIViewController?
+        
+        if let auth = defaults.object(forKey: "session") as? String {
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "TabViewController")
+        } else {
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        }
+        
+        navigationController.viewControllers = [initialViewController!]
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
 
         return true
     }

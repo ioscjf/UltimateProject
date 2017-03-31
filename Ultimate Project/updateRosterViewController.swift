@@ -12,33 +12,45 @@ class updateRosterViewController: UIViewController {
 
     // MARK: - Outlets
     
-    @IBAction func save(_ sender: UIButton) { // NOTE: Might need renamed
-        if self.presentingViewController != nil {
-            self.dismiss(animated: false, completion: nil)
+    @IBAction func addPlayer(_ sender: UIButton) {
+        
+        // TODO!!
+        let done = createPlayer()
+        if done {
+            let p = PlayerFinder(json: playerDict as Dictionary<String, AnyObject>)
+            JsonParser.jsonClient.addPlayer(player: p!)
+        } else {
+            alert()
         }
+        
+        // refresh table UI
     }
     
-    @IBOutlet weak var playerName: UITextField!
-    @IBOutlet weak var playerNumber: UITextField!
-    @IBOutlet weak var playerPosition: UITextField!
-    @IBOutlet weak var playerAge: UITextField!
-    @IBOutlet weak var playerHeight: UITextField!
-    @IBOutlet weak var playerSchool: UITextField!
+    @IBOutlet weak var addPlayer: UIButton!
+    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var nickname: UITextField!
+    @IBOutlet weak var jerseyNumber: UITextField!
+    @IBOutlet weak var weight: UITextField!
+    @IBOutlet weak var cutterHandlerText: UILabel!
+    @IBOutlet weak var cutterHandlerSwitch: UISwitch!
+    @IBOutlet weak var birthday: UIDatePicker!
+    @IBOutlet weak var heightFeet: UITextField!
+    @IBOutlet weak var heightInches: UITextField!
+    
+    @IBAction func cutterHandlerSwitch(_ sender: UISwitch) {
+        if cutterHandlerSwitch.isOn {
+            cutterHandlerText.text = "Cutter"
+        } else {
+            cutterHandlerText.text = "Handler"
+        }
+    }
     
     // MARK: - Variables
     
-    var playerDict: [String: AnyObject] = [:]
     var activeTextField = UITextField()
-    
-    @IBAction func addPlayer(_ sender: UIButton) {
+    var playerDict: [String: AnyObject] = [:]
 
-        let p = PlayerFinder(json: playerDict as Dictionary<String, AnyObject>)
-        JsonParser.jsonClient.addPlayer(player: p!)
-        
-        if self.presentingViewController != nil {
-            self.dismiss(animated: false, completion: nil)
-        }
-    }
     
     @IBOutlet weak var currentRoster: UITableView!
 
@@ -46,16 +58,7 @@ class updateRosterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        playerName.delegate = self
-        playerNumber.delegate = self
-        playerNumber.keyboardType = UIKeyboardType.numberPad // NOTE: Additional support needed for iPad
-        playerPosition.delegate = self
-        playerAge.delegate = self
-        playerAge.keyboardType = UIKeyboardType.numberPad // NOTE: Additional support needed for iPad
-        playerHeight.delegate = self
-        playerHeight.keyboardType = UIKeyboardType.numberPad // NOTE: Additional support needed for iPad
-        playerSchool.delegate = self
+        addDoneButton()
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,67 +75,114 @@ class updateRosterViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func alert() {
+        let alert = UIAlertController(title: "Oops!", message: "Please fill out all of the fields.", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
+            // perhaps use action.title here
+        })
+        self.present(alert, animated: true)
+    }
+    
+    func doneTyping() {
+        if firstName.text != "" && lastName.text != "" && nickname.text != "" && jerseyNumber.text != "" && weight.text != "" && heightFeet.text != "" && heightInches.text != "" {
+            addPlayer.alpha = 1.0
+        }
+    }
 }
 
 extension updateRosterViewController: UITextFieldDelegate {
     
-    func createPlayer() { // else cases handle nil input
-        if let name = playerName.text {
-            playerDict["Name"] = name as AnyObject!
-        } else {
-            playerDict["Name"] = "" as AnyObject!
-        }
-        
-        if let position = playerPosition.text {
-            playerDict["Position"] = position as AnyObject!
-        } else {
-            playerDict["Position"] = "" as AnyObject!
-        }
-        
-        if let age = playerAge.text {
-            playerDict["Age"] = age as AnyObject!
-        } else {
-            playerDict["Age"] = 0 as AnyObject!
-        }
-        
-        if let height = playerHeight.text {
-            playerDict["Height"] = height as AnyObject!
-        } else {
-            playerDict["Height"] = 0 as AnyObject!
-        }
-        
-        if let school = playerSchool.text {
-            playerDict["School"] = school as AnyObject!
-        } else {
-            playerDict["School"] = "" as AnyObject!
-        }
+    func addDoneButton() {
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                            target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                            target: view, action: #selector(UIView.endEditing(_:)))
+        keyboardToolbar.items = [flexBarButton, doneBarButton]
+        weight.inputAccessoryView = keyboardToolbar
+        jerseyNumber.inputAccessoryView = keyboardToolbar
+        heightFeet.inputAccessoryView = keyboardToolbar
+        heightInches.inputAccessoryView = keyboardToolbar
+    }
     
-        if let jerseyNumber = playerNumber.text {
-            playerDict["JerseyNumber"] = jerseyNumber as AnyObject!
+    func createPlayer() -> Bool {
+        if firstName.text != "" && lastName.text != "" && nickname.text != "" && jerseyNumber.text != "" && weight.text != "" && heightInches.text != "" && heightFeet.text != "" {
+            
+            if let fn = firstName.text {
+                playerDict["nameFirst"] = fn as AnyObject
+            } else {
+                print("FN")
+            }
+            
+            if let ln = lastName.text {
+                playerDict["nameLast"] = ln as AnyObject
+            } else {
+                print("LN")
+            }
+            
+            if let nn = nickname.text {
+                playerDict["nickname"] = nn as AnyObject
+            } else {
+                print("NN")
+            }
+            
+            if let jn = jerseyNumber.text {
+                playerDict["jerseyNum"] = jn as AnyObject
+            } else {
+                print("JN")
+            }
+            
+            if let w = weight.text {
+                playerDict["weight"] = w as AnyObject
+            } else {
+                print("W")
+            }
+            
+            if let hf = heightFeet.text {
+                if let hi = heightInches.text {
+                    playerDict["height"] = (Int(hf)! + (Int(hi)! * 12)) as AnyObject
+                } else {
+                    print("HI")
+                }
+            } else {
+                print("HF")
+            }
+            
+            if let p = cutterHandlerText.text {
+                playerDict["position"] = p as AnyObject
+            } else {
+                print("P")
+            }
+            
+            playerDict["birthday"] = birthday.date as AnyObject
+            
+            return true
         } else {
-            playerDict["JerseyNumber"] = 0 as AnyObject!
+            return false
         }
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         // TextField should begin editing method
         self.activeTextField = textField
-        createPlayer()
+        doneTyping()
         return true
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // While entering the characters this method gets called
         self.activeTextField = textField
-        createPlayer()
+        doneTyping()
         return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // TextField should return method
         self.activeTextField = textField
-        createPlayer()
         textField.resignFirstResponder();
+        doneTyping()
         return true;
     }
 }

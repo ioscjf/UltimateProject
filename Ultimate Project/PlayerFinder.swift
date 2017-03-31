@@ -10,48 +10,65 @@ import Foundation
 
 struct PlayerFinder {
     
-    var player: String?
+    var nameFirst: String?
+    var nameLast: String?
+    var nickname: String?
+    var weight: Int?
+    var jerseyNum: Int?
+    var heightFeet: Int?
+    var heightInches: Int?
     var position: String?
-    var age: Int?
-    var height: String? // NOTE: How did we decide to format this?
-    var school: String?
-    var jerseyNumber: Int?
+    var birthday: String?
     
     init?(json: Dictionary<String, AnyObject>) {
-        if let name = json["Name"] as? String {
-            self.player = name
+        if let name = json["nameFirst"] as? String {
+            self.nameFirst = name
         } else {
-            self.player = ""
+            self.nameFirst = ""
         }
         
-        if let position = json["Position"] as? String {
-            self.position = position
+        if let name = json["nameLast"] as? String {
+            self.nameLast = name
+        } else {
+            self.nameLast = ""
+        }
+        
+        if let pos = json["position"] as? String {
+            self.position = pos
         } else {
             self.position = ""
         }
         
-        if let age = Int((json["Age"] as? String)!) {
-            self.age = age
+        if let weight = Int((json["weight"] as? String)!) {
+            self.weight = weight
         } else {
-            self.age = 0
+            self.weight = 0
         }
         
-        if let height = json["Height"] as? String {
-            self.height = height
+        if let jersey = Int((json["jerseyNum"] as? String)!) {
+            self.jerseyNum = jersey
         } else {
-            self.height = ""
+            self.jerseyNum = 0
         }
         
-        if let school = json["School"] as? String {
-            self.school = school
+        if let nick = json["nickname"] as? String {
+            self.nickname = nick
         } else {
-            self.school = ""
+            self.nickname = ""
         }
         
-        if let jerseyNumber = Int((json["JerseyNumber"] as? String)!) {
-            self.jerseyNumber = jerseyNumber
+        if let birthday = json["birthday"] as? String {
+            self.birthday = birthday
         } else {
-            self.jerseyNumber = 0
+            self.birthday = "2017-01-01"
+        }
+        
+        if let height = json["height"] as? Int {
+            self.heightInches = height % 12
+            self.heightFeet = Int(height / 12)
+        } else {
+            self.heightInches = 0
+            self.heightFeet = 0
         }
     }
 }
