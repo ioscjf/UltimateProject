@@ -30,7 +30,7 @@ class JsonParser {
     }
     
     func getPlayers(_ completion: @escaping ([PlayerFinder]) -> ()) {
-        get(clientURLRequest("players.php"), message: nil) { (success, object) in
+        get(clientURLRequest("showPlayers.php"), message: nil) { (success, object) in
             var players: [PlayerFinder] = []
             
             if let object = object as? Dictionary<String, AnyObject> {

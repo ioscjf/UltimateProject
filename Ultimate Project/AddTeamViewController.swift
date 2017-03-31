@@ -70,8 +70,6 @@ class AddTeamViewController: UIViewController {
         if segue.identifier == "createTeam" {
             let destinationNavigationController = segue.destination as! UINavigationController
             let tbvc = destinationNavigationController.topViewController as!TeamBioViewController
-            
-            tbvc.teamName = teamDict["TeamName"] as! String
         }
     }
 }

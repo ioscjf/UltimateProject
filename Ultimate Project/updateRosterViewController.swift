@@ -9,6 +9,10 @@
 import UIKit
 
 class updateRosterViewController: UIViewController {
+    
+    // MARK: - Variables
+    
+    var players: [PlayerFinder] = []
 
     // MARK: - Outlets
     
@@ -37,6 +41,7 @@ class updateRosterViewController: UIViewController {
     @IBOutlet weak var birthday: UIDatePicker!
     @IBOutlet weak var heightFeet: UITextField!
     @IBOutlet weak var heightInches: UITextField!
+    @IBOutlet weak var playersTable: UITableView!
     
     @IBAction func cutterHandlerSwitch(_ sender: UISwitch) {
         if cutterHandlerSwitch.isOn {
@@ -59,6 +64,13 @@ class updateRosterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addDoneButton()
+        
+        JsonParser.jsonClient.getPlayers { [weak self](players) in
+            self?.players = players
+            DispatchQueue.main.async(execute: {
+                self?.playersTable.reloadData()
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -184,5 +196,20 @@ extension updateRosterViewController: UITextFieldDelegate {
         textField.resignFirstResponder();
         doneTyping()
         return true;
+    }
+}
+
+extension updateRosterViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return players.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "rosterplayercell", for: indexPath) as! PlayerTableViewCell
+        
+        let player = players[(indexPath as NSIndexPath).row]
+        cell.configure(player)
+        
+        return cell
     }
 }
