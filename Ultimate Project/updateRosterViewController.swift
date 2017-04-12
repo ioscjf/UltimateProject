@@ -9,10 +9,6 @@
 import UIKit
 
 class updateRosterViewController: UIViewController {
-    
-    // MARK: - Variables
-    
-    var players: [PlayerFinder] = []
 
     // MARK: - Outlets
     
@@ -55,7 +51,7 @@ class updateRosterViewController: UIViewController {
     
     var activeTextField = UITextField()
     var playerDict: [String: AnyObject] = [:]
-
+    var players: [PlayerFinder] = []
     
     @IBOutlet weak var currentRoster: UITableView!
 

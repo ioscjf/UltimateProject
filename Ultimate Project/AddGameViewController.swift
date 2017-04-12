@@ -20,6 +20,16 @@ class AddGameViewController: UIViewController {
     @IBOutlet weak var addGameLabel: UIButton!
     
     @IBAction func addGame(_ sender: UIButton) {
+        // TODO!!
+        let done = createGame()
+        if done {
+            let g = GameFinder(json: gameDict as Dictionary<String, AnyObject>)
+            JsonParser.jsonClient.addGame(player: g!)
+        } else {
+            alert()
+        }
+        
+        // refresh table UI
     }
     
     @IBOutlet weak var schedule: UITableView!
@@ -27,13 +37,20 @@ class AddGameViewController: UIViewController {
     // MARK: - Variables
     
     var games: [GameFinder] = []
+    var activeTextField = UITextField()
+    var gameDict: [String: AnyObject] = [:]
     
     // MARK: - Overrides
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        JsonParser.jsonClient.getGames { [weak self](games) in
+            self?.games = games
+            DispatchQueue.main.async(execute: {
+                self?.schedule.reloadData()
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +68,93 @@ class AddGameViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func alert() {
+        let alert = UIAlertController(title: "Oops!", message: "Please fill out all of the fields.", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
+            // perhaps use action.title here
+        })
+        self.present(alert, animated: true)
+    }
+    
+    func doneTyping() {
+        if tournamentName.text != "" && gameNumber.text != "" && location.text != "" && opponent.text != "" {
+            addGame.alpha = 1.0
+        }
+    }
+}
+
+extension updateRosterViewController: UITextFieldDelegate {
+        
+    func addDoneButton() {
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+            target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done,
+            target: view, action: #selector(UIView.endEditing(_:)))
+            keyboardToolbar.items = [flexBarButton, doneBarButton]
+            weight.inputAccessoryView = keyboardToolbar
+            jerseyNumber.inputAccessoryView = keyboardToolbar
+            heightFeet.inputAccessoryView = keyboardToolbar
+            heightInches.inputAccessoryView = keyboardToolbar
+        }
+
+    func createGame() -> Bool {
+        if tournamentName.text != "" && gameNumber.text != "" && location.text != "" && opponent.text != "" {
+            
+            if let tn = tournamentName.text {
+                gameDict["tournament"] = tn as AnyObject
+            } else {
+                print("FN")
+            }
+            
+            if let gn = gameNumber.text {
+                gameDict["gameNum"] = gn as AnyObject
+            } else {
+                print("GN")
+            }
+            
+            if let l = location.text {
+                gameDict["location"] = l as AnyObject
+            } else {
+                print("L")
+            }
+            
+            if let o = opponent.text {
+                gameDict["opponent"] = o as AnyObject
+            } else {
+                print("O")
+            }
+            
+            gameDict["date"] = gameTime.date as AnyObject
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        // TextField should begin editing method
+        self.activeTextField = textField
+        doneTyping()
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // While entering the characters this method gets called
+        self.activeTextField = textField
+        doneTyping()
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // TextField should return method
+        self.activeTextField = textField
+        textField.resignFirstResponder();
+        doneTyping()
+        return true;
+    }
 }
 
 extension AddGameViewController: UITableViewDelegate, UITableViewDataSource {
