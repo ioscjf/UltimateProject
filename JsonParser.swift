@@ -66,7 +66,7 @@ class JsonParser {
     }
     
     func addPlayer(player: PlayerFinder) {
-        let postString = "nameFirst=\(player.nameFirst!)&nameLast=\(player.nameLast!)&position=\(player.position!)&birthday=\(player.birthday!)&heightFeet=\(player.heightFeet!)&heightInches=\(player.heightInches!)&weight=\(player.weight!)&jerseyNum=\(player.jerseyNum!)&nickname=\(player.nickname!)"
+        let postString = "nameFirst=\(player.nameFirst!)&nameLast=\(player.nameLast!)&position=\(player.position!)&birthday=\(player.birthday!)&heightFeet=\(player.heightFeet!)&heightInches=\(player.heightInches!)&weight=\(player.weight!)&jerseyNum=\(player.jerseyNum!)&nickname=\(player.nickname!)&team"
         post(clientURLRequest("addPlayer.php"), message: postString) { (success, object) in
         }
     }

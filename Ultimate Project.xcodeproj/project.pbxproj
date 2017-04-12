@@ -20,6 +20,7 @@
 		A65D40261E4A7AE700087229 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65D40231E4A7AE700087229 /* TwitterKit.framework */; };
 		A65D40271E4A7AE700087229 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A65D40241E4A7AE700087229 /* TwitterKitResources.bundle */; };
 		A65D40281E4A7AE700087229 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65D40251E4A7AE700087229 /* TwitterCore.framework */; };
+		A662297D1E9DA98B000B69A1 /* GameFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A662297C1E9DA98B000B69A1 /* GameFinder.swift */; };
 		A677D9961DD506C4002A6885 /* TeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A677D9951DD506C4002A6885 /* TeamTableViewCell.swift */; };
 		A6858F731DF7BA5A00465E7F /* AddTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6858F721DF7BA5A00465E7F /* AddTeamViewController.swift */; };
 		A6BDD5071DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD5061DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift */; };
@@ -73,6 +74,7 @@
 		A65D40231E4A7AE700087229 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		A65D40241E4A7AE700087229 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		A65D40251E4A7AE700087229 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		A662297C1E9DA98B000B69A1 /* GameFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameFinder.swift; sourceTree = "<group>"; };
 		A677D9951DD506C4002A6885 /* TeamTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamTableViewCell.swift; sourceTree = "<group>"; };
 		A6858F721DF7BA5A00465E7F /* AddTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamViewController.swift; sourceTree = "<group>"; };
 		A6BDD5061DAD7BB800EF51A4 /* AddOpponentPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOpponentPlayerViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A662297E1E9DAE6B000B69A1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A65954451DD2A3AD008A544C /* JsonParser.swift */,
+				A61CAABB1DEE23F600E6B813 /* StatFinder.swift */,
+				A662297C1E9DA98B000B69A1 /* GameFinder.swift */,
+				A648A6711DDE4B0E003B1664 /* PlayerFinder.swift */,
+				A65954431DD2A0F0008A544C /* TeamFinder.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		A6BDD5031DAD788A00EF51A4 /* Stat Tracking */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,10 +171,6 @@
 		A6BDD5051DAD789700EF51A4 /* Stat Viewing */ = {
 			isa = PBXGroup;
 			children = (
-				A65954451DD2A3AD008A544C /* JsonParser.swift */,
-				A61CAABB1DEE23F600E6B813 /* StatFinder.swift */,
-				A648A6711DDE4B0E003B1664 /* PlayerFinder.swift */,
-				A65954431DD2A0F0008A544C /* TeamFinder.swift */,
 				A6BDD50E1DAD81D900EF51A4 /* TeamFinderViewController.swift */,
 				A677D9951DD506C4002A6885 /* TeamTableViewCell.swift */,
 				A6BDD5101DAD82C400EF51A4 /* TeamStatsViewController.swift */,
@@ -199,6 +209,7 @@
 		A6DC74FF1D889FAA00E0834C /* Ultimate Project */ = {
 			isa = PBXGroup;
 			children = (
+				A662297E1E9DAE6B000B69A1 /* API */,
 				A6BDD5051DAD789700EF51A4 /* Stat Viewing */,
 				A6BDD5041DAD789000EF51A4 /* GameCast */,
 				A6BDD5031DAD788A00EF51A4 /* Stat Tracking */,
@@ -407,6 +418,7 @@
 				A6DC75091D889FAA00E0834C /* Ultimate_Project.xcdatamodeld in Sources */,
 				A6DC75031D889FAA00E0834C /* MainViewController.swift in Sources */,
 				A63173A11DA6F06200C5F954 /* updateRosterViewController.swift in Sources */,
+				A662297D1E9DA98B000B69A1 /* GameFinder.swift in Sources */,
 				A64DC24B1DF1138B00E0E5CF /* StatsTableViewCell.swift in Sources */,
 				A6DC75011D889FAA00E0834C /* AppDelegate.swift in Sources */,
 			);
