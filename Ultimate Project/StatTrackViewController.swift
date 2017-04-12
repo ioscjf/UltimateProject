@@ -11,6 +11,8 @@ import TwitterKit
 
 class StatTrackViewController: UIViewController {
     
+    // MARK: - Variables
+    
     // MARK: - Outlets
     
     @IBAction func exit(_ sender: UIBarButtonItem) {
@@ -19,10 +21,7 @@ class StatTrackViewController: UIViewController {
         }
     }
     
-    @IBAction func save(_ sender: UIBarButtonItem) {
-        if self.presentingViewController != nil {
-            self.dismiss(animated: false, completion: nil)
-        }
+    @IBAction func playerAction(_ sender: UIButton) {
     }
     
     @IBOutlet weak var teamOneName: UILabel!
@@ -30,8 +29,18 @@ class StatTrackViewController: UIViewController {
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var cap: UILabel!
     
-    @IBOutlet weak var rosterATable: UITableView!
-    @IBOutlet weak var rosterBTable: UITableView!
+    @IBOutlet weak var player1: UIButton! { didSet {
+        player1.setTitle("player", for: .normal)
+        }
+    }
+        
+    @IBOutlet weak var player2: UIButton!
+    @IBOutlet weak var player3: UIButton!
+    @IBOutlet weak var player4: UIButton!
+    @IBOutlet weak var player5: UIButton!
+    @IBOutlet weak var player6: UIButton!
+    @IBOutlet weak var player7: UIButton!
+    @IBOutlet weak var opponent: UIButton!
     
     @IBAction func score(_ sender: UIButton) {
         tweet()
