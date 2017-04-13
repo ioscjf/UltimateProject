@@ -24,7 +24,7 @@ class AddGameViewController: UIViewController {
         let done = createGame()
         if done {
             let g = GameFinder(json: gameDict as Dictionary<String, AnyObject>)
-            JsonParser.jsonClient.addGame(player: g!)
+            JsonParser.jsonClient.addGames(game: g!)
         } else {
             alert()
         }
@@ -44,6 +44,8 @@ class AddGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addDoneButton()
 
         JsonParser.jsonClient.getGames { [weak self](games) in
             self?.games = games
@@ -79,12 +81,12 @@ class AddGameViewController: UIViewController {
     
     func doneTyping() {
         if tournamentName.text != "" && gameNumber.text != "" && location.text != "" && opponent.text != "" {
-            addGame.alpha = 1.0
+            addGameLabel.alpha = 1.0
         }
     }
 }
 
-extension updateRosterViewController: UITextFieldDelegate {
+extension AddGameViewController: UITextFieldDelegate {
         
     func addDoneButton() {
         let keyboardToolbar = UIToolbar()
@@ -94,11 +96,11 @@ extension updateRosterViewController: UITextFieldDelegate {
         let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done,
             target: view, action: #selector(UIView.endEditing(_:)))
             keyboardToolbar.items = [flexBarButton, doneBarButton]
-            weight.inputAccessoryView = keyboardToolbar
-            jerseyNumber.inputAccessoryView = keyboardToolbar
-            heightFeet.inputAccessoryView = keyboardToolbar
-            heightInches.inputAccessoryView = keyboardToolbar
-        }
+            tournamentName.inputAccessoryView = keyboardToolbar
+            gameNumber.inputAccessoryView = keyboardToolbar
+            location.inputAccessoryView = keyboardToolbar
+            opponent.inputAccessoryView = keyboardToolbar
+    }
 
     func createGame() -> Bool {
         if tournamentName.text != "" && gameNumber.text != "" && location.text != "" && opponent.text != "" {
@@ -128,6 +130,7 @@ extension updateRosterViewController: UITextFieldDelegate {
             }
             
             gameDict["date"] = gameTime.date as AnyObject
+            print(gameTime.date)
             return true
         } else {
             return false

@@ -59,6 +59,7 @@ class updateRosterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         addDoneButton()
         
         JsonParser.jsonClient.getPlayers { [weak self](players) in

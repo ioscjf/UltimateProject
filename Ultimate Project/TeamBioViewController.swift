@@ -19,6 +19,7 @@ class TeamBioViewController: UIViewController {
     // MARK: - Variables
     
     var players: [PlayerFinder] = []
+    var myTeam: TeamFinder?
     
     // MARK: - Overrides
 
@@ -31,6 +32,8 @@ class TeamBioViewController: UIViewController {
                 self?.roster.reloadData()
             })
         }
+        
+        JsonParser.jsonClient.getMyTeam()
     }
 
     override func didReceiveMemoryWarning() {

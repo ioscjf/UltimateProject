@@ -10,7 +10,6 @@ import Foundation
 
 struct PlayerFinder {
     
-    var playerID: Int?
     var nameFirst: String?
     var nameLast: String?
     var nickname: String?
@@ -22,11 +21,6 @@ struct PlayerFinder {
     var birthday: String?
     
     init?(json: Dictionary<String, AnyObject>) {
-        if let id = Int((json["playerID"] as? String)!) {
-            self.playerID = id
-        } else {
-            self.playerID = 0
-        }
         
         if let name = json["nameFirst"] as? String {
             self.nameFirst = name

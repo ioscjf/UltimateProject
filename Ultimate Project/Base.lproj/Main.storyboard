@@ -36,7 +36,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfw-Su-ofl" customClass="TWTRLogInButton">
+                            <button opaque="NO" alpha="0.25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfw-Su-ofl" customClass="TWTRLogInButton">
                                 <rect key="frame" x="16" y="104" width="343" height="30"/>
                                 <state key="normal" title="Sign in with Twitter"/>
                                 <connections>
@@ -81,6 +81,7 @@
                         <outlet property="passwordTextField" destination="FwR-zF-yd9" id="9Jf-W2-GhU"/>
                         <outlet property="teamNameTextField" destination="c9Z-vt-UKt" id="b05-sI-8Ai"/>
                         <outlet property="twitterSignIn" destination="Gfw-Su-ofl" id="asz-2i-Bol"/>
+                        <segue destination="0wj-tz-Bbb" kind="showDetail" identifier="LoggedIn" id="pjv-ee-ibm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qyK-vQ-bdv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2018,7 +2019,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="B3U-Cb-XO5"/>
+        <segue reference="Jay-ss-4ty"/>
+        <segue reference="pjv-ee-ibm"/>
         <segue reference="x2H-sZ-VIP"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,9 +9,7 @@
 import Foundation
 
 struct GameFinder {
-    var gameID: Int?
-    var teamID: Int?
-    var seasonID: Int?
+
     var date: String?
     var tournament: String?
     var gameNum: Int?
@@ -19,23 +17,6 @@ struct GameFinder {
     var opponent: String?
     
     init?(json: Dictionary<String, AnyObject>) {
-        if let id = Int((json["gameID"] as? String)!) {
-            self.gameID = id
-        } else {
-            self.gameID = 0
-        }
-        
-        if let id = Int((json["teamID"] as? String)!) {
-            self.teamID = id
-        } else {
-            self.teamID = 0
-        }
-        
-        if let id = Int((json["seasonID"] as? String)!) {
-            self.seasonID = id
-        } else {
-            self.seasonID = 0
-        }
         
         if let date = json["date"] as? String {
             self.date = date

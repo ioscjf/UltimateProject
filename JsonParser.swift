@@ -13,7 +13,7 @@ class JsonParser {
     static let jsonClient = JsonParser()
     
     func getTeams(_ completion: @escaping ([TeamFinder]) -> ()) {
-        get(clientURLRequest("teams.php"), message: nil) { (success, object) in
+        get(clientURLRequest("showTeams.php"), message: nil) { (success, object) in
             var teams: [TeamFinder] = []
             
             if let object = object as? Dictionary<String, AnyObject> {
@@ -21,11 +21,39 @@ class JsonParser {
                     for result in results {
                         if let team = TeamFinder(json: result) {
                             teams.append(team)
+                        } else {
+                            print(result)
                         }
                     }
                 }
             }
             completion(teams)
+        }
+    }
+    
+    func getMyTeam() {
+        let defaults = UserDefaults.standard
+        var postString = ""
+        
+        if let team = defaults.object(forKey: "teamName") as? String {
+            if let twitter = defaults.object(forKey: "twitterHandle") as? String {
+                postString = "teamName=\(team)&twitterHandle=\(twitter)"
+            } else {
+                print("ERROR: NO TWITTER")
+            }
+        } else {
+            print("ERROR: NO TEAM")
+            postString = "teamName=\("test")&twitterHandle=\("test")"
+        }
+        
+        get(clientURLRequest("myTeam.php"), message: postString) { (success, object) in
+            
+            if let object = object as? Dictionary<String, AnyObject> {
+                if let results = object["MYTEAM"] as? Dictionary<String, AnyObject> {
+                    print(results)
+                }
+            }
+            //completion(teams)
         }
     }
     
@@ -38,6 +66,8 @@ class JsonParser {
                     for result in results {
                         if let player = PlayerFinder(json: result) {
                             players.append(player)
+                        } else {
+                            print(result)
                         }
                     }
                 }
@@ -47,7 +77,7 @@ class JsonParser {
     }
     
     func getStats(_ completion: @escaping ([StatFinder]) -> ()) {
-        get(clientURLRequest("stats.php"), message: nil) { (success, object) in
+        get(clientURLRequest("showStats.php"), message: nil) { (success, object) in
             var stats: [StatFinder] = []
             
             if let object = object as? Dictionary<String, AnyObject> {
@@ -62,6 +92,37 @@ class JsonParser {
                 }
             }
             completion(stats)
+        }
+    }
+    
+    func getGames(_ completion: @escaping ([GameFinder]) -> ()) {
+        get(clientURLRequest("showGames.php"), message: nil) { (success, object) in
+            var games: [GameFinder] = []
+            if let object = object as? Dictionary<String, AnyObject> {
+                if let results = object["GAMES"] as? [Dictionary<String, AnyObject>] {
+                    for result in results {
+                        if let game = GameFinder(json: result) {
+                            games.append(game)
+                        } else{
+                            print(result)
+                        }
+                    }
+                }
+            }
+            completion(games)
+        }
+    }
+    
+    func login(team: String, password: String) {
+        let postString = "teamName=\(team)&password=\(password)"
+        print(password, team)
+        post(clientURLRequest("login.php"), message: postString) { (success, object) in
+            
+            // object["LOGIN"]
+            print("SUCCESS")
+            print(success)
+            print("OBJECT")
+            print(object)
         }
     }
     
@@ -80,6 +141,12 @@ class JsonParser {
     func addStats(stat: StatFinder) {
         let postString = "playerName=\(stat.playerName!)&year=\(stat.year!)&scores=\(stat.scores!)&assists=\(stat.assists!)&offensivePointsPlayed=\(stat.offensivePointsPlayed!)&defensivePointsPlayed=\(stat.defensivePointsPlayed!)&drops=\(stat.drops!)&catches=\(stat.catches!)&completions=\(stat.completions!)"
         post(clientURLRequest("addStats.php"), message: postString) { (success, object) in
+        }
+    }
+    
+    func addGames(game: GameFinder) {
+        let postString = "date=\(game.date!)&tournament=\(game.tournament!)&gameNum=\(game.gameNum!)&location=\(game.location!)&opponent=\(game.opponent!)"
+        post(clientURLRequest("addGame.php"), message: postString) { (success, object) in
         }
     }
     
@@ -107,7 +174,7 @@ class JsonParser {
                 
                 // MARK: - For debugging purposes
                  let responseString = String(data: data, encoding: .utf8)
-                 print("responseString = \(responseString)")
+                 print("responseString = \(String(describing: responseString))")
                 
                 let json = try? JSONSerialization.jsonObject(with: data, options: [])
                 if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {
@@ -115,6 +182,9 @@ class JsonParser {
                 } else {
                     completion(false, json as AnyObject?)
                     print("ERROR: CONNECTION FAILED")
+                    if let httpResponse = response as? HTTPURLResponse {
+                        print("error \(httpResponse.statusCode)")
+                    }
                 }
             }
         })  .resume()

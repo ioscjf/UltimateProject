@@ -32,11 +32,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController: UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
         let initialViewController: UIViewController?
         
-        if let auth = defaults.object(forKey: "session") as? String {
-            initialViewController = storyboard.instantiateViewController(withIdentifier: "TabViewController")
-        } else {
-            initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-        }
+        // comment while testing
+//        if let auth = defaults.object(forKey: "session") as? String {
+//            initialViewController = storyboard.instantiateViewController(withIdentifier: "TabViewController")
+//        } else {
+//            initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+//        }
+        
+        // For testing
+        initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+
         
         navigationController.viewControllers = [initialViewController!]
         self.window?.rootViewController = navigationController
