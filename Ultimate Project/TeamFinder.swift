@@ -19,6 +19,7 @@ struct TeamFinder {
     var twitterHandle: String?
     var genderDivision: String?
     var city: String?
+    var password: String?
     
     init?(json: Dictionary<String, AnyObject>) {
         if let team = json["teamName"] as? String {
@@ -73,6 +74,12 @@ struct TeamFinder {
             self.twitterHandle = twitter
         } else {
             self.twitterHandle = ""
+        }
+        
+        if let pass = json["password"] as? String {
+            self.password = pass
+        } else {
+            self.password = ""
         }
     }
 }

@@ -36,41 +36,12 @@ class LoginViewController: UIViewController {
                 let done = self.login()
                 if done {
                     JsonParser.jsonClient.login(team: self.team, password: self.password) {[weak self](myTeam) in
-                    self?.myTeam = myTeam
+                        self?.myTeam = myTeam
                         
-                        
-                        // TODO!!
-                        // USE THIS TO WAIT FOR ASYNC TASK TO FINISH; FIX CODE TO MATCH MINE
-                        
-                        //You have to create your own queue or if you need the Default queue
-                        let persons = persistentContainer.viewContext.persons
-                        print("How many persons on database: \(persons.count())")
-                        let numberOfPersons = persons.count()
-                        
-                        for eachPerson in persons{
-                            queuePersonDetail.async {
-                                self.getPersonDetailAndSave(personId: eachPerson.personId){person2, error in
-                                    print("Person detail: \(person2?.fullName)")
-                                    //When we get the completionHandler we send the signal
-                                    semaphorePersonDetailAndSave.signal()
-                                }
-                            }
-                        }
-                        
-                        //Here we will wait
-                        for i in 0..<numberOfPersons{
-                            semaphorePersonDetailAndSave.wait()
-                            NSLog("\(i + 1)/\(persons.count()) completed")
-                        }
-                        //And here the flow continues...
-                        
-                        // this can't be completed until async task is done...
-                        if self?.myTeam != nil {
+                        DispatchQueue.main.async(execute: {
                             print("\(unwrappedSession.userName) has logged in")
                             self?.performSegue(withIdentifier: "LoggedIn", sender: nil)
-                        } else {
-                            self?.alertWrongPassword()
-                        }
+                        })
                     }
                 } else {
                     self.alert()
@@ -88,7 +59,6 @@ class LoginViewController: UIViewController {
     var team: String = ""
     var password: String = ""
     var myTeam: TeamFinder?
-    var temp: [PlayerFinder] = []
     
     // MARK: - Overrides
     
@@ -123,18 +93,7 @@ class LoginViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    func alertWrongPassword() {
-        let alert = UIAlertController(title: "Oops!", message: "That team name or password does not exist.  Please try again.", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
-            self.passwordTextField.text = ""
-        })
-        self.present(alert, animated: true)
-    }
-    
     func doneTyping() {
-        print("TYPING")
-        print(teamNameTextField.text)
-        print(passwordTextField.text)
         if teamNameTextField.text != "" && passwordTextField.text != "" {
             twitterSignIn.alpha = 1.0
         }

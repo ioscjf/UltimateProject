@@ -16,44 +16,43 @@ class AddTeamViewController: UIViewController {
             self.dismiss(animated: false, completion: nil)
         }
     }
-    
-    @IBAction func createTeam(_ sender: UIBarButtonItem) {
+    @IBAction func create(_ sender: UIButton) {
+        let done = teamCheck()
+        if done {
+
+            let t = TeamFinder(json: teamDict as Dictionary<String, AnyObject>)
+            JsonParser.jsonClient.addTeam(team: t!)
         
-        let t = TeamFinder(json: teamDict as Dictionary<String, AnyObject>)
-        JsonParser.jsonClient.addTeam(team: t!)
-        
-        if self.presentingViewController != nil {
-            self.dismiss(animated: false, completion: nil)
+            self.performSegue(withIdentifier: "CreateOrEditTeam", sender: sender)
+        } else {
+            alert()
         }
-        
-        //self.performSegue(withIdentifier: "createTeam", sender: sender) // NOTE: This will probably need to be implemented instead of dismissing the presentingViewController so that when a user logs in with his team, he is immediately signed in (instead of being forced to do so manually)
     }
     
     @IBOutlet weak var teamName: UITextField!
+    @IBOutlet weak var twitterHandle: UITextField!
+    @IBOutlet weak var password: UITextField!
     @IBOutlet weak var school: UITextField!
-    @IBOutlet weak var competitionDivision: UITextField!
     @IBOutlet weak var year: UITextField!
     @IBOutlet weak var state: UITextField!
     @IBOutlet weak var region: UITextField!
     @IBOutlet weak var conference: UITextField!
+    @IBOutlet weak var city: UITextField!
+    @IBOutlet weak var genderDivision: UITextField!
+    @IBOutlet weak var competitionDivision: UITextField!
+    @IBOutlet weak var createLabel: UIButton!
     
     // MARK - Variables
     
     var teamDict: [String: AnyObject] = [:]
     var activeTextField = UITextField()
+    var team: String = ""
+    var pass: String = ""
+    var twitter: String = ""
     
     // MARK: - Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        teamName.delegate = self
-        school.delegate = self
-        competitionDivision.delegate = self
-        year.delegate = self
-        year.keyboardType = UIKeyboardType.numberPad // NOTE: Addtional support needed for iPad
-        state.delegate = self
-        region.delegate = self
-        conference.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,73 +71,153 @@ class AddTeamViewController: UIViewController {
             let tbvc = destinationNavigationController.topViewController as!TeamBioViewController
         }
     }
+    
+    func alert() {
+        let alert = UIAlertController(title: "Oops!", message: "The Team Name, Twitter Handle, and Password are required fields.", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
+            // perhaps use action.title here
+        })
+        self.present(alert, animated: true)
+    }
+    
+    func doneTyping() {
+        if teamName.text != "" && password.text != "" && twitterHandle.text != "" && school.text != "" && competitionDivision.text != "" && state.text != "" && region.text != "" && conference.text != "" && genderDivision.text != "" && city.text != "" {
+            createLabel.alpha = 1.0
+        }
+    }
 }
 
 extension AddTeamViewController: UITextFieldDelegate {
-    
     func createTeam() { // else cases handle nil input
         if let name = teamName.text {
-            teamDict["TeamName"] = name as AnyObject!
+            teamDict["teamName"] = name as AnyObject!
         } else {
-            teamDict["TeamName"] = "" as AnyObject!
+            teamDict["teamName"] = "" as AnyObject!
         }
         
         if let school = school.text {
-            teamDict["School"] = school as AnyObject!
+            teamDict["school"] = school as AnyObject!
         } else {
-            teamDict["School"] = "" as AnyObject!
+            teamDict["school"] = "" as AnyObject!
         }
         
         if let competitionDivision = competitionDivision.text {
-            teamDict["CompetitionDivision"] = competitionDivision as AnyObject!
+            teamDict["division"] = competitionDivision as AnyObject!
         } else {
-            teamDict["CompetitionDivision"] = "" as AnyObject!
-        }
-        
-        if let year = year.text {
-            teamDict["Year"] = year as AnyObject!
-        } else {
-            teamDict["Year"] = 0 as AnyObject!
+            teamDict["division"] = "" as AnyObject!
         }
         
         if let state = state.text {
-            teamDict["State"] = state as AnyObject!
+            teamDict["state"] = state as AnyObject!
         } else {
-            teamDict["State"] = "" as AnyObject!
+            teamDict["state"] = "" as AnyObject!
         }
         
         if let region = region.text {
-            teamDict["Region"] = region as AnyObject!
+            teamDict["region"] = region as AnyObject!
         } else {
-            teamDict["Region"] = "" as AnyObject!
+            teamDict["region"] = "" as AnyObject!
+        }
+        
+        if let twitter = twitterHandle.text {
+            teamDict["twitterHandle"] = twitter as AnyObject!
+        } else {
+            teamDict["twitterHandle"] = "" as AnyObject!
         }
         
         if let conference = conference.text {
-            teamDict["Conference"] = conference as AnyObject!
+            teamDict["conference"] = conference as AnyObject!
         } else {
-            teamDict["Conference"] = "" as AnyObject!
+            teamDict["conference"] = "" as AnyObject!
+        }
+        
+        if let gender = genderDivision.text {
+            teamDict["genderDivision"] = gender as AnyObject!
+        } else {
+            teamDict["genderDivision"] = "" as AnyObject!
+        }
+        
+        if let city = city.text {
+            teamDict["city"] = city as AnyObject!
+        } else {
+            teamDict["city"] = "" as AnyObject!
+        }
+        
+        if let password = password.text {
+            teamDict["password"] = password as AnyObject!
+        } else {
+            teamDict["password"] = "" as AnyObject!
+        }
+    }
+    
+    func addDoneButton() {
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                            target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                            target: view, action: #selector(UIView.endEditing(_:)))
+        keyboardToolbar.items = [flexBarButton, doneBarButton]
+        teamName.inputAccessoryView = keyboardToolbar
+        password.inputAccessoryView = keyboardToolbar
+        school.inputAccessoryView = keyboardToolbar
+        competitionDivision.inputAccessoryView = keyboardToolbar
+        state.inputAccessoryView = keyboardToolbar
+        region.inputAccessoryView = keyboardToolbar
+        twitterHandle.inputAccessoryView = keyboardToolbar
+        conference.inputAccessoryView = keyboardToolbar
+        genderDivision.inputAccessoryView = keyboardToolbar
+        city.inputAccessoryView = keyboardToolbar
+        password.inputAccessoryView = keyboardToolbar
+    }
+    
+    func teamCheck() -> Bool {
+        if teamName.text != "" && password.text != "" && twitterHandle.text != "" {
+            
+            if let t = teamName.text {
+                team = t
+            } else {
+                print("T")
+            }
+            
+            if let p = password.text {
+                pass = p
+            } else {
+                print("P")
+            }
+            
+            if let tw = twitterHandle.text {
+                twitter = tw
+            } else {
+                print("TW")
+            }
+            
+            return true
+        } else {
+            return false
         }
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         // TextField should begin editing method
         self.activeTextField = textField
-        createTeam()
+        doneTyping()
         return true
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // While entering the characters this method gets called
         self.activeTextField = textField
-        createTeam()
+        doneTyping()
         return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // TextField should return method
         self.activeTextField = textField
-        createTeam()
         textField.resignFirstResponder();
+        doneTyping()
         return true;
     }
 }
+

@@ -142,9 +142,8 @@ class JsonParser {
         }
     }
     
-    func addTeam(team: TeamFinder) { // TODO!! The poststring needs updated to match the updated API
-//        let postString = "teamName=\(team.teamName!)&school=\(team.school!)&competitionDivision=\(team.division!)&year=\(team.year!)&state=\(team.state!)&region=\(team.region!)&conference=\(team.conference!)"
-        let postString = ""
+    func addTeam(team: TeamFinder) {
+        let postString = "teamName=\(team.teamName!)&school=\(team.school!)&competitionDivision=\(team.division!)&city=\(team.city!)&state=\(team.state!)&region=\(team.region!)&conference=\(team.conference!)&genderDivision=\(team.genderDivision!)&twitterHandle=\(team.twitterHandle!)&password=\(team.password!)"
         post(clientURLRequest("addTeam.php"), message: postString) { (success, object) in
         }
     }
