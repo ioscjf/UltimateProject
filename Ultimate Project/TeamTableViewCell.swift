@@ -10,6 +10,10 @@ import UIKit
 
 class TeamTableViewCell: UITableViewCell {
     
+    // TODO!!
+    // This file needs updated to match the new API,
+    // as do the other 'Read' ViewControllers/TableViewCells
+    
     // MARK: - Outlets
     
     @IBOutlet weak var teamName: UILabel!
@@ -23,10 +27,9 @@ class TeamTableViewCell: UITableViewCell {
     // MARK: - Configuration
     
     func configure(_ team: TeamFinder) {
-        teamName.text = team.team
+        teamName.text = team.teamName
         school.text = team.school
         division.text = team.division
-        year.text = "\(team.year!)"
         state.text = team.state
         region.text = team.region
         conference.text = team.conference

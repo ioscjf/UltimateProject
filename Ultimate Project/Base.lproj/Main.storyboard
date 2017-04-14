@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whv-rn-1cG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SnT-B2-kQd">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -29,12 +29,18 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="SnT-B2-kQd" id="yk5-Ax-q9r"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FwR-zF-yd9">
                                 <rect key="frame" x="16" y="66" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="SnT-B2-kQd" id="43X-ya-fDI"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" alpha="0.25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfw-Su-ofl" customClass="TWTRLogInButton">
                                 <rect key="frame" x="16" y="104" width="343" height="30"/>
@@ -364,7 +370,7 @@
                                 </connections>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XEK-PQ-dHy">
-                                <rect key="frame" x="16" y="412" width="343" height="149"/>
+                                <rect key="frame" x="16" y="412" width="343" height="198"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="loginplayercell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Ks3-n5-rZG" customClass="PlayerTableViewCell" customModule="Ultimate_Project" customModuleProvider="target">
@@ -425,7 +431,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdg-eN-FCp">
-                                <rect key="frame" x="16" y="569" width="343" height="41"/>
+                                <rect key="frame" x="16" y="618" width="343" height="41"/>
                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="st8-rH-coZ"/>
@@ -1944,23 +1950,6 @@
             </objects>
             <point key="canvasLocation" x="2637.5999999999999" y="680.5097451274363"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="J5j-J1-D38">
-            <objects>
-                <navigationController id="whv-rn-1cG" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Dr-5u-RUu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="SnT-B2-kQd" kind="showDetail" identifier="Login" id="Kow-Ja-UHR"/>
-                        <segue destination="0wj-tz-Bbb" kind="showDetail" identifier="AlreadyLoggedIn" id="MQf-eu-2vH"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jjk-yH-HKp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1150" y="681"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="jMK-Pm-T0e">
             <objects>
@@ -2019,8 +2008,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Jay-ss-4ty"/>
-        <segue reference="pjv-ee-ibm"/>
         <segue reference="x2H-sZ-VIP"/>
+        <segue reference="B3U-Cb-XO5"/>
     </inferredMetricsTieBreakers>
 </document>

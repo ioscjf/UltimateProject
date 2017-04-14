@@ -83,7 +83,7 @@ extension TeamFinderViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if teams.count > indexPath.row {
-            teamName = teams[indexPath.row].team!
+            teamName = teams[indexPath.row].teamName!
         }
         self.performSegue(withIdentifier: "TeamFinderToTeamPage", sender: indexPath);
     }

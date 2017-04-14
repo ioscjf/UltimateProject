@@ -10,55 +10,69 @@ import Foundation
 
 struct TeamFinder {
         
-    var team: String?
+    var teamName: String?
     var school: String?
     var division: String?
-    var year: Int?
     var state: String?
     var region: String?
     var conference: String?
+    var twitterHandle: String?
+    var genderDivision: String?
+    var city: String?
     
     init?(json: Dictionary<String, AnyObject>) {
-        if let team = json["TeamName"] as? String {
-            self.team = team
+        if let team = json["teamName"] as? String {
+            self.teamName = team
         } else {
-            self.team = ""
+            self.teamName = ""
         }
         
-        if let school = json["School"] as? String {
+        if let school = json["school"] as? String {
             self.school = school
         } else {
             self.school = ""
         }
         
-        if let division = json["CompetitionDivision"] as? String {
+        if let division = json["competitionDivision"] as? String {
             self.division = division
         } else {
             self.division = ""
         }
         
-        if let year = Int((json["Year"] as? String)!) {
-            self.year = year
+        if let gender = json["genderDivision"] as? String {
+            self.genderDivision = gender
         } else {
-            self.year = 0
+            self.genderDivision = ""
         }
         
-        if let state = json["State"] as? String {
+        if let state = json["state"] as? String {
             self.state = state
         } else {
             self.state = ""
         }
         
-        if let region = json["Region"] as? String {
+        if let region = json["region"] as? String {
             self.region = region
         } else {
             self.region = ""
         }
         
-        if let conference = json["Conference"] as? String {
+        if let conference = json["conference"] as? String {
             self.conference = conference
         } else {
             self.conference = ""
+        }
+        
+        if let city = json["city"] as? String {
+            self.city = city
+        } else {
+            self.city = ""
+        }
+        
+        if let twitter = json["twitterHandle"] as? String {
+            self.twitterHandle = twitter
+        } else {
+            self.twitterHandle = ""
         }
     }
 }

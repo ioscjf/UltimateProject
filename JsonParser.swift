@@ -13,7 +13,7 @@ class JsonParser {
     static let jsonClient = JsonParser()
     
     func getTeams(_ completion: @escaping ([TeamFinder]) -> ()) {
-        get(clientURLRequest("showTeams.php"), message: nil) { (success, object) in
+        get(clientURLRequest("teams.php"), message: nil) { (success, object) in
             var teams: [TeamFinder] = []
             
             if let object = object as? Dictionary<String, AnyObject> {
@@ -58,7 +58,7 @@ class JsonParser {
     }
     
     func getPlayers(_ completion: @escaping ([PlayerFinder]) -> ()) {
-        get(clientURLRequest("showPlayers.php"), message: nil) { (success, object) in
+        get(clientURLRequest("players.php"), message: nil) { (success, object) in
             var players: [PlayerFinder] = []
             
             if let object = object as? Dictionary<String, AnyObject> {
@@ -77,7 +77,7 @@ class JsonParser {
     }
     
     func getStats(_ completion: @escaping ([StatFinder]) -> ()) {
-        get(clientURLRequest("showStats.php"), message: nil) { (success, object) in
+        get(clientURLRequest("stats.php"), message: nil) { (success, object) in
             var stats: [StatFinder] = []
             
             if let object = object as? Dictionary<String, AnyObject> {
@@ -96,7 +96,7 @@ class JsonParser {
     }
     
     func getGames(_ completion: @escaping ([GameFinder]) -> ()) {
-        get(clientURLRequest("showGames.php"), message: nil) { (success, object) in
+        get(clientURLRequest("games.php"), message: nil) { (success, object) in
             var games: [GameFinder] = []
             if let object = object as? Dictionary<String, AnyObject> {
                 if let results = object["GAMES"] as? [Dictionary<String, AnyObject>] {
@@ -113,16 +113,26 @@ class JsonParser {
         }
     }
     
-    func login(team: String, password: String) {
+    func login(team: String, password: String, _ completion: @escaping (TeamFinder) -> ()) {
         let postString = "teamName=\(team)&password=\(password)"
-        print(password, team)
         post(clientURLRequest("login.php"), message: postString) { (success, object) in
-            
-            // object["LOGIN"]
-            print("SUCCESS")
-            print(success)
-            print("OBJECT")
-            print(object)
+            var team: [TeamFinder] = []
+            if let object = object as? Dictionary<String, AnyObject> {
+                if let results = object["LOGIN"] as? [Dictionary<String, AnyObject>] {
+                    for result in results {
+                        if let t = TeamFinder(json: result) {
+                            team.append(t)
+                        } else{
+                            print("RESULT")
+                            print(results)
+                            print("RESULT")
+                        }
+                    }
+                }
+            }
+            if team.count == 1 { // should only be one team in array
+                completion(team[0])
+            }
         }
     }
     
@@ -132,8 +142,9 @@ class JsonParser {
         }
     }
     
-    func addTeam(team: TeamFinder) {
-        let postString = "teamName=\(team.team!)&school=\(team.school!)&competitionDivision=\(team.division!)&year=\(team.year!)&state=\(team.state!)&region=\(team.region!)&conference=\(team.conference!)"
+    func addTeam(team: TeamFinder) { // TODO!! The poststring needs updated to match the updated API
+//        let postString = "teamName=\(team.teamName!)&school=\(team.school!)&competitionDivision=\(team.division!)&year=\(team.year!)&state=\(team.state!)&region=\(team.region!)&conference=\(team.conference!)"
+        let postString = ""
         post(clientURLRequest("addTeam.php"), message: postString) { (success, object) in
         }
     }
@@ -159,7 +170,7 @@ class JsonParser {
     }
     
     fileprivate func clientURLRequest(_ path: String, params: Dictionary<String, AnyObject>? = nil) -> NSMutableURLRequest {
-        let request = NSMutableURLRequest(url: URL(string: "http://45.55.95.100/mattTest/"+path)!)
+        let request = NSMutableURLRequest(url: URL(string: "http://45.55.95.100/connor/"+path)!)
         return request
     }
     
