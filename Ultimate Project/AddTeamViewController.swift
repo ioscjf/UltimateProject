@@ -19,7 +19,8 @@ class AddTeamViewController: UIViewController {
     @IBAction func create(_ sender: UIButton) {
         let done = teamCheck()
         if done {
-
+            createTeam()
+            
             let t = TeamFinder(json: teamDict as Dictionary<String, AnyObject>)
             JsonParser.jsonClient.addTeam(team: t!)
         
@@ -102,9 +103,9 @@ extension AddTeamViewController: UITextFieldDelegate {
         }
         
         if let competitionDivision = competitionDivision.text {
-            teamDict["division"] = competitionDivision as AnyObject!
+            teamDict["competitionDivision"] = competitionDivision as AnyObject!
         } else {
-            teamDict["division"] = "" as AnyObject!
+            teamDict["competitionDivision"] = "" as AnyObject!
         }
         
         if let state = state.text {

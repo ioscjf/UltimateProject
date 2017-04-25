@@ -57,9 +57,11 @@ struct PlayerFinder {
         } else {
             self.nickname = ""
         }
-        
-        if let birthday = json["birthday"] as? String {
-            self.birthday = birthday
+
+        if let birthday = json["birthday"] as? Date {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "YYYY-MM-dd"
+            self.birthday = dateFormatter.string(from: birthday)
         } else {
             self.birthday = "2017-01-01"
         }
