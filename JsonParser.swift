@@ -31,29 +31,22 @@ class JsonParser {
         }
     }
     
-    func getMyTeam() {
-        let defaults = UserDefaults.standard
-        var postString = ""
-        
-        if let team = defaults.object(forKey: "teamName") as? String {
-            if let twitter = defaults.object(forKey: "twitterHandle") as? String {
-                postString = "teamName=\(team)&twitterHandle=\(twitter)"
-            } else {
-                print("ERROR: NO TWITTER")
-            }
-        } else {
-            print("ERROR: NO TEAM")
-            postString = "teamName=\("test")&twitterHandle=\("test")"
-        }
-        
-        get(clientURLRequest("myTeam.php"), message: postString) { (success, object) in
-            
+    func getMyPlayer(team: String, twitter: String, _ completion: @escaping ([PlayerFinder]) -> ()) {
+        let postString = "teamName=\(team)&twitterHandle=\(twitter)"
+        post(clientURLRequest("myPlayer.php"), message: postString) { (success, object) in
+            var players: [PlayerFinder] = []
             if let object = object as? Dictionary<String, AnyObject> {
-                if let results = object["MYTEAM"] as? Dictionary<String, AnyObject> {
-                    print(results)
+                if let results = object["PLAYER"] as? [Dictionary<String, AnyObject>] {
+                    for result in results {
+                        if let player = PlayerFinder(json: result) {
+                            players.append(player)
+                        } else {
+                            print(result)
+                        }
+                    }
                 }
             }
-            //completion(teams)
+            completion(players)
         }
     }
     
@@ -62,7 +55,7 @@ class JsonParser {
             var players: [PlayerFinder] = []
             
             if let object = object as? Dictionary<String, AnyObject> {
-                if let results = object["PLAYERS"] as? [Dictionary<String, AnyObject>] {
+                if let results = object["PLAYER"] as? [Dictionary<String, AnyObject>] {
                     for result in results {
                         if let player = PlayerFinder(json: result) {
                             players.append(player)
@@ -123,9 +116,7 @@ class JsonParser {
                         if let t = TeamFinder(json: result) {
                             team.append(t)
                         } else{
-                            print("RESULT")
                             print(results)
-                            print("RESULT")
                         }
                     }
                 }
@@ -136,9 +127,14 @@ class JsonParser {
         }
     }
     
-    func addPlayer(player: PlayerFinder) {
-        let postString = "nameFirst=\(player.nameFirst!)&nameLast=\(player.nameLast!)&position=\(player.position!)&birthday=\(player.birthday!)&heightFeet=\(player.heightFeet!)&heightInches=\(player.heightInches!)&weight=\(player.weight!)&jerseyNum=\(player.jerseyNum!)&nickname=\(player.nickname!)&team"
+    func addPlayer(player: PlayerFinder, _ completion: @escaping () -> ()) {
+        let defaults = UserDefaults.standard
+        let t = defaults.object(forKey: "team") as! String
+
+        let postString = "nameFirst=\(player.nameFirst!)&nameLast=\(player.nameLast!)&position=\(player.position!)&birthday=\(player.birthday!)&heightFeet=\(player.heightFeet!)&heightInches=\(player.heightInches!)&weight=\(player.weight!)&jerseyNum=\(player.jerseyNum!)&nickname=\(player.nickname!)&team=\(t)"
         post(clientURLRequest("addPlayer.php"), message: postString) { (success, object) in
+            
+            completion()
         }
     }
     

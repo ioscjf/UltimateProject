@@ -13,14 +13,14 @@ class PlayerTableViewCell: UITableViewCell {
     // MARK: - Outlets
     
     @IBOutlet weak var playerNumber: UILabel!
-    @IBOutlet weak var playerName: UILabel!
     @IBOutlet weak var position: UILabel!
+    @IBOutlet weak var playerName: UILabel!
     
     // MARK: - Configuration
 
     func configure(_ player: PlayerFinder) {
         playerName.text = "\(player.nameFirst!) \(player.nameLast!)"
-        position.text = "Position: \(player.position!)"
-        playerNumber.text = "Jersey Number: \(player.jerseyNum!)"
+        position.text = "\(player.position!)"
+        playerNumber.text = "\(player.jerseyNum!)"
     }
 }

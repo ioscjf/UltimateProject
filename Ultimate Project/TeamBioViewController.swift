@@ -25,15 +25,19 @@ class TeamBioViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let defaults = UserDefaults.standard
+        
+        let team = defaults.object(forKey: "team") as! String
+        let twitter = defaults.object(forKey: "twitterHandle") as! String
 
-        JsonParser.jsonClient.getPlayers { [weak self](players) in
-            self?.players = players
+
+        JsonParser.jsonClient.getMyPlayer(team: team, twitter: twitter) {[weak self](myPlayers) in
+            self?.players = myPlayers
             DispatchQueue.main.async(execute: {
                 self?.roster.reloadData()
             })
         }
-        
-        JsonParser.jsonClient.getMyTeam()
+
     }
 
     override func didReceiveMemoryWarning() {

@@ -13,17 +13,29 @@ class updateRosterViewController: UIViewController {
     // MARK: - Outlets
     
     @IBAction func addPlayer(_ sender: UIButton) {
-        
-        // TODO!!
         let done = createPlayer()
         if done {
             let p = PlayerFinder(json: playerDict as Dictionary<String, AnyObject>)
-            JsonParser.jsonClient.addPlayer(player: p!)
+            JsonParser.jsonClient.addPlayer(player: p!) {[weak self] in
+                DispatchQueue.main.async(execute: {
+                    let defaults = UserDefaults.standard
+                    
+                    let twitter = defaults.object(forKey: "twitterHandle") as? String
+                    let team = defaults.object(forKey: "team") as? String
+                    
+                    JsonParser.jsonClient.getMyPlayer(team: team!, twitter: twitter!) {[weak self](myPlayers) in
+                        self?.players = myPlayers
+                        
+                        DispatchQueue.main.async(execute: {
+                            self?.playersTable.reloadData()
+                        })
+                    }
+                })
+                
+            }
         } else {
             alert()
         }
-        
-        // refresh table UI
     }
     
     @IBOutlet weak var addPlayer: UIButton!

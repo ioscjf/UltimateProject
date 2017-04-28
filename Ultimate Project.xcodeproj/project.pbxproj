@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A61CAABC1DEE23F600E6B813 /* StatFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61CAABB1DEE23F600E6B813 /* StatFinder.swift */; };
+		A623ADDF1EB2B756005FFEBC /* NewPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623ADDE1EB2B756005FFEBC /* NewPlayerTableViewCell.swift */; };
 		A631739D1DA6EB0600C5F954 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631739C1DA6EB0600C5F954 /* LoginViewController.swift */; };
 		A631739F1DA6ED5B00C5F954 /* TeamBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631739E1DA6ED5B00C5F954 /* TeamBioViewController.swift */; };
 		A63173A11DA6F06200C5F954 /* updateRosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63173A01DA6F06100C5F954 /* updateRosterViewController.swift */; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		A61CAABB1DEE23F600E6B813 /* StatFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatFinder.swift; sourceTree = "<group>"; };
+		A623ADDE1EB2B756005FFEBC /* NewPlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPlayerTableViewCell.swift; sourceTree = "<group>"; };
 		A631739C1DA6EB0600C5F954 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A631739E1DA6ED5B00C5F954 /* TeamBioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamBioViewController.swift; sourceTree = "<group>"; };
 		A63173A01DA6F06100C5F954 /* updateRosterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = updateRosterViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				A677D9951DD506C4002A6885 /* TeamTableViewCell.swift */,
 				A6BDD5101DAD82C400EF51A4 /* TeamStatsViewController.swift */,
 				A64DC2481DF1137E00E0E5CF /* PlayerTableViewCell.swift */,
+				A623ADDE1EB2B756005FFEBC /* NewPlayerTableViewCell.swift */,
 				A6BDD5121DAD86C900EF51A4 /* PlayerStatsViewController.swift */,
 			);
 			name = "Quick Stats";
@@ -395,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A66229801E9DC201000B69A1 /* AddGameViewController.swift in Sources */,
+				A623ADDF1EB2B756005FFEBC /* NewPlayerTableViewCell.swift in Sources */,
 				A6BDD50B1DAD804000EF51A4 /* LiveGamesViewController.swift in Sources */,
 				A648A6721DDE4B0E003B1664 /* PlayerFinder.swift in Sources */,
 				A677D9961DD506C4002A6885 /* TeamTableViewCell.swift in Sources */,

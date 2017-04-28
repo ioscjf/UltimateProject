@@ -15,14 +15,6 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var teamNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    @IBAction func newTeam(_ sender: UIButton) {
-        
-        // TODO!
-        // Add team and sign them in...
-        //defaults.set(unwrappedSession.userName, forKey: "twitterHandle")...
-    }
-    
     @IBOutlet weak var twitterSignIn: TWTRLogInButton!
     
     @IBAction func signIn(_ sender: UIButton) {
@@ -75,14 +67,21 @@ class LoginViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//        if identifier == "LoggedIn" {
-//        }
-        return true
+        if segue.identifier == "LoggedIn" {
+//            let defaults = UserDefaults.standard
+//
+//            let destinationNavigationController = segue.destination as! UITabBarController
+//            let tbvc = destinationNavigationController.viewControllers?[0] as!TeamBioViewController
+//            tbvc.team = team
+//            defaults.set(team, forKey: "team")
+//            
+//            if let auth = defaults.object(forKey: "twitterHandle") as? String {
+//                tbvc.twitter = auth
+//            } else {
+//                tbvc.twitter = ""
+//                print("ERROR: NO TWITTER")
+//            }
+        }
     }
     
     func alert() {

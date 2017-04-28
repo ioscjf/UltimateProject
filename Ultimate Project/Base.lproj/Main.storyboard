@@ -53,7 +53,6 @@
                                 <rect key="frame" x="16" y="142" width="343" height="30"/>
                                 <state key="normal" title="Create a New Team"/>
                                 <connections>
-                                    <action selector="newTeam:" destination="SnT-B2-kQd" eventType="touchUpInside" id="9fV-D9-r57"/>
                                     <segue destination="rA2-Nv-CcL" kind="showDetail" id="b4j-iz-BXJ"/>
                                 </connections>
                             </button>
@@ -92,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qyK-vQ-bdv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-175" y="681"/>
+            <point key="canvasLocation" x="-486" y="663"/>
         </scene>
         <!--Add Game View Controller-->
         <scene sceneID="dG2-3s-XcD">
@@ -169,7 +168,7 @@
                                 <rect key="frame" x="16" y="463" width="343" height="158"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="schedule" id="WIZ-W6-UNX" customClass="GameTableViewCell" customModule="Ultimate_Project" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="schedule" id="WIZ-W6-UNX" customClass="PlayerTableViewCell" customModule="Ultimate_Project" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WIZ-W6-UNX" id="ybL-mT-0aE">
@@ -279,7 +278,7 @@
                                     <constraint firstAttribute="height" constant="144" id="6PX-OA-pOM"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="adm-7j-xZd">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="schedule" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="schedule" id="adm-7j-xZd">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="adm-7j-xZd" id="2rm-YY-sZD">
@@ -329,7 +328,7 @@
                                     <constraint firstAttribute="height" constant="128" id="iFU-e7-Tz4"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="79" id="k6M-HO-vQq">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tweets" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tweets" rowHeight="79" id="k6M-HO-vQq">
                                         <rect key="frame" x="0.0" y="28" width="343" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k6M-HO-vQq" id="RHa-P5-ph7">
@@ -373,7 +372,7 @@
                                 <rect key="frame" x="16" y="412" width="343" height="198"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="loginplayercell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Ks3-n5-rZG" customClass="PlayerTableViewCell" customModule="Ultimate_Project" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="loginplayercell" id="Ks3-n5-rZG" customClass="PlayerTableViewCell" customModule="Ultimate_Project" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ks3-n5-rZG" id="eSZ-5a-Akr">
@@ -419,9 +418,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="playerName" destination="cSD-cp-Khl" id="7ur-sf-uaA"/>
-                                            <outlet property="playerNumber" destination="KZ6-Rv-0e4" id="7oG-df-YtU"/>
-                                            <outlet property="position" destination="Q5a-fr-kUp" id="hdU-JZ-DQp"/>
+                                            <outlet property="playerName" destination="cSD-cp-Khl" id="aCX-EW-Y5X"/>
+                                            <outlet property="playerNumber" destination="KZ6-Rv-0e4" id="zIG-iK-7eM"/>
+                                            <outlet property="position" destination="Q5a-fr-kUp" id="0Qz-fd-TyW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -539,7 +538,7 @@
                                 <rect key="frame" x="16" y="463" width="343" height="146"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="rosterplayercell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="HJF-8P-ld6" customClass="PlayerTableViewCell" customModule="Ultimate_Project" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="rosterplayercell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="rosterplayercell" id="HJF-8P-ld6" customClass="NewPlayerTableViewCell" customModule="Ultimate_Project" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="HJF-8P-ld6" id="bWb-Au-Nxc">
@@ -588,9 +587,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="playerName" destination="dMc-ah-E74" id="dhy-hW-slI"/>
-                                            <outlet property="playerNumber" destination="JzA-KG-lmx" id="syV-m4-mVu"/>
-                                            <outlet property="position" destination="qEK-pW-e1U" id="CtS-pa-BHM"/>
+                                            <outlet property="playerName" destination="dMc-ah-E74" id="r3k-pB-Hkd"/>
+                                            <outlet property="playerNumber" destination="JzA-KG-lmx" id="6Nr-lg-rDw"/>
+                                            <outlet property="position" destination="qEK-pW-e1U" id="Th9-qd-xnI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1226,7 +1225,7 @@
                                 <rect key="frame" x="16" y="152" width="343" height="495"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cp3-n9-jDo">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="gamecast" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cp3-n9-jDo">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cp3-n9-jDo" id="yfy-nj-pWg">
@@ -2107,7 +2106,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pve-Ld-iXf"/>
         <segue reference="x2H-sZ-VIP"/>
+        <segue reference="Jay-ss-4ty"/>
     </inferredMetricsTieBreakers>
 </document>

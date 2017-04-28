@@ -21,6 +21,10 @@ class AddTeamViewController: UIViewController {
         if done {
             createTeam()
             
+            let defaults = UserDefaults.standard
+            defaults.set(twitterHandle.text, forKey: "twitterHandle")
+            defaults.set(teamName.text, forKey: "team")
+
             let t = TeamFinder(json: teamDict as Dictionary<String, AnyObject>)
             JsonParser.jsonClient.addTeam(team: t!)
         
@@ -47,9 +51,9 @@ class AddTeamViewController: UIViewController {
     
     var teamDict: [String: AnyObject] = [:]
     var activeTextField = UITextField()
-    var team: String = ""
-    var pass: String = ""
-    var twitter: String = ""
+//    var team: String = ""
+//    var pass: String = ""
+//    var twitter: String = ""
     
     // MARK: - Overrides
     override func viewDidLoad() {
@@ -68,8 +72,10 @@ class AddTeamViewController: UIViewController {
         // Pass the selected object to the new view controller.
         
         if segue.identifier == "createTeam" {
-            let destinationNavigationController = segue.destination as! UINavigationController
-            let tbvc = destinationNavigationController.topViewController as!TeamBioViewController
+//            let destinationNavigationController = segue.destination as! UINavigationController
+//            let tbvc = destinationNavigationController.topViewController as!TeamBioViewController
+//            tbvc.team = team
+//            tbvc.twitter = twitter
         }
     }
     
@@ -174,25 +180,6 @@ extension AddTeamViewController: UITextFieldDelegate {
     
     func teamCheck() -> Bool {
         if teamName.text != "" && password.text != "" && twitterHandle.text != "" {
-            
-            if let t = teamName.text {
-                team = t
-            } else {
-                print("T")
-            }
-            
-            if let p = password.text {
-                pass = p
-            } else {
-                print("P")
-            }
-            
-            if let tw = twitterHandle.text {
-                twitter = tw
-            } else {
-                print("TW")
-            }
-            
             return true
         } else {
             return false
