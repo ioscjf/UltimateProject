@@ -20,7 +20,7 @@ class NewPlayerTableViewCell: UITableViewCell {
     
     func configure(_ player: PlayerFinder) {
         playerName.text = "\(player.nameFirst!) \(player.nameLast!)"
-        position.text = "Position: \(player.position!)"
-        playerNumber.text = "Jersey Number: \(player.jerseyNum!)"
+        position.text = "\(player.position!)"
+        playerNumber.text = "\(player.jerseyNum!)"
     }
 }

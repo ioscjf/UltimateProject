@@ -168,7 +168,7 @@
                                 <rect key="frame" x="16" y="463" width="343" height="158"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="schedule" id="WIZ-W6-UNX" customClass="PlayerTableViewCell" customModule="Ultimate_Project" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newgame" id="WIZ-W6-UNX" customClass="NewGameTableViewCell" customModule="Ultimate_Project" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WIZ-W6-UNX" id="ybL-mT-0aE">
@@ -202,8 +202,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="date" destination="mne-rW-9hs" id="ynB-Gb-TOA"/>
-                                            <outlet property="opponentName" destination="bJB-SK-JRH" id="ll9-QY-hwQ"/>
+                                            <outlet property="date" destination="mne-rW-9hs" id="RxP-Oj-XRr"/>
+                                            <outlet property="opponentName" destination="bJB-SK-JRH" id="6CM-aF-xaC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -278,7 +278,7 @@
                                     <constraint firstAttribute="height" constant="144" id="6PX-OA-pOM"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="schedule" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="schedule" id="adm-7j-xZd">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="schedule" id="adm-7j-xZd" customClass="GameTableViewCell" customModule="Ultimate_Project" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="adm-7j-xZd" id="2rm-YY-sZD">
@@ -312,6 +312,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="date" destination="OdZ-mR-hed" id="O5W-pN-QnD"/>
+                                            <outlet property="opponentName" destination="cuO-ef-UBQ" id="rCL-E2-Bhc"/>
                                             <segue destination="IEe-9G-3p2" kind="showDetail" identifier="gameToStackTrack" id="rJx-s0-3Xk"/>
                                         </connections>
                                     </tableViewCell>
@@ -2107,6 +2109,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="x2H-sZ-VIP"/>
-        <segue reference="Jay-ss-4ty"/>
+        <segue reference="B3U-Cb-XO5"/>
     </inferredMetricsTieBreakers>
 </document>

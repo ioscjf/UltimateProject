@@ -20,11 +20,13 @@ class TeamBioViewController: UIViewController {
     
     var players: [PlayerFinder] = []
     var myTeam: TeamFinder?
+    var games: [GameFinder] = []
     
     // MARK: - Overrides
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let defaults = UserDefaults.standard
         
         let team = defaults.object(forKey: "team") as! String
@@ -35,6 +37,13 @@ class TeamBioViewController: UIViewController {
             self?.players = myPlayers
             DispatchQueue.main.async(execute: {
                 self?.roster.reloadData()
+            })
+        }
+        
+        JsonParser.jsonClient.getMyGames(team: team, twitter: twitter) {[weak self](myGames) in
+            self?.games = myGames
+            DispatchQueue.main.async(execute: {
+                self?.schedule.reloadData()
             })
         }
 
@@ -60,15 +69,37 @@ class TeamBioViewController: UIViewController {
 
 extension TeamBioViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return players.count
+        var count = 0
+        if tableView == self.roster {
+            count =  players.count
+        } else if tableView == self.schedule {
+            count = games.count
+        }
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "loginplayercell", for: indexPath) as! PlayerTableViewCell
-        
-        let player = players[(indexPath as NSIndexPath).row]
-        cell.configure(player)
-        
-        return cell
+        if tableView == self.roster {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "loginplayercell", for: indexPath) as! PlayerTableViewCell
+            
+            let player = players[(indexPath as NSIndexPath).row]
+            cell.configure(player)
+            
+            return cell
+        } else if tableView == self.schedule {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "schedule", for: indexPath) as! GameTableViewCell
+            
+            let game = games[(indexPath as NSIndexPath).row]
+            cell.configure(game)
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "tweets", for: indexPath) as! UITableViewCell
+            
+            let game = games[(indexPath as NSIndexPath).row]
+//            cell.configure(game)
+            
+            return cell
+        }
     }
 }

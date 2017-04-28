@@ -31,7 +31,6 @@ class updateRosterViewController: UIViewController {
                         })
                     }
                 })
-                
             }
         } else {
             alert()
@@ -74,8 +73,14 @@ class updateRosterViewController: UIViewController {
         
         addDoneButton()
         
-        JsonParser.jsonClient.getPlayers { [weak self](players) in
-            self?.players = players
+        let defaults = UserDefaults.standard
+        
+        let twitter = defaults.object(forKey: "twitterHandle") as? String
+        let team = defaults.object(forKey: "team") as? String
+        
+        JsonParser.jsonClient.getMyPlayer(team: team!, twitter: twitter!) {[weak self](myPlayers) in
+            self?.players = myPlayers
+            
             DispatchQueue.main.async(execute: {
                 self?.playersTable.reloadData()
             })
@@ -214,7 +219,7 @@ extension updateRosterViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "rosterplayercell", for: indexPath) as! PlayerTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "rosterplayercell", for: indexPath) as! NewPlayerTableViewCell
         
         let player = players[(indexPath as NSIndexPath).row]
         cell.configure(player)

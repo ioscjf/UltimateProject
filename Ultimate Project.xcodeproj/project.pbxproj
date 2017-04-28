@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A61CAABC1DEE23F600E6B813 /* StatFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61CAABB1DEE23F600E6B813 /* StatFinder.swift */; };
 		A623ADDF1EB2B756005FFEBC /* NewPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623ADDE1EB2B756005FFEBC /* NewPlayerTableViewCell.swift */; };
+		A623ADE11EB300B6005FFEBC /* NewGameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623ADE01EB300B6005FFEBC /* NewGameTableViewCell.swift */; };
 		A631739D1DA6EB0600C5F954 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631739C1DA6EB0600C5F954 /* LoginViewController.swift */; };
 		A631739F1DA6ED5B00C5F954 /* TeamBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631739E1DA6ED5B00C5F954 /* TeamBioViewController.swift */; };
 		A63173A11DA6F06200C5F954 /* updateRosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63173A01DA6F06100C5F954 /* updateRosterViewController.swift */; };
@@ -32,7 +33,6 @@
 		A6BDD5111DAD82C400EF51A4 /* TeamStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD5101DAD82C400EF51A4 /* TeamStatsViewController.swift */; };
 		A6BDD5131DAD86C900EF51A4 /* PlayerStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDD5121DAD86C900EF51A4 /* PlayerStatsViewController.swift */; };
 		A6DC75011D889FAA00E0834C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DC75001D889FAA00E0834C /* AppDelegate.swift */; };
-		A6DC75031D889FAA00E0834C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DC75021D889FAA00E0834C /* MainViewController.swift */; };
 		A6DC75061D889FAA00E0834C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6DC75041D889FAA00E0834C /* Main.storyboard */; };
 		A6DC75091D889FAA00E0834C /* Ultimate_Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6DC75071D889FAA00E0834C /* Ultimate_Project.xcdatamodeld */; };
 		A6DC750B1D889FAA00E0834C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6DC750A1D889FAA00E0834C /* Assets.xcassets */; };
@@ -63,6 +63,7 @@
 /* Begin PBXFileReference section */
 		A61CAABB1DEE23F600E6B813 /* StatFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatFinder.swift; sourceTree = "<group>"; };
 		A623ADDE1EB2B756005FFEBC /* NewPlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPlayerTableViewCell.swift; sourceTree = "<group>"; };
+		A623ADE01EB300B6005FFEBC /* NewGameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameTableViewCell.swift; sourceTree = "<group>"; };
 		A631739C1DA6EB0600C5F954 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A631739E1DA6ED5B00C5F954 /* TeamBioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamBioViewController.swift; sourceTree = "<group>"; };
 		A63173A01DA6F06100C5F954 /* updateRosterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = updateRosterViewController.swift; sourceTree = "<group>"; };
@@ -87,7 +88,6 @@
 		A6BDD5121DAD86C900EF51A4 /* PlayerStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStatsViewController.swift; sourceTree = "<group>"; };
 		A6DC74FD1D889FA900E0834C /* Ultimate Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ultimate Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6DC75001D889FAA00E0834C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A6DC75021D889FAA00E0834C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A6DC75051D889FAA00E0834C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6DC75081D889FAA00E0834C /* Ultimate_Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ultimate_Project.xcdatamodel; sourceTree = "<group>"; };
 		A6DC750A1D889FAA00E0834C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -149,7 +149,10 @@
 			children = (
 				A662297F1E9DC201000B69A1 /* AddGameViewController.swift */,
 				A66229831E9DC41A000B69A1 /* GameTableViewCell.swift */,
+				A623ADE01EB300B6005FFEBC /* NewGameTableViewCell.swift */,
 				A63173A01DA6F06100C5F954 /* updateRosterViewController.swift */,
+				A64DC2481DF1137E00E0E5CF /* PlayerTableViewCell.swift */,
+				A623ADDE1EB2B756005FFEBC /* NewPlayerTableViewCell.swift */,
 				A6858F721DF7BA5A00465E7F /* AddTeamViewController.swift */,
 				A6BDD5081DAD7DC500EF51A4 /* StatTrackViewController.swift */,
 				A64DC24A1DF1138B00E0E5CF /* StatsTableViewCell.swift */,
@@ -174,8 +177,6 @@
 				A6BDD50E1DAD81D900EF51A4 /* TeamFinderViewController.swift */,
 				A677D9951DD506C4002A6885 /* TeamTableViewCell.swift */,
 				A6BDD5101DAD82C400EF51A4 /* TeamStatsViewController.swift */,
-				A64DC2481DF1137E00E0E5CF /* PlayerTableViewCell.swift */,
-				A623ADDE1EB2B756005FFEBC /* NewPlayerTableViewCell.swift */,
 				A6BDD5121DAD86C900EF51A4 /* PlayerStatsViewController.swift */,
 			);
 			name = "Quick Stats";
@@ -214,7 +215,6 @@
 				A6BDD5041DAD789000EF51A4 /* GameCast */,
 				A6BDD5031DAD788A00EF51A4 /* Team Bio */,
 				A6DC75001D889FAA00E0834C /* AppDelegate.swift */,
-				A6DC75021D889FAA00E0834C /* MainViewController.swift */,
 				A6DC75041D889FAA00E0834C /* Main.storyboard */,
 				A6DC750A1D889FAA00E0834C /* Assets.xcassets */,
 				A6DC750C1D889FAA00E0834C /* LaunchScreen.storyboard */,
@@ -409,6 +409,7 @@
 				A631739F1DA6ED5B00C5F954 /* TeamBioViewController.swift in Sources */,
 				A6BDD5111DAD82C400EF51A4 /* TeamStatsViewController.swift in Sources */,
 				A65954441DD2A0F0008A544C /* TeamFinder.swift in Sources */,
+				A623ADE11EB300B6005FFEBC /* NewGameTableViewCell.swift in Sources */,
 				A66229841E9DC41A000B69A1 /* GameTableViewCell.swift in Sources */,
 				A64DC2491DF1137F00E0E5CF /* PlayerTableViewCell.swift in Sources */,
 				A6BDD5131DAD86C900EF51A4 /* PlayerStatsViewController.swift in Sources */,
@@ -416,7 +417,6 @@
 				A6BDD5091DAD7DC500EF51A4 /* StatTrackViewController.swift in Sources */,
 				A6858F731DF7BA5A00465E7F /* AddTeamViewController.swift in Sources */,
 				A6DC75091D889FAA00E0834C /* Ultimate_Project.xcdatamodeld in Sources */,
-				A6DC75031D889FAA00E0834C /* MainViewController.swift in Sources */,
 				A63173A11DA6F06200C5F954 /* updateRosterViewController.swift in Sources */,
 				A662297D1E9DA98B000B69A1 /* GameFinder.swift in Sources */,
 				A64DC24B1DF1138B00E0E5CF /* StatsTableViewCell.swift in Sources */,

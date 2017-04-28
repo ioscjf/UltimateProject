@@ -50,6 +50,25 @@ class JsonParser {
         }
     }
     
+    func getMyGames(team: String, twitter: String, _ completion: @escaping ([GameFinder]) -> ()) {
+        let postString = "teamName=\(team)&twitterHandle=\(twitter)"
+        post(clientURLRequest("myGame.php"), message: postString) { (success, object) in
+            var players: [GameFinder] = []
+            if let object = object as? Dictionary<String, AnyObject> {
+                if let results = object["GAME"] as? [Dictionary<String, AnyObject>] {
+                    for result in results {
+                        if let player = GameFinder(json: result) {
+                            players.append(player)
+                        } else {
+                            print(result)
+                        }
+                    }
+                }
+            }
+            completion(players)
+        }
+    }
+    
     func getPlayers(_ completion: @escaping ([PlayerFinder]) -> ()) {
         get(clientURLRequest("players.php"), message: nil) { (success, object) in
             var players: [PlayerFinder] = []
@@ -150,9 +169,14 @@ class JsonParser {
         }
     }
     
-    func addGames(game: GameFinder) {
-        let postString = "date=\(game.date!)&tournament=\(game.tournament!)&gameNum=\(game.gameNum!)&location=\(game.location!)&opponent=\(game.opponent!)"
+    func addGames(game: GameFinder, _ completion: @escaping() -> ()) {
+        let defaults = UserDefaults.standard
+        let t = defaults.object(forKey: "team") as! String
+        
+        let postString = "date=\(game.date!)&tournament=\(game.tournament!)&gameNum=\(game.gameNum!)&location=\(game.location!)&opponent=\(game.opponent!)&team=\(t)"
         post(clientURLRequest("addGame.php"), message: postString) { (success, object) in
+            
+            completion()
         }
     }
     

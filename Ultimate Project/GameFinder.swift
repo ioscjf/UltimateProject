@@ -17,7 +17,6 @@ struct GameFinder {
     var opponent: String?
     
     init?(json: Dictionary<String, AnyObject>) {
-        
         if let date = json["date"] as? String {
             self.date = date
         } else {

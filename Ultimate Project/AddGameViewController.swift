@@ -20,16 +20,28 @@ class AddGameViewController: UIViewController {
     @IBOutlet weak var addGameLabel: UIButton!
     
     @IBAction func addGame(_ sender: UIButton) {
-        // TODO!!
         let done = createGame()
         if done {
             let g = GameFinder(json: gameDict as Dictionary<String, AnyObject>)
-            JsonParser.jsonClient.addGames(game: g!)
+            JsonParser.jsonClient.addGames(game: g!) {[weak self] in
+                DispatchQueue.main.async(execute: {
+                    let defaults = UserDefaults.standard
+                    
+                    let twitter = defaults.object(forKey: "twitterHandle") as? String
+                    let team = defaults.object(forKey: "team") as? String
+                    
+                    JsonParser.jsonClient.getMyGames(team: team!, twitter: twitter!) {[weak self](myGames) in
+                        self?.games = myGames
+                        
+                        DispatchQueue.main.async(execute: {
+                            self?.schedule.reloadData()
+                        })
+                    }
+                })
+            }
         } else {
             alert()
         }
-        
-        // refresh table UI
     }
     
     @IBOutlet weak var schedule: UITableView!
@@ -46,9 +58,14 @@ class AddGameViewController: UIViewController {
         super.viewDidLoad()
         
         addDoneButton()
+        
+        let defaults = UserDefaults.standard
 
-        JsonParser.jsonClient.getGames { [weak self](games) in
-            self?.games = games
+        let team = defaults.object(forKey: "team") as! String
+        let twitter = defaults.object(forKey: "twitterHandle") as! String
+        
+        JsonParser.jsonClient.getMyGames(team: team, twitter: twitter) {[weak self](myGames) in
+            self?.games = myGames
             DispatchQueue.main.async(execute: {
                 self?.schedule.reloadData()
             })
@@ -129,8 +146,12 @@ extension AddGameViewController: UITextFieldDelegate {
                 print("O")
             }
             
-            gameDict["date"] = gameTime.date as AnyObject
-            print(gameTime.date)
+            let date = NSDate()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let dateString = dateFormatter.string(from:gameTime.date as Date)
+            gameDict["date"] = dateString as AnyObject
+            
             return true
         } else {
             return false
@@ -166,7 +187,7 @@ extension AddGameViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "schedule", for: indexPath) as! GameTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "newgame", for: indexPath) as! NewGameTableViewCell
         
         let game = games[(indexPath as NSIndexPath).row]
         cell.configure(game)
