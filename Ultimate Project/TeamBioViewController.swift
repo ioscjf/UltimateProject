@@ -121,6 +121,7 @@ extension TeamBioViewController: UITableViewDelegate, UITableViewDataSource {
                 if games.count > indexPath.row {
                     opponent = games[indexPath.row].opponent!
                 }
+                tableView.deselectRow(at: indexPath, animated: true)
                 self.performSegue(withIdentifier: "livestats", sender: self)
             } else {
                 alert()
