@@ -51,9 +51,6 @@ class AddTeamViewController: UIViewController {
     
     var teamDict: [String: AnyObject] = [:]
     var activeTextField = UITextField()
-//    var team: String = ""
-//    var pass: String = ""
-//    var twitter: String = ""
     
     // MARK: - Overrides
     override func viewDidLoad() {
@@ -70,13 +67,6 @@ class AddTeamViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
-        if segue.identifier == "createTeam" {
-//            let destinationNavigationController = segue.destination as! UINavigationController
-//            let tbvc = destinationNavigationController.topViewController as!TeamBioViewController
-//            tbvc.team = team
-//            tbvc.twitter = twitter
-        }
     }
     
     func alert() {

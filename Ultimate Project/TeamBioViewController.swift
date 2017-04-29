@@ -21,6 +21,7 @@ class TeamBioViewController: UIViewController {
     var players: [PlayerFinder] = []
     var myTeam: TeamFinder?
     var games: [GameFinder] = []
+    var opponent: String = ""
     
     // MARK: - Overrides
 
@@ -54,17 +55,28 @@ class TeamBioViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func alert() {
+        let alert = UIAlertController(title: "Oops!", message: "You need at least 7 players to start a game.", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
+            // perhaps use action.title here
+        })
+        self.present(alert, animated: true)
+    }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "livestats" {
+            let destinationNavigationController = segue.destination as! UINavigationController
+            let lsvc = destinationNavigationController.topViewController as! LiveStatViewController
+            
+            lsvc.opponent = opponent
+        }
     }
-    */
-
 }
 
 extension TeamBioViewController: UITableViewDelegate, UITableViewDataSource {
@@ -100,6 +112,19 @@ extension TeamBioViewController: UITableViewDelegate, UITableViewDataSource {
 //            cell.configure(game)
             
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == self.schedule {
+            if players.count > 6 {
+                if games.count > indexPath.row {
+                    opponent = games[indexPath.row].opponent!
+                }
+                self.performSegue(withIdentifier: "livestats", sender: self)
+            } else {
+                alert()
+            }
         }
     }
 }

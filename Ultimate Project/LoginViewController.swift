@@ -67,21 +67,6 @@ class LoginViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "LoggedIn" {
-//            let defaults = UserDefaults.standard
-//
-//            let destinationNavigationController = segue.destination as! UITabBarController
-//            let tbvc = destinationNavigationController.viewControllers?[0] as!TeamBioViewController
-//            tbvc.team = team
-//            defaults.set(team, forKey: "team")
-//            
-//            if let auth = defaults.object(forKey: "twitterHandle") as? String {
-//                tbvc.twitter = auth
-//            } else {
-//                tbvc.twitter = ""
-//                print("ERROR: NO TWITTER")
-//            }
-        }
     }
     
     func alert() {

@@ -163,8 +163,10 @@ class JsonParser {
         }
     }
     
-    func addStats(stat: StatFinder) {
-        let postString = "playerName=\(stat.playerName!)&year=\(stat.year!)&scores=\(stat.scores!)&assists=\(stat.assists!)&offensivePointsPlayed=\(stat.offensivePointsPlayed!)&defensivePointsPlayed=\(stat.defensivePointsPlayed!)&drops=\(stat.drops!)&catches=\(stat.catches!)&completions=\(stat.completions!)"
+    func addStats(playerNameFirst: String, playerNameLast: String, opponent: String, stat: StatFinder) {
+        let defaults = UserDefaults.standard
+        let t = defaults.object(forKey: "team") as! String
+        let postString = "nameFirst=\(playerNameFirst)&nameLast=\(playerNameLast)&opponent=\(opponent)&teamName=\(t)&scores=\(stat.scores!)&assists=\(stat.assists!)&completions=\(stat.completions!)&throwingErrors=\(stat.throwingErrors!)&drops=\(stat.drops!)&ds=\(stat.ds!)&goallineThrowingErrors=\(stat.goallineThrowingErrors!)&goallineDrops=\(stat.goallineDrops!)&goallineDs=\(stat.goallineDs!)&fouls=\(stat.fouls!)&pulls=\(stat.pulls!)&pullsOutOfBounds=\(stat.pullsOutOfBounds!)&offensivePointsPlayed=\(stat.offensivePointsPlayed!)&defensivePointsPlayed=\(stat.defensivePointsPlayed!)"
         post(clientURLRequest("addStats.php"), message: postString) { (success, object) in
         }
     }

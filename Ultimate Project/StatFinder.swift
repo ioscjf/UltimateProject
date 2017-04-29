@@ -10,69 +10,104 @@ import Foundation
 
 struct StatFinder {
     
-    var playerName: String?
-    var year: Int?
     var scores: Int?
     var assists: Int?
+    var completions: Int?
+    var throwingErrors: Int?
+    var drops: Int?
+    var ds: Int?
+    var goallineThrowingErrors: Int?
+    var goallineDrops: Int?
+    var goallineDs: Int?
+    var fouls: Int?
+    var pulls: Int?
+    var pullsOutOfBounds: Int?
     var offensivePointsPlayed: Int?
     var defensivePointsPlayed: Int?
-    var drops: Int?
-    var catches: Int?
-    var completions: Int?
     
     init?(json: Dictionary<String, AnyObject>) {
-        if let playerName = json["PlayerName"] as? String {
-            self.playerName = playerName
-        } else {
-            self.playerName = ""
-        }
-        
-        if let year = Int((json["Year"] as? String)!) {
-            self.year = year
-        } else {
-            self.year = 0
-        }
-        
-        if let scores = Int((json["Scores"] as? String)!) {
-            self.scores = scores
+        if let s = Int((json["scores"] as? String)!) {
+            self.scores = s
         } else {
             self.scores = 0
         }
         
-        if let assists = Int((json["Assists"] as? String)!) {
-            self.assists = assists
+        if let a = Int((json["assists"] as? String)!) {
+            self.assists = a
         } else {
             self.assists = 0
         }
         
-        if let offensivePointsPlayed = Int((json["OffensivePointsPlayed"] as? String)!) {
-            self.offensivePointsPlayed = offensivePointsPlayed
+        if let c = Int((json["completions"] as? String)!) {
+            self.completions = c
         } else {
-            self.offensivePointsPlayed = 0
+            self.completions = 0
         }
         
-        if let defensivePointsPlayed = Int((json["DefensivePointsPlayed"] as? String)!) {
-            self.defensivePointsPlayed = defensivePointsPlayed
+        if let te = Int((json["throwingErrors"] as? String)!) {
+            self.throwingErrors = te
         } else {
-            self.defensivePointsPlayed = 0
+            self.throwingErrors = 0
         }
         
-        if let drops = Int((json["Drops"] as? String)!) {
-            self.drops = drops
+        if let d = Int((json["drops"] as? String)!) {
+            self.drops = d
         } else {
             self.drops = 0
         }
         
-        if let catches = Int((json["Catches"] as? String)!) {
-            self.catches = catches
+        if let ds = Int((json["ds"] as? String)!) {
+            self.ds = ds
         } else {
-            self.catches = 0
+            self.ds = 0
         }
         
-        if let completions = Int((json["Completions"] as? String)!) {
-            self.completions = completions
+        if let gte = Int((json["goallineThrowingErrors"] as? String)!) {
+            self.goallineThrowingErrors = gte
         } else {
-            self.completions = 0
+            self.goallineThrowingErrors = 0
+        }
+        
+        if let gd = Int((json["goallineDrops"] as? String)!) {
+            self.goallineDrops = gd
+        } else {
+            self.goallineDrops = 0
+        }
+        
+        if let gds = Int((json["goallineDs"] as? String)!) {
+            self.goallineDs = gds
+        } else {
+            self.goallineDs = 0
+        }
+        
+        if let f = Int((json["fouls"] as? String)!) {
+            self.fouls = f
+        } else {
+            self.fouls = 0
+        }
+        
+        if let p = Int((json["pulls"] as? String)!) {
+            self.pulls = p
+        } else {
+            self.pulls = 0
+        }
+        
+        if let poob = Int((json["pullsOutOfBounds"] as? String)!) {
+            self.pullsOutOfBounds = poob
+        } else {
+            self.pullsOutOfBounds = 0
+        }
+        
+        if let opp = Int((json["offensivePointsPlayed"] as? String)!) {
+            self.offensivePointsPlayed = opp
+        } else {
+            self.offensivePointsPlayed = 0
+        }
+        
+        if let dpp = Int((json["defensivePointsPlayed"] as? String)!) {
+            self.defensivePointsPlayed = dpp
+        } else {
+            self.defensivePointsPlayed = 0
         }
     }
 }

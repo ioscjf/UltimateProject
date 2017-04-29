@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StatsTableViewCell: UITableViewCell {
+class StatsTableViewCell: UITableViewCell { // TODO!!
 
     // MARK: - Outlets
     
@@ -25,14 +25,14 @@ class StatsTableViewCell: UITableViewCell {
     // MARK: - Configuration
     
     func configure(_ stat: StatFinder) {
-        playerName.text = "Player: \(stat.playerName!)"
-        year.text = "Year: \(stat.year!)"
-        scores.text = "Scores: \(stat.scores!)"
-        assists.text = "Assists: \(stat.assists!)"
-        offensivePointsPlayed.text = "Offensive Points Played: \(stat.offensivePointsPlayed!)"
-        defensivePointsPlayed.text = "Defensive Points Played: \(stat.defensivePointsPlayed!)"
-        drops.text = "Drops: \(stat.drops!)"
-        catches.text = "Catches: \(stat.catches!)"
-        completions.text = "Completions: \(stat.completions!)"
+//        playerName.text = "Player: \(stat.playerName!)"
+//        year.text = "Year: \(stat.year!)"
+//        scores.text = "Scores: \(stat.scores!)"
+//        assists.text = "Assists: \(stat.assists!)"
+//        offensivePointsPlayed.text = "Offensive Points Played: \(stat.offensivePointsPlayed!)"
+//        defensivePointsPlayed.text = "Defensive Points Played: \(stat.defensivePointsPlayed!)"
+//        drops.text = "Drops: \(stat.drops!)"
+//        catches.text = "Catches: \(stat.catches!)"
+//        completions.text = "Completions: \(stat.completions!)"
     }
 }
