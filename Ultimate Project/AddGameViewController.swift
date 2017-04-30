@@ -146,7 +146,6 @@ extension AddGameViewController: UITextFieldDelegate {
                 print("O")
             }
             
-            let date = NSDate()
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
             let dateString = dateFormatter.string(from:gameTime.date as Date)

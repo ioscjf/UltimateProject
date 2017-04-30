@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TwitterKit
 
 class TeamBioViewController: UIViewController {
     
@@ -14,7 +15,11 @@ class TeamBioViewController: UIViewController {
     
     @IBOutlet weak var roster: UITableView!
     @IBOutlet weak var schedule: UITableView!
-    @IBOutlet weak var tweets: UITableView!
+    @IBOutlet weak var twitterHandle: UIButton!
+    
+    @IBAction func showTweets(_ sender: UIButton) {
+        showTimeline()
+    }
     
     // MARK: - Variables
     
@@ -32,7 +37,8 @@ class TeamBioViewController: UIViewController {
         
         let team = defaults.object(forKey: "team") as! String
         let twitter = defaults.object(forKey: "twitterHandle") as! String
-
+        
+        twitterHandle.setTitle("@\(twitter)", for: .normal)
 
         JsonParser.jsonClient.getMyPlayer(team: team, twitter: twitter) {[weak self](myPlayers) in
             self?.players = myPlayers
@@ -61,6 +67,27 @@ class TeamBioViewController: UIViewController {
             // perhaps use action.title here
         })
         self.present(alert, animated: true)
+    }
+    
+    func showTimeline() {
+        
+        let defaults = UserDefaults.standard
+        let twitter = defaults.object(forKey: "twitterHandle") as! String
+        
+        let userID = Twitter.sharedInstance().sessionStore.session()?.userID
+        let client = TWTRAPIClient(userID: userID)
+        let dataSource = TWTRUserTimelineDataSource(screenName: twitter, apiClient: client)
+        
+        let timelineViewControlller = TWTRTimelineViewController(dataSource: dataSource)
+        // Create done button to dismiss the view controller
+        let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissTimeline))
+        timelineViewControlller.navigationItem.leftBarButtonItem = button
+        // Create a navigation controller to hold the
+        let navigationController = UINavigationController(rootViewController: timelineViewControlller)
+        showDetailViewController(navigationController, sender: self)
+    }
+    func dismissTimeline() {
+        dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Navigation
@@ -98,18 +125,11 @@ extension TeamBioViewController: UITableViewDelegate, UITableViewDataSource {
             cell.configure(player)
             
             return cell
-        } else if tableView == self.schedule {
+        } else { // should be schedule
             let cell = tableView.dequeueReusableCell(withIdentifier: "schedule", for: indexPath) as! GameTableViewCell
             
             let game = games[(indexPath as NSIndexPath).row]
             cell.configure(game)
-            
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "tweets", for: indexPath) as! UITableViewCell
-            
-            let game = games[(indexPath as NSIndexPath).row]
-//            cell.configure(game)
             
             return cell
         }

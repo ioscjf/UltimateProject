@@ -21,26 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         Fabric.with([Crashlytics.self, Twitter.self])
-        
-        let defaults = UserDefaults.standard
-        
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController: UIViewController?
-        
-        // comment while testing
-//        if let auth = defaults.object(forKey: "session") as? String {
-//            initialViewController = storyboard.instantiateViewController(withIdentifier: "TabViewController")
-//        } else {
-//            initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-//        }
-        
-        // For testing
-        initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+//        
+//        let defaults = UserDefaults.standard
+//        
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let initialViewController: UIViewController?
+//        
+//        initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
 
-        
-        self.window?.rootViewController = initialViewController
-        self.window?.makeKeyAndVisible()
+//        self.window?.rootViewController = initialViewController
+//        self.window?.makeKeyAndVisible()
 
         return true
     }
