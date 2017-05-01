@@ -21,6 +21,14 @@ class TeamBioViewController: UIViewController {
         showTimeline()
     }
     
+    @IBAction func logout(_ sender: UIButton) {
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        UserDefaults.standard.synchronize()
+        
+        performSegue(withIdentifier: "logout", sender: self)
+    }
+    
+    
     // MARK: - Variables
     
     var players: [PlayerFinder] = []

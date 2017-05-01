@@ -18,6 +18,9 @@
 		A64DC24B1DF1138B00E0E5CF /* StatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DC24A1DF1138B00E0E5CF /* StatsTableViewCell.swift */; };
 		A65533E81EB43838005E1C44 /* StatPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65533E71EB43838005E1C44 /* StatPlayerTableViewCell.swift */; };
 		A65533EA1EB43851005E1C44 /* LiveStatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65533E91EB43851005E1C44 /* LiveStatViewController.swift */; };
+		A65533EE1EB682DF005E1C44 /* MyGamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65533ED1EB682DF005E1C44 /* MyGamesTableViewCell.swift */; };
+		A65533F01EB6843C005E1C44 /* MyPlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65533EF1EB6843C005E1C44 /* MyPlayersViewController.swift */; };
+		A65533F21EB6851F005E1C44 /* MyPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65533F11EB6851F005E1C44 /* MyPlayerTableViewCell.swift */; };
 		A65954441DD2A0F0008A544C /* TeamFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65954431DD2A0F0008A544C /* TeamFinder.swift */; };
 		A65954461DD2A3AD008A544C /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65954451DD2A3AD008A544C /* JsonParser.swift */; };
 		A65D40261E4A7AE700087229 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65D40231E4A7AE700087229 /* TwitterKit.framework */; };
@@ -71,6 +74,9 @@
 		A64DC24A1DF1138B00E0E5CF /* StatsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsTableViewCell.swift; sourceTree = "<group>"; };
 		A65533E71EB43838005E1C44 /* StatPlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatPlayerTableViewCell.swift; sourceTree = "<group>"; };
 		A65533E91EB43851005E1C44 /* LiveStatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveStatViewController.swift; sourceTree = "<group>"; };
+		A65533ED1EB682DF005E1C44 /* MyGamesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGamesTableViewCell.swift; sourceTree = "<group>"; };
+		A65533EF1EB6843C005E1C44 /* MyPlayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPlayersViewController.swift; sourceTree = "<group>"; };
+		A65533F11EB6851F005E1C44 /* MyPlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPlayerTableViewCell.swift; sourceTree = "<group>"; };
 		A65954431DD2A0F0008A544C /* TeamFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamFinder.swift; sourceTree = "<group>"; };
 		A65954451DD2A3AD008A544C /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonParser.swift; path = ../JsonParser.swift; sourceTree = "<group>"; };
 		A65D40231E4A7AE700087229 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
@@ -166,6 +172,9 @@
 				A6BDD50E1DAD81D900EF51A4 /* TeamFinderViewController.swift */,
 				A677D9951DD506C4002A6885 /* TeamTableViewCell.swift */,
 				A6BDD5101DAD82C400EF51A4 /* TeamStatsViewController.swift */,
+				A65533ED1EB682DF005E1C44 /* MyGamesTableViewCell.swift */,
+				A65533EF1EB6843C005E1C44 /* MyPlayersViewController.swift */,
+				A65533F11EB6851F005E1C44 /* MyPlayerTableViewCell.swift */,
 				A6BDD5121DAD86C900EF51A4 /* PlayerStatsViewController.swift */,
 				A64DC24A1DF1138B00E0E5CF /* StatsTableViewCell.swift */,
 			);
@@ -398,6 +407,7 @@
 				A631739F1DA6ED5B00C5F954 /* TeamBioViewController.swift in Sources */,
 				A6BDD5111DAD82C400EF51A4 /* TeamStatsViewController.swift in Sources */,
 				A65954441DD2A0F0008A544C /* TeamFinder.swift in Sources */,
+				A65533F21EB6851F005E1C44 /* MyPlayerTableViewCell.swift in Sources */,
 				A623ADE11EB300B6005FFEBC /* NewGameTableViewCell.swift in Sources */,
 				A66229841E9DC41A000B69A1 /* GameTableViewCell.swift in Sources */,
 				A64DC2491DF1137F00E0E5CF /* PlayerTableViewCell.swift in Sources */,
@@ -405,8 +415,10 @@
 				A6858F731DF7BA5A00465E7F /* AddTeamViewController.swift in Sources */,
 				A6DC75091D889FAA00E0834C /* Ultimate_Project.xcdatamodeld in Sources */,
 				A63173A11DA6F06200C5F954 /* updateRosterViewController.swift in Sources */,
+				A65533EE1EB682DF005E1C44 /* MyGamesTableViewCell.swift in Sources */,
 				A65533EA1EB43851005E1C44 /* LiveStatViewController.swift in Sources */,
 				A662297D1E9DA98B000B69A1 /* GameFinder.swift in Sources */,
+				A65533F01EB6843C005E1C44 /* MyPlayersViewController.swift in Sources */,
 				A64DC24B1DF1138B00E0E5CF /* StatsTableViewCell.swift in Sources */,
 				A6DC75011D889FAA00E0834C /* AppDelegate.swift in Sources */,
 			);

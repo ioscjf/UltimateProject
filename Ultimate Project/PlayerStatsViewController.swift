@@ -19,33 +19,27 @@ class PlayerStatsViewController: UIViewController {
     }
     
     @IBOutlet weak var statsTable: UITableView!
+    @IBOutlet weak var somePlayerName: UINavigationItem!
     
     // MARK: - Variables
     
     var stats: [StatFinder] = []
+    var playerName = ""
     
     // MARK: - Overrides
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(false)
         
-        JsonParser.jsonClient.getStats { [weak self](stats) in
-            self?.stats = stats
-            DispatchQueue.main.async(execute: {
-                self?.statsTable.reloadData()
-            })
-        }
+        somePlayerName.title = playerName
+        
+        // get stats where playername = __ and gameID = __
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation

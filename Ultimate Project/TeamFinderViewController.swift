@@ -12,23 +12,13 @@ class TeamFinderViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBAction func back(_ sender: UIBarButtonItem) {
-        if self.presentingViewController != nil {
-            self.dismiss(animated: false, completion: nil)
-        }
-    }
-    
-    @IBOutlet weak var yearPicker: UIPickerView!
-    @IBOutlet weak var howToSortPicker: UIPickerView!
     @IBOutlet weak var teamTable: UITableView!
-    
-    @IBAction func refresh(_ sender: UIBarButtonItem) {
-    }
     
     // MARK: - Variables
     
     var teams: [TeamFinder] = []
     var teamName = ""
+    var twitter = ""
     
     // MARK: - Overrides
     
@@ -63,6 +53,7 @@ class TeamFinderViewController: UIViewController {
             let tsvc = destinationNavigationController.topViewController as! TeamStatsViewController
             
             tsvc.teamName = teamName
+            tsvc.twitter = twitter
         }
     }
 }
@@ -84,6 +75,7 @@ extension TeamFinderViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if teams.count > indexPath.row {
             teamName = teams[indexPath.row].teamName!
+            twitter = teams[indexPath.row].twitterHandle!
         }
         self.performSegue(withIdentifier: "TeamFinderToTeamPage", sender: indexPath);
     }

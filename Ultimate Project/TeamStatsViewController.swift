@@ -19,13 +19,15 @@ class TeamStatsViewController: UIViewController {
     }
     
     @IBOutlet weak var someTeamName: UINavigationItem!
-    @IBOutlet weak var playersTable: UITableView!
     @IBOutlet weak var opponentsTable: UITableView!
     
     // MARK: - Variables
     
-    var players: [PlayerFinder] = []
+    var games: [GameFinder] = []
     var teamName = ""
+    var twitter = ""
+    
+    var opponent = ""
     
     // MARK: - Overrides
 
@@ -38,12 +40,14 @@ class TeamStatsViewController: UIViewController {
         
         someTeamName.title = teamName
         
-        JsonParser.jsonClient.getPlayers { [weak self](players) in
-            self?.players = players
+        JsonParser.jsonClient.getMyGames(team: teamName, twitter: twitter) {[weak self](myGames) in
+            self?.games = myGames
             DispatchQueue.main.async(execute: {
-            self?.playersTable.reloadData()
+                self?.opponentsTable.reloadData()
             })
         }
+        
+        // myGames -> games all games where team == __
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,29 +55,42 @@ class TeamStatsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-
+        
+        if segue.identifier == "gameToPlayer" {
+            let destinationNavigationController = segue.destination as! UINavigationController
+            let mpvc = destinationNavigationController.topViewController as! MyPlayersViewController
+            
+            mpvc.team = teamName
+            mpvc.twitter = twitter
+            mpvc.opponent = opponent
+        }
     }
-    */
 }
 
 extension TeamStatsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return players.count
+        return games.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "playercell", for: indexPath) as! PlayerTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "opponent", for: indexPath) as! MyGamesTableViewCell
         
-        let player = players[(indexPath as NSIndexPath).row]
-        cell.configure(player)
+        let game = games[(indexPath as NSIndexPath).row]
+        cell.configure(game)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if games.count > indexPath.row {
+            opponent = games[indexPath.row].opponent!
+        }
+        self.performSegue(withIdentifier: "gameToPlayer", sender: indexPath);
     }
 }

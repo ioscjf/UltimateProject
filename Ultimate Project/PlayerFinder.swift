@@ -63,15 +63,28 @@ struct PlayerFinder {
             dateFormatter.dateFormat = "YYYY-MM-dd"
             self.birthday = dateFormatter.string(from: birthday)
         } else {
-            self.birthday = "2017-01-01"
+            if let birthday = json["birthday"] as? String {
+                self.birthday = birthday
+            } else {
+                self.birthday = "2017-01-01"
+            }
         }
         
-        if let height = json["height"] as? Int {
+        if let height = Int((json["height"] as? String)!) {
             self.heightInches = height % 12
             self.heightFeet = Int(height / 12)
         } else {
-            self.heightInches = 0
-            self.heightFeet = 0
+            if let hi = json["heightInches"] as? Int {
+                self.heightInches = hi
+            } else {
+                self.heightInches = 0
+            }
+            if let hf = json["heightFeet"] as? Int {
+                self.heightFeet = hf
+            } else {
+                self.heightFeet = 0
+            }
         }
+        
     }
 }
