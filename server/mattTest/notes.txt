@@ -1,0 +1,2 @@
+Next up- Create addPlayer.php and showPlayers.php
+Then move on to rest of tables in DB

@@ -1,0 +1,27 @@
+<html>
+    <body>
+        <h1>Add info (player)</h1>
+        </p>This is a boring form page to add player info to the database</p>
+
+        <span>
+            <form action="./addPlayer.php" method="post">
+                First name: <input type="text" name="nameFirst"><br><br>
+                Last name: <input type="text" name="nameLast"><br><br>
+                Position: <select name="position">
+                    <option value="Handler">Handler</option>
+                    <option value="Cutter">Cutter</option>
+                </select><br><br>
+		Birthday: <input type="date", name="birthday"><br><br>
+		Height (feet): <input type="number", min="0", name="heightFeet"><br><br>
+        Height (inches): <input type="number", min="0", max="11", name="heightInches"><br><br>
+		Weight: <input type="number", min="0", name="weight"><br><br>
+		Jersey number: <input type="number", min="0", max="99", name="jerseyNum"><br><br>
+		Nickname: <input type="text", name="nickname"><br><br>
+
+		<br><br>
+
+		Enter the team ID of the team you want to add this player to: <input type="text" min="1" name="team"><br><br>
+            <input type="submit">
+        </span>
+    </body>
+</html>
