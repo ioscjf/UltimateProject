@@ -25,7 +25,8 @@ class MyPlayersViewController: UIViewController {
     // MARK: - Variables
     
     var players: [PlayerFinder] = []
-    var playerName = ""
+    var nameFirst = ""
+    var nameLast = ""
     var team = ""
     
     var twitter = ""
@@ -63,7 +64,10 @@ class MyPlayersViewController: UIViewController {
             let destinationNavigationController = segue.destination as! UINavigationController
             let psvc = destinationNavigationController.topViewController as! PlayerStatsViewController
             
-            psvc.playerName = playerName
+            psvc.nameFirst = nameFirst
+            psvc.nameLast = nameLast
+            psvc.team = team
+            psvc.opponent = opponent
         }
     }
 }
@@ -85,7 +89,8 @@ extension MyPlayersViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if players.count > indexPath.row {
-            playerName = "\(players[indexPath.row].nameFirst!) \(players[indexPath.row].nameLast!)"
+            nameFirst = players[indexPath.row].nameFirst!
+            nameLast = players[indexPath.row].nameLast!
         }
         self.performSegue(withIdentifier: "playerToStat", sender: indexPath);
     }

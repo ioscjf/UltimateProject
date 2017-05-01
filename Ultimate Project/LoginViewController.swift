@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
                 let defaults = UserDefaults.standard
                 defaults.set(unwrappedSession.authToken, forKey: "session")
                 defaults.set(unwrappedSession.userName, forKey: "twitterHandle")
+                defaults.set(self.teamNameTextField.text, forKey: "team")
                 defaults.synchronize()
                 
                 let done = self.login()

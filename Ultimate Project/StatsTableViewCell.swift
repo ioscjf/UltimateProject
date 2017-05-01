@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StatsTableViewCell: UITableViewCell { // TODO!!
+class StatsTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
     

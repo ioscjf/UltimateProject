@@ -69,6 +69,25 @@ class JsonParser {
         }
     }
     
+    func getStatsFromPlayer(nameFirst: String, nameLast: String, opponent: String, teamName: String, _ completion: @escaping ([StatFinder]) -> ()) {
+        let postString = "nameFirst=\(nameFirst)&nameLast=\(nameLast)&opponent=\(opponent)&teamName=\(teamName)"
+        post(clientURLRequest("statsFromPlayer.php"), message: postString) { (success, object) in
+            var stats: [StatFinder] = []
+            if let object = object as? Dictionary<String, AnyObject> {
+                if let results = object["STATS"] as? [Dictionary<String, AnyObject>] {
+                    for result in results {
+                        if let stat = StatFinder(json: result) {
+                            stats.append(stat)
+                        } else {
+                            print(result)
+                        }
+                    }
+                }
+            }
+            completion(stats)
+        }
+    }
+    
     func getMyGames(team: String, twitter: String, _ completion: @escaping ([GameFinder]) -> ()) {
         let postString = "teamName=\(team)&twitterHandle=\(twitter)"
         post(clientURLRequest("myGame.php"), message: postString) { (success, object) in

@@ -24,16 +24,25 @@ class PlayerStatsViewController: UIViewController {
     // MARK: - Variables
     
     var stats: [StatFinder] = []
-    var playerName = ""
+    var nameFirst = ""
+    var nameLast = ""
+    var team = ""
+    var opponent = ""
     
     // MARK: - Overrides
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        somePlayerName.title = playerName
+        somePlayerName.title = "\(nameFirst) \(nameLast)"
         
-        // get stats where playername = __ and gameID = __
+        JsonParser.jsonClient.getStatsFromPlayer(nameFirst: nameFirst, nameLast: nameLast, opponent: opponent, teamName: team) {[weak self](myStats) in
+            self?.stats = myStats
+            
+            DispatchQueue.main.async(execute: {
+                self?.statsTable.reloadData()
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
