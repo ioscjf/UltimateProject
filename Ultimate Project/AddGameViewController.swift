@@ -44,6 +44,13 @@ class AddGameViewController: UIViewController {
         }
     }
     
+    @IBAction func submit(_ sender: UIButton) {
+        if self.presentingViewController != nil {
+            self.dismiss(animated: false, completion: nil)
+        }
+    }
+    
+    
     @IBOutlet weak var schedule: UITableView!
     
     // MARK: - Variables

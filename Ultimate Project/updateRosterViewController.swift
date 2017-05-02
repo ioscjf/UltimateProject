@@ -58,6 +58,12 @@ class updateRosterViewController: UIViewController {
         }
     }
     
+    @IBAction func submit(_ sender: UIButton) {
+        if self.presentingViewController != nil {
+            self.dismiss(animated: false, completion: nil)
+        }
+    }
+    
     // MARK: - Variables
     
     var activeTextField = UITextField()

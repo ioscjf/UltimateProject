@@ -163,7 +163,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="JGA-Gf-9wa" kind="showDetail" id="B3U-Cb-XO5"/>
+                                    <action selector="submit:" destination="aRC-vQ-H1k" eventType="touchUpInside" id="2d2-eH-qcr"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rig-fX-1aI">
@@ -583,7 +583,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="JGA-Gf-9wa" kind="showDetail" id="Jay-ss-4ty"/>
+                                    <action selector="submit:" destination="etq-8Y-Ods" eventType="touchUpInside" id="q6Z-wI-gvN"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nickname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OyY-zj-0IF">
@@ -1625,7 +1625,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="38" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SrT-A9-VdS">
-                                <rect key="frame" x="16" y="28" width="343" height="327"/>
+                                <rect key="frame" x="16" y="72" width="343" height="283"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="statplayer" rowHeight="38" id="Lr4-ca-nt9" customClass="StatPlayerTableViewCell" customModule="Ultimate_Project" customModuleProvider="target">
@@ -2019,6 +2019,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="B3U-Cb-XO5"/>
+        <segue reference="pve-Ld-iXf"/>
     </inferredMetricsTieBreakers>
 </document>
