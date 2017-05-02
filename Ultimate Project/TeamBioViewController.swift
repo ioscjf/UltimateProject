@@ -40,6 +40,10 @@ class TeamBioViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
         
         let defaults = UserDefaults.standard
         
@@ -47,7 +51,7 @@ class TeamBioViewController: UIViewController {
         let twitter = defaults.object(forKey: "twitterHandle") as! String
         
         twitterHandle.setTitle("@\(twitter)", for: .normal)
-
+        
         JsonParser.jsonClient.getMyPlayer(team: team, twitter: twitter) {[weak self](myPlayers) in
             self?.players = myPlayers
             DispatchQueue.main.async(execute: {
@@ -61,7 +65,6 @@ class TeamBioViewController: UIViewController {
                 self?.schedule.reloadData()
             })
         }
-
     }
 
     override func didReceiveMemoryWarning() {
