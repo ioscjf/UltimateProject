@@ -168,7 +168,7 @@ extension updateRosterViewController: UITextFieldDelegate {
             
             if let hf = heightFeet.text {
                 if let hi = heightInches.text {
-                    playerDict["height"] = ((Int(hf)! * 12) + (Int(hi)!)) as AnyObject
+                    playerDict["height"] = "\((Int(hf)! * 12) + (Int(hi)!))" as AnyObject
                 } else {
                     print("HI")
                 }
