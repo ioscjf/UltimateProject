@@ -134,57 +134,6 @@
         <span class="sr-only">Next</span>
       </a>
     </div><!-- /.carousel -->
-</html> 
-
-<?php
-//Step1
- $db = mysqli_connect('localhost','admin','frisbee','finalDatabase')
- or die('Error connecting to MySQL server.');
-?>
-
-<html>
- <head>
- </head>
- <body>
- <h1>PHP connect to MySQL</h1>
-
-<?php
-//Step2
-$query = "SELECT * FROM team";
-mysqli_query($db, $query) or die('Error querying database.');
-
-$result = mysqli_query($db, $query);
-$row = mysqli_fetch_array($result);
-
-while ($row = mysqli_fetch_array($result)) {
- echo $row['first_name'] . ' ' . $row['last_name'] . ': ' . $row['email'] . ' ' . $row['city'] .'<br />';
-}
-?>
-
-</body>
-</html>
-
-<?php
-    $db = mysqli_connect('localhost','admin','frisbee','finalDatabase');
-?>
-<html>
-    <body>
-          <?php
-                $query = "SELECT * FROM 'team';";
-                $result = mysqli_query($db, $query);
-                while($row = mysqli_fetch_assoc($result)) {
-                      // Display your datas on the page
-                }
-          ?>
-    </body>
-</html>
-
-
-
-
-
-
-<html>
 
 
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="Score: 0-0" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>    
