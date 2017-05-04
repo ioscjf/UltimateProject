@@ -117,7 +117,7 @@
           <th>Jersey Number</th>
           <th>Nickname</th>
         </tr>
-        <tr ng-repeat="x in players">
+        <tr ng-repeat="x in player">
           <td><a href="mens-stats.html">{{ x.Name }}</a></td>
           <td>{{ x.playerID }}</td>
           <td>{{ x.nameFirst }}</td>
@@ -139,9 +139,22 @@
        .then(function (response) {$scope.stats = response.data.STATS;});
     }); -->
     <script>
-          <?php 
-          mysql_connect("root@45.55.95.100", "senior project", "UltimateProject"); 
+         <?php
+              $servername = "localhost";
+              $username = "admin";
+              $password = "frisbee";
+              $databasename = "finalDatabase"
+
+              // Create connection
+              $conn = new mysql($servername, $username, $password, $databasename);
+
+              // Check connection
+              if ($conn->connect_error) {
+                  die("Connection failed: " . $conn->connect_error);
+              } 
+              echo "Connected successfully";
           ?>
+
     </script>
 
 
