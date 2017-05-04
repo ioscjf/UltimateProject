@@ -107,32 +107,42 @@
     <div style="overflow-x:auto;" ng-app="myApp" ng-controller="playerCtrl">
       <table align="center">
         <tr>
-          <th>Name</th>
-          <th>Position</th> 
-          <th>Age</th>
+          <th>Player ID</th>
+          <th>First Name</th> 
+          <th>Last Name</th>
+          <th>Position</th>
+          <th>Birthday</th>
           <th>Height</th>
-          <th>School</th>
+          <th>Weight</th>
           <th>Jersey Number</th>
+          <th>Nickname</th>
         </tr>
         <tr ng-repeat="x in players">
           <td><a href="mens-stats.html">{{ x.Name }}</a></td>
-          <td>{{ x.Position }}</td>
-          <td>{{ x.Age }}</td>
-          <td>{{ x.Height }}</td>
-          <td>{{ x.School }}</td>
-          <td>{{ x.JerseyNumber }}</td>
+          <td>{{ x.playerID }}</td>
+          <td>{{ x.nameFirst }}</td>
+          <td>{{ x.nameLast }}</td>
+          <td>{{ x.position }}</td>
+          <td>{{ x.birthday }}</td>
+          <td>{{ x.height }}</td>
+          <td>{{ x.weight }}</td>
+          <td>{{ x.jerseyNum }}</td>
+          <td>{{ x.nickname }}</td>
         </tr>
       </table>
        
       </div>
        
-      <script>
-      var app = angular.module('myApp', []);
-      app.controller('playerCtrl', function($scope, $http) {
-         $http.get("http://45.55.95.100/players.php")
-         .then(function (response) {$scope.players = response.data.PLAYERS;});
-      });
-      </script>
+      <!-- var app = angular.module('myApp', []);
+    app.controller('statsCtrl', function($scope, $http) {
+       $http.get("http://45.55.95.100/stats.php")
+       .then(function (response) {$scope.stats = response.data.STATS;});
+    }); -->
+    <script>
+          <?php 
+          mysql_connect("root@45.55.95.100", "senior project", "UltimateProject"); 
+          ?>
+    </script>
 
 
     <!-- Bootstrap core JavaScript

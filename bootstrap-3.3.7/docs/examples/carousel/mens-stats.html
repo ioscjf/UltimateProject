@@ -103,41 +103,58 @@
       </div><!-- .row -->
     </div><!-- .container --> 
 
+
     <br>
    <div style="overflow-x:auto;" ng-app="myApp" ng-controller="statsCtrl">
         <table align="center">
           <tr>
-            <th>Player Name</th>
-            <th>Year</th>
+            <th>Identifier</th>
+            <th>Player ID</th>
+            <th>Game ID</th>
             <th>Scores</th>
             <th>Assists</th>
+            <th>Completions</th>
+            <th>Throwing Errors</th>
+            <th>Drops</th>
+            <th>D's</th>
+            <th>Goalline Throwing Errors</th>
+            <th>Goalline Drops</th>
+            <th>Goalline D's</th>
+            <th>Fouls</th>
+            <th>Pulls</th>
+            <th>Pulls Out of Bounds</th>
             <th>Off. Points Played</th>
             <th>Def. Points Played</th>
-            <th>Drops</th>
-            <th>Catches</th>
-            <th>Completions</th>
           </tr>
           <tr ng-repeat="x in stats">
-            <td>{{ x.PlayerName }}</td>
-            <td>{{ x.Year }}</td>
-            <td>{{ x.Scores }}</td>
-            <td>{{ x.Assists }}</td>
-            <td>{{ x.OffensivePointsPlayed }}</td>
-            <td>{{ x.DefensivePointsPlayed }}</td>
-            <td>{{ x.Drops}}</td>
-            <td>{{ x.Catches}}</td>
-            <td>{{ x.Completions}}</td>
+            <td>{{ x.identifier }}</td>
+            <td>{{ x.playerID }}</td>
+            <td>{{ x.gameID }}</td>
+            <td>{{ x.scores}}</td>
+            <td>{{ x.assists}}</td>
+            <td>{{ x.completions}}</td>
+            <td>{{ x.throwingErrors }}</td>
+            <td>{{ x.drops }}</td>
+            <td>{{ x.ds }}</td>
+            <td>{{ x.goallineThrowingErrors }}</td>
+            <td>{{ x.goallineDrops }}</td>
+            <td>{{ x.goallineDs }}</td>
+            <td>{{ x.fouls}}</td>
+            <td>{{ x.pulls}}</td>
+            <td>{{ x.pullsOutOfBounds}}</td>
+            <td>{{ x.offensivePointsPlayed }}</td>
+            <td>{{ x.defensivePointsPlayed }}</td>
           </tr>
         </table>
          
     </div>
-         
-    <script>
-    var app = angular.module('myApp', []);
+      <!-- var app = angular.module('myApp', []);
     app.controller('statsCtrl', function($scope, $http) {
        $http.get("http://45.55.95.100/stats.php")
        .then(function (response) {$scope.stats = response.data.STATS;});
-    });
+    }); -->
+    <script>
+          <?php mysql_connect("45.55.95.100", "senior project", "UltimateProject"); ?>
     </script>
 
 
